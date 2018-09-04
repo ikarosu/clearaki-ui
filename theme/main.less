@@ -1,0 +1,205 @@
+
+@color-primary: tomato;
+@shadow-level-1: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+@shadow-level-2: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+
+/**
+  **********************************
+  * button
+  **********************************
+**/
+
+.aki-btn{
+  background: none;
+  border: none;
+  outline: none;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 0 16px;
+
+  min-width: 64px;
+  height: 36px;
+
+  line-height: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  border-radius: 2px;
+  >:first-child{
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  &+.aki-btn{
+    margin-left: 1rem;
+  }
+  &.aki-btn-dense{
+    height: 32px;
+    font-size: 0.8125rem;
+    &.aki-btn-outline{
+      line-height: 28px;
+    }
+  }
+  &:hover{
+    cursor: pointer;
+  }
+
+  &.aki-btn-text,&.aki-btn-outline{
+    color: @color-primary;
+    // background-color: transparent;
+    &:hover{
+      background-color: lighten(@color-primary, 50%)
+    }
+    &:focus{
+      background-color: lighten(@color-primary, 45%)
+    }
+  }
+  &.aki-btn-raise,&.aki-btn-unelevate{
+    color: white;
+    background-color: @color-primary;
+    &:hover{
+      background-color: lighten(@color-primary, 5%)
+    }
+    &:focus{
+      background-color: lighten(@color-primary, 15%)
+    }
+  }
+
+  &.aki-btn-text{
+    padding: 0 12px;
+    >:first-child{
+      margin-left: 0;
+    }
+  }
+  &.aki-btn-raise{
+    box-shadow: @shadow-level-1;
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
+    &:hover{
+      box-shadow: @shadow-level-2;
+    }
+  }
+  &.aki-btn-outline{
+    border-color: @color-primary;
+    border-style: solid;
+    padding: 0 14px;
+    line-height: 32px;
+    border-width: 2px;
+  }
+}
+
+/**
+  **********************************
+  * snackbars
+  **********************************
+**/
+
+.aki-snackbars{
+  position: fixed;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  .aki-snackbars-wrap{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    min-height: 48px;
+    
+    background-color: #323232;
+    overflow: hidden;
+    &:not(.aki-snackbars-long-action){
+      max-height: 68px;
+      align-items: center;
+    }
+    &.aki-snackbars-long-action{
+      flex-direction: column;
+      align-items: flex-end;
+      padding-bottom: 8px;
+      >.aki-snackbars-action{
+        width: auto;
+      }
+    }
+    >span{
+      flex: 1;
+      margin: 16px 8px;
+      line-height: 21px;
+      color: white;
+      font-size: 0.8125rem;
+    }
+    >.aki-snackbars-action{
+      margin-left: 10px;
+      width: 80px;
+      &:focus{
+        background: none;
+      }
+    }
+  }
+  &:not(.aki-snackbars-entire-width){
+    bottom: 8px;
+    &.top{
+      top: 8px;
+      bottom: initial;
+    }
+    &.center{
+      bottom: 50vh;
+    }
+    .aki-snackbars-wrap{
+      width: 344px;
+      border-radius: 4px;
+      box-shadow: @shadow-level-1;
+    }
+  }
+  &.aki-snackbars-entire-width{
+    .aki-snackbars-wrap{
+      width: 100vw;
+    }
+    bottom: 0;
+    &.top{
+      top: 0;
+      bottom: initial;
+    }
+  }
+}
+
+/**
+  **********************************
+  * snackbars
+  **********************************
+**/
+
+.aki-input{
+  >.aki-input-main{
+    
+  }
+  >.aki-input-fill{}
+  >.aki-input-outline{}
+}
+/**
+  **********************************
+  * animated
+  **********************************
+**/
+
+.aki-fade-enter-active, .aki-fade-leave-active {
+  transition: .3s ease-in;
+}
+.aki-fade-enter,.aki-fade-leave-to{
+  opacity: 0;
+}
+.aki-slide-bottom-enter-active, .aki-slide-bottom-leave-active {
+  transition: .3s ease-in;
+}
+.aki-slide-bottom-enter,.aki-slide-bottom-leave-to{
+  transform: translateY(200px);
+}
+.aki-snackbars-enter-active, .aki-snackbars-leave-active {
+  transition: .2s ease-out;
+}
+.aki-snackbars-enter,.aki-snackbars-leave-to{
+  opacity: 0;
+  transform: scale(.8);
+}
