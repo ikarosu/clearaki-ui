@@ -1,7 +1,11 @@
 
-@color-primary: tomato;
+@color-primary: blue;
 @shadow-level-1: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 @shadow-level-2: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+
+@bezier: cubic-bezier(.4,0,.2,1);
+@transition-type-1: .28s @bezier;
+@transition-type-2: .15s @bezier;
 
 /**
   **********************************
@@ -76,7 +80,7 @@
   }
   &.aki-btn-raise{
     box-shadow: @shadow-level-1;
-    transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow @transition-type-1;
     &:hover{
       box-shadow: @shadow-level-2;
     }
@@ -170,13 +174,111 @@
   * snackbars
   **********************************
 **/
-
+@input-color: #666;
 .aki-input{
-  >.aki-input-main{
-    
+  display: inline-block;
+  input,textarea,select{
+    outline: none;
   }
-  >.aki-input-fill{}
-  >.aki-input-outline{}
+  >p{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 12px;
+    width: 100%;
+    line-height: normal;
+    color: @input-color;
+    font-size: 0.75rem;
+  }
+  >.aki-input-main{
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 56px;
+    background-color: #fff;
+    cursor: text;
+    input,textarea,select{
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+      border: none;
+      background: none;
+    }
+    label{
+      position: absolute;
+      top: 16px;
+      left: 12px;
+      color: @input-color;
+      cursor: text;
+      pointer-events: none;
+      transition: all @transition-type-1;
+      &.aside{
+        top: 8px;
+        color: @color-primary;
+        font-size: 0.8125rem;
+      }
+    }
+    &.aki-input-fill{
+      border-bottom: solid 1px rgba(0,0,0,.42);
+      border-radius: 4px 4px 0 0;
+      input,textarea,select{
+        padding: 20px 12px 0;
+      }
+      >.line{
+        position: absolute;
+        bottom: -1px;
+        width: 80%;
+        height: 2px;
+        background-color: @color-primary;
+        opacity: 0;
+        transition: width @transition-type-1;
+      }
+      &:focus-within>.line{
+        width: 100%;
+        opacity: 1;
+      }
+      &:not(.aki-input-bgnone){
+        background-color: #f5f5f5;
+        &:hover{
+          background-color: #ececec;
+        }
+        &:focus-within{
+          background-color: #e4e4e4;
+        }
+      }
+    }
+    &.aki-input-outline{
+      z-index: 1;
+      >.line{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: solid 1px rgba(0,0,0,.42);
+        border-radius: 4px;
+        transition: all @transition-type-2;
+        z-index: -1;
+      }
+      &:focus-within{
+        >.line{
+          border: solid 2px @color-primary;
+        }
+      }
+      input,textarea,select{
+        padding: 0 12px;
+      }
+      label{
+        left: 8px;
+        padding: 0 4px;
+        &.aside{
+          top: -8px;
+          background-color: inherit;
+        }
+      }
+    }
+  }
 }
 /**
   **********************************
@@ -185,13 +287,13 @@
 **/
 
 .aki-fade-enter-active, .aki-fade-leave-active {
-  transition: .3s ease-in;
+  transition: @transition-type-1;
 }
 .aki-fade-enter,.aki-fade-leave-to{
   opacity: 0;
 }
 .aki-slide-bottom-enter-active, .aki-slide-bottom-leave-active {
-  transition: .3s ease-in;
+  transition: @transition-type-1;
 }
 .aki-slide-bottom-enter,.aki-slide-bottom-leave-to{
   transform: translateY(200px);

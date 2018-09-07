@@ -1,0 +1,24 @@
+{
+  "name": "clearaki-ui",
+  "version": "0.1.0",
+  "description": "dev...",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikarosu/clearaki-ui.git"
+  },
+  "keywords": [
+    "vue",
+    "material",
+    "design"
+  ],
+  "author": "Clear Aki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ikarosu/clearaki-ui/issues"
+  },
+  "homepage": "https://github.com/ikarosu/clearaki-ui#readme"
+}

@@ -1,10 +1,12 @@
 import Button from '../packages/button'
 import Input from '../packages/input'
+import Select from '../packages/select'
 import Snackbars from '../packages/snackbars'
 
 const components = [
   Button,
   Input,
+  Select,
   Snackbars
 ]
 const install = (Vue, opt = {}) => {
@@ -18,6 +20,7 @@ export const AkiUI = {
   install,
   Button,
   Input,
+  Select,
   Snackbars,
 }
 
