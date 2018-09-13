@@ -1,6 +1,8 @@
 <template>
-  <button class="aki-btn" :class="[`aki-btn-${type}`, {'aki-btn-dense': size=='dense'}]">
-    <!-- <span>O</span> -->
+  <button
+  class="aki-btn"
+  :class="[`aki-btn-${type}`, {'aki-btn-dense': size=='dense'}]"
+  :style="{width:cwidth}">
     <slot></slot>
   </button>
 </template>
@@ -17,7 +19,13 @@ export default {
       type: String,
       default() { return 'middle' }
     },
-  }
+    full: Boolean,
+  },
+  computed: {
+    cwidth() {
+      return this.full ? '100%' : 'auto'
+    }
+  },
 }
 </script>
 

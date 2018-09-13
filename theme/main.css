@@ -155,7 +155,7 @@
 }
 /**
   **********************************
-  * snackbars
+  * input
   **********************************
 **/
 .aki-input {
@@ -268,6 +268,49 @@
 .aki-input > .aki-input-main.aki-input-outline label.aside {
   top: -8px;
   background-color: inherit;
+}
+.aki-input > .aki-input-selection {
+  display: inline-flex;
+  align-items: center;
+}
+.aki-input > .aki-input-selection > input {
+  display: none;
+}
+.aki-input > .aki-input-selection > input[type=radio] + i,
+.aki-input > .aki-input-selection > input[type=radio] + i > b {
+  border-radius: 50%;
+}
+.aki-input > .aki-input-selection > input:checked + i {
+  border-color: blue;
+}
+.aki-input > .aki-input-selection > input:checked + i > b {
+  transform: scale(1);
+}
+.aki-input > .aki-input-selection > label {
+  flex: 1;
+}
+.aki-input > .aki-input-selection i,
+.aki-input > .aki-input-selection b {
+  display: inline-block;
+  border-radius: 2px;
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-input > .aki-input-selection i {
+  position: relative;
+  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: solid 2px rgba(0, 0, 0, 0.42);
+}
+.aki-input > .aki-input-selection b {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
+  background-color: blue;
+  transform: scale(0);
 }
 /**
   **********************************

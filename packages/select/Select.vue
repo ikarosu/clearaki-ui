@@ -1,6 +1,6 @@
 <template>
   <div class="aki-input"
-    :style="{width}">
+    :style="{width: cwidth}">
     <div class="aki-input-main"
       :class="[`aki-input-${types}`, {'aki-input-bgnone': nobg}]">
       <select
@@ -25,6 +25,7 @@ export default {
     event: 'change'
   },
   props: {
+    full: Boolean,
     type: {
       type: String,
       default() { return 'text' }
@@ -49,6 +50,11 @@ export default {
       type: String
     },
     values: {},
+  },
+  computed: {
+    cwidth() {
+      return this.full ? '100%' : this.width
+    },
   },
   methods: {
     change(target) {

@@ -171,7 +171,7 @@
 
 /**
   **********************************
-  * snackbars
+  * input
   **********************************
 **/
 @input-color: #666;
@@ -277,6 +277,98 @@
           background-color: inherit;
         }
       }
+    }
+  }
+  // >.aki-input-selection{
+  //   display: inline-flex;
+  //   align-items: center;
+  //   >input{
+  //     display: none;
+  //     &[type=radio] {
+  //       &+label{
+  //         &::before,&::after{
+  //           border-radius: 50%;
+  //         }
+  //       }
+  //     }
+  //     &:checked+label{
+  //       &::before{
+  //         border-color: @color-primary;
+  //       }
+  //       &::after{
+  //         transform: scale(1);
+  //       }
+  //     }
+  //   }
+  //   >label{
+  //     position: relative;
+  //     left: 36px;
+  //     &::before,&::after{
+  //       // position: absolute;
+  //       display: inline-block;
+  //       border-radius: 2px;
+  //       transition: @transition-type-1;
+  //     }
+  //     &::before{
+  //       content: '';
+  //       left: -36px;
+  //       width: 16px;
+  //       height: 16px;
+  //       box-sizing: border-box;
+  //       border: solid 2px rgba(0,0,0,.42);
+  //     }
+  //     &::after{
+  //       content: '';
+  //       left: -31px;
+  //       top: 5px;
+  //       width: 6px;
+  //       height: 6px;
+  //       background-color: @color-primary;
+  //       transform: scale(0);
+  //     }
+  //   }
+  // }
+  >.aki-input-selection{
+    display: inline-flex;
+    align-items: center;
+    >input{
+      display: none;
+      &[type=radio] {
+        &+i,&+i>b{
+          border-radius: 50%;
+        }
+      }
+      &:checked+i{
+        border-color: @color-primary;
+        >b{
+          transform: scale(1);
+        }
+      }
+    }
+    >label{
+      flex: 1;
+    }
+    i,b{
+      display: inline-block;
+      border-radius: 2px;
+      transition: @transition-type-1;
+    }
+    i{
+      position: relative;
+      margin-right: 12px;
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      border: solid 2px rgba(0,0,0,.42);
+    }
+    b{
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 6px;
+      height: 6px;
+      background-color: @color-primary;
+      transform: scale(0);
     }
   }
 }

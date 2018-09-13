@@ -1,7 +1,7 @@
 <template>
   <div class="aki-input"
-        :style="{width}">
-    <div v-if="texts.includes(type)"
+    :style="{width: cwidth}">
+    <div v-if="texts.includes(type)||dates.includes(type)"
       class="aki-input-main"
       :class="[`aki-input-${types}`, {'aki-input-bgnone': nobg}]">
       <input
@@ -13,6 +13,18 @@
         :type="type">
       <label :class="{'aside': aside}" :for="label">{{label}}</label>
       <div class="line"></div>
+    </div>
+    <div v-else-if="type=='radio'||type=='checkbox'"
+      class="aki-input-selection">
+      <input
+        v-bind="$attrs"
+        @focus="focus"
+        @blur="blur($event.target)"
+        @input="input($event.target)"
+        :id="label"
+        :type="type">
+      <i><b></b></i>
+      <label :class="{'aside': aside}" :for="label">{{label}}</label>
     </div>
     <p v-if="helper">{{helper}}</p>
   </div>
@@ -31,6 +43,7 @@ export default {
       type: String,
       default() { return 'text' }
     },
+    full: Boolean,
     types: {
       type: String,
       default() { return 'fill' }
@@ -55,8 +68,14 @@ export default {
   data() {
     return {
       texts: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'],
+      dates: ['date', 'datetime', 'datetime-local', 'month', 'time', 'week'],
       aside: false,
     }
+  },
+  computed: {
+    cwidth() {
+      return this.full ? '100%' : this.width
+    },
   },
   methods: {
     focus() {
