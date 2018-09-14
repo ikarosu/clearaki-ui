@@ -1,6 +1,9 @@
 <template>
   <transition name="aki-snackbars">
-    <section v-if="visible" class="aki-snackbars" :class="[position, {'aki-snackbars-entire-width': fullWidth}]">
+    <section v-if="visible"
+      class="aki-snackbars"
+      :class="[position, {'aki-snackbars-entire-width': fullWidth}]"
+      :style="position!=='center'&&{[position]:offset}">
       <div class="aki-snackbars-wrap" :class="{'aki-snackbars-long-action': longAction}">
         <span>{{text}}</span>
         <aki-button v-if="action" class="aki-snackbars-action" size="dense" type="text">{{action}}</aki-button>
@@ -16,6 +19,7 @@ export default {
       text: '',
       during: false,
       position: 'bottom',
+      offset: '8px',
 
       timer: null,
       visible: false,
@@ -29,13 +33,15 @@ export default {
       return this.during || this.longAction && 10000 || this.action && 7000 || 4000
     }
   },
+  created() {
+  },
   mounted() {
     // eslint-disable-next-line
     const chineseStr = this.action.match(/[^\x00-\xff]/gi) || []
     const chineseStrLength = chineseStr.length
     if (chineseStrLength * 2 + this.action.length - chineseStrLength > 7) this.longAction = true
     this.visible = true
-    this.startTimer()
+    // this.startTimer()
   },
   methods: {
     startTimer() {

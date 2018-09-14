@@ -1,5 +1,5 @@
 
-@color-primary: blue;
+@color-primary: #03a9f4;
 @shadow-level-1: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 @shadow-level-2: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
 
@@ -13,10 +13,13 @@
   **********************************
 **/
 
-.aki-btn{
+input,textarea,select,button{
+  outline: none;
   background: none;
   border: none;
   outline: none;
+}
+.aki-btn{
 
   display: inline-flex;
   justify-content: center;
@@ -106,6 +109,7 @@
   display: flex;
   justify-content: center;
   width: 100vw;
+  z-index: 900;
   .aki-snackbars-wrap{
     box-sizing: border-box;
     display: flex;
@@ -177,9 +181,6 @@
 @input-color: #666;
 .aki-input{
   display: inline-block;
-  input,textarea,select{
-    outline: none;
-  }
   >p{
     margin: 0;
     box-sizing: border-box;
@@ -279,55 +280,6 @@
       }
     }
   }
-  // >.aki-input-selection{
-  //   display: inline-flex;
-  //   align-items: center;
-  //   >input{
-  //     display: none;
-  //     &[type=radio] {
-  //       &+label{
-  //         &::before,&::after{
-  //           border-radius: 50%;
-  //         }
-  //       }
-  //     }
-  //     &:checked+label{
-  //       &::before{
-  //         border-color: @color-primary;
-  //       }
-  //       &::after{
-  //         transform: scale(1);
-  //       }
-  //     }
-  //   }
-  //   >label{
-  //     position: relative;
-  //     left: 36px;
-  //     &::before,&::after{
-  //       // position: absolute;
-  //       display: inline-block;
-  //       border-radius: 2px;
-  //       transition: @transition-type-1;
-  //     }
-  //     &::before{
-  //       content: '';
-  //       left: -36px;
-  //       width: 16px;
-  //       height: 16px;
-  //       box-sizing: border-box;
-  //       border: solid 2px rgba(0,0,0,.42);
-  //     }
-  //     &::after{
-  //       content: '';
-  //       left: -31px;
-  //       top: 5px;
-  //       width: 6px;
-  //       height: 6px;
-  //       background-color: @color-primary;
-  //       transform: scale(0);
-  //     }
-  //   }
-  // }
   >.aki-input-selection{
     display: inline-flex;
     align-items: center;
@@ -371,6 +323,22 @@
       transform: scale(0);
     }
   }
+}
+/**
+  **********************************
+  * toolbars
+  **********************************
+**/
+.aki-toolbars{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  background-color: @color-primary;
+  z-index: 90;
 }
 /**
   **********************************

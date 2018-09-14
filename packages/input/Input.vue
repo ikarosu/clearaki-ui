@@ -10,7 +10,8 @@
         @blur="blur($event.target)"
         @input="input($event.target)"
         :id="label"
-        :type="type">
+        :type="type"
+        :value="value">
       <label :class="{'aside': aside}" :for="label">{{label}}</label>
       <div class="line"></div>
     </div>
@@ -63,7 +64,10 @@ export default {
     helper: {
       type: String
     },
-    value: String,
+    value: {
+      type: String,
+      default() { return '' }
+    }
   },
   data() {
     return {
@@ -76,6 +80,9 @@ export default {
     cwidth() {
       return this.full ? '100%' : this.width
     },
+  },
+  mounted() {
+    if (this.value.length > 0) this.aside = true
   },
   methods: {
     focus() {

@@ -3,10 +3,15 @@
   * button
   **********************************
 **/
-.aki-btn {
+input,
+textarea,
+select,
+button {
   background: none;
   border: none;
   outline: none;
+}
+.aki-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -38,28 +43,28 @@
 }
 .aki-btn.aki-btn-text,
 .aki-btn.aki-btn-outline {
-  color: blue;
+  color: #03a9f4;
 }
 .aki-btn.aki-btn-text:hover,
 .aki-btn.aki-btn-outline:hover {
-  background-color: #ffffff;
+  background-color: #f7fcff;
 }
 .aki-btn.aki-btn-text:focus,
 .aki-btn.aki-btn-outline:focus {
-  background-color: #e5e5ff;
+  background-color: #def4ff;
 }
 .aki-btn.aki-btn-raise,
 .aki-btn.aki-btn-unelevate {
   color: white;
-  background-color: blue;
+  background-color: #03a9f4;
 }
 .aki-btn.aki-btn-raise:hover,
 .aki-btn.aki-btn-unelevate:hover {
-  background-color: #1a1aff;
+  background-color: #14b4fc;
 }
 .aki-btn.aki-btn-raise:focus,
 .aki-btn.aki-btn-unelevate:focus {
-  background-color: #4d4dff;
+  background-color: #47c4fd;
 }
 .aki-btn.aki-btn-text {
   padding: 0 12px;
@@ -75,7 +80,7 @@
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .aki-btn.aki-btn-outline {
-  border-color: blue;
+  border-color: #03a9f4;
   border-style: solid;
   padding: 0 14px;
   line-height: 32px;
@@ -92,6 +97,7 @@
   display: flex;
   justify-content: center;
   width: 100vw;
+  z-index: 900;
 }
 .aki-snackbars .aki-snackbars-wrap {
   box-sizing: border-box;
@@ -161,11 +167,6 @@
 .aki-input {
   display: inline-block;
 }
-.aki-input input,
-.aki-input textarea,
-.aki-input select {
-  outline: none;
-}
 .aki-input > p {
   margin: 0;
   box-sizing: border-box;
@@ -205,7 +206,7 @@
 }
 .aki-input > .aki-input-main label.aside {
   top: 8px;
-  color: blue;
+  color: #03a9f4;
   font-size: 0.8125rem;
 }
 .aki-input > .aki-input-main.aki-input-fill {
@@ -222,7 +223,7 @@
   bottom: -1px;
   width: 80%;
   height: 2px;
-  background-color: blue;
+  background-color: #03a9f4;
   opacity: 0;
   transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -254,7 +255,7 @@
   z-index: -1;
 }
 .aki-input > .aki-input-main.aki-input-outline:focus-within > .line {
-  border: solid 2px blue;
+  border: solid 2px #03a9f4;
 }
 .aki-input > .aki-input-main.aki-input-outline input,
 .aki-input > .aki-input-main.aki-input-outline textarea,
@@ -281,7 +282,7 @@
   border-radius: 50%;
 }
 .aki-input > .aki-input-selection > input:checked + i {
-  border-color: blue;
+  border-color: #03a9f4;
 }
 .aki-input > .aki-input-selection > input:checked + i > b {
   transform: scale(1);
@@ -309,8 +310,24 @@
   top: 3px;
   width: 6px;
   height: 6px;
-  background-color: blue;
+  background-color: #03a9f4;
   transform: scale(0);
+}
+/**
+  **********************************
+  * toolbars
+  **********************************
+**/
+.aki-toolbars {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  background-color: #03a9f4;
+  z-index: 90;
 }
 /**
   **********************************

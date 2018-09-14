@@ -2,12 +2,14 @@ import Button from '../packages/button'
 import Input from '../packages/input'
 import Select from '../packages/select'
 import Snackbars from '../packages/snackbars'
+import Toolbars from '../packages/toolbars'
 
 const components = [
   Button,
   Input,
   Select,
-  Snackbars
+  Snackbars,
+  Toolbars,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -16,12 +18,20 @@ const install = (Vue, opt = {}) => {
 
 // if (typeof window !== undefined && window.Vue) install(window.Vue)
 
-export const AkiUI = {
+const AkiUI = {
   install,
   Button,
   Input,
   Select,
   Snackbars,
+  Toolbars,
 }
-
+export {
+  Button,
+  Input,
+  Select,
+  Snackbars,
+  Toolbars,
+}
 export default AkiUI
+// export default AkiUI

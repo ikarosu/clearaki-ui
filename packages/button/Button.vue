@@ -1,8 +1,9 @@
 <template>
   <button
-  class="aki-btn"
-  :class="[`aki-btn-${type}`, {'aki-btn-dense': size=='dense'}]"
-  :style="{width:cwidth}">
+    @click="click"
+    class="aki-btn"
+    :class="[`aki-btn-${type}`, {'aki-btn-dense': size=='dense'}]"
+    :style="{width:cwidth}">
     <slot></slot>
   </button>
 </template>
@@ -26,6 +27,11 @@ export default {
       return this.full ? '100%' : 'auto'
     }
   },
+  methods: {
+    click(e) {
+      this.$emit('click', e)
+    }
+  }
 }
 </script>
 
