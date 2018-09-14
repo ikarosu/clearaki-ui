@@ -41,7 +41,7 @@ export default {
     const chineseStrLength = chineseStr.length
     if (chineseStrLength * 2 + this.action.length - chineseStrLength > 7) this.longAction = true
     this.visible = true
-    // this.startTimer()
+    this.startTimer()
   },
   methods: {
     startTimer() {
