@@ -59,6 +59,8 @@ export default {
   methods: {
     change(target) {
       if (target.multiple) {
+        // 多选的时候返回一个算中的数组
+        // 默认是最后选中的值
         const values = Array.from(target.options)
           .filter(opt => opt.selected)
           .map(opt => opt.value)

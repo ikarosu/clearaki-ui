@@ -210,7 +210,7 @@ input,textarea,select,button{
       position: absolute;
       top: 16px;
       left: 12px;
-      color: @input-color;
+      color: #999;
       cursor: text;
       pointer-events: none;
       transition: all @transition-type-1;
@@ -221,7 +221,7 @@ input,textarea,select,button{
       }
     }
     &.aki-input-fill{
-      border-bottom: solid 1px rgba(0,0,0,.42);
+      border-bottom: solid 1px #c1c1c1;
       border-radius: 4px 4px 0 0;
       input,textarea,select{
         padding: 20px 12px 0;
@@ -339,6 +339,30 @@ input,textarea,select,button{
   justify-content: center;
   background-color: @color-primary;
   z-index: 90;
+  >.aki-toolbars-layout{
+    display: flex;
+    width: 100%;
+    max-width: 425px;
+    >.aki-toolbar{
+      flex-grow: 1;
+      >input[name=aki-toolbar]{
+        display: none;
+      }
+      >label{
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 80px;
+        max-width: 168px;
+        height: 100%;
+      }
+    }
+  }
+}
+.aki-toolbar{
+  color: overlay(@color-primary, #bbb);
 }
 /**
   **********************************
