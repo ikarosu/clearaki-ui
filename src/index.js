@@ -4,6 +4,7 @@ import Select from '../packages/select'
 import Snackbars from '../packages/snackbars'
 import Toolbars from '../packages/toolbars'
 import Toolbar from '../packages/toolbar'
+import Dialog from '../packages/dialog'
 
 const components = [
   Button,
@@ -12,6 +13,7 @@ const components = [
   Snackbars,
   Toolbars,
   Toolbar,
+  Dialog,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -28,6 +30,7 @@ const AkiUI = {
   Snackbars,
   Toolbars,
   Toolbar,
+  Dialog,
 }
 export {
   Button,
@@ -36,6 +39,7 @@ export {
   Snackbars,
   Toolbars,
   Toolbar,
+  Dialog,
 }
 export default AkiUI
 // export default AkiUI

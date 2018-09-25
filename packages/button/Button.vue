@@ -2,7 +2,7 @@
   <button
     @click="click"
     class="aki-btn"
-    :class="[`aki-btn-${type}`, {'aki-btn-dense': size=='dense'}]"
+    :class="[`aki-btn-${type}`, {'aki-btn-small': size=='small'}]"
     :style="{width:cwidth}">
     <slot></slot>
   </button>
@@ -14,7 +14,7 @@ export default {
   props: {
     type: {
       type: String,
-      default() { return 'unelevate' }
+      default() { return 'text' }
     },
     size: {
       type: String,
