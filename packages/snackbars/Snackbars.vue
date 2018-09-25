@@ -1,5 +1,5 @@
 <template>
-  <transition name="aki-snackbars">
+  <transition name="aki-fade-zoom">
     <section v-if="visible"
       class="aki-snackbars"
       :class="[position, {'aki-snackbars-entire-width': fullWidth}]"

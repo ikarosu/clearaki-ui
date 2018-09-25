@@ -2,19 +2,15 @@
   <transition name="aki-bgfade">
   <section v-show="visible"
     @click.self="click"
-    class="aki-dialog">
-    <transition name="aki-fade-zoom">
-    <div v-show="visible" class="aki-dialog-layout"
-      :class="{'aki-dialog-scroll':scroll}">
-      <header v-if="$slots.header">
-        <slot name="header"></slot>
-      </header>
+    class="aki-bottom-sheet">
+    <transition name="aki-slide-bottom">
+    <div v-show="visible" class="aki-bottom-sheet-layout"
+      :class="{'aki-bottom-sheet-scroll':scroll}">
+      <header v-if="title">{{title}}</header>
       <main>
         <slot></slot>
       </main>
-      <footer v-if="$slots.footer">
-        <slot name="footer"></slot>
-      </footer>
+      <slot name="custom"></slot>
     </div>
     </transition>
   </section>
@@ -23,7 +19,7 @@
 
 <script>
 export default {
-  name: 'AkiDialog',
+  name: 'AkiSheetBottom',
   props: {
     scroll: {
       type: Boolean,
@@ -32,10 +28,23 @@ export default {
     visible: {
       type: Boolean,
       default() { return false }
-    }
+    },
+    title: String,
   },
   data() {
     return {
+      display: false
+    }
+  },
+  watch: {
+    visible(state) {
+      if (state) {
+        this.display = state
+      } else {
+        setTimeout(() => {
+          this.display = state
+        }, 280)
+      }
     }
   },
   methods: {

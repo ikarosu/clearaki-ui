@@ -366,6 +366,15 @@ input,textarea,select,button{
   color: overlay(@color-primary, #bbb);
 }
 
+.aki-modal-wrap{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.32);
+  z-index: 800;
+}
 /**
   **********************************
   * dialog
@@ -373,16 +382,10 @@ input,textarea,select,button{
 **/
 @dialog-border: #e0e0e0;
 .aki-dialog{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  .aki-modal-wrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,.32);
-  z-index: 800;
   >.aki-dialog-layout{
     display: flex;
     flex-direction: column;
@@ -438,6 +441,49 @@ input,textarea,select,button{
 
 /**
   **********************************
+  * bottom-sheet
+  **********************************
+**/
+
+.aki-bottom-sheet{
+  .aki-modal-wrap;
+  >.aki-bottom-sheet-layout{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    background-color: #fff;
+    >header,>main>*{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 16px;
+      min-height: 56px;
+      box-sizing: border-box;
+    }
+    >header{
+      color: #666;
+    }
+    >main{
+      flex: 1;
+    }
+    
+    &.aki-bottom-sheet-scroll{
+      >header{
+        border-bottom: solid 1px @dialog-border;
+      }
+      >main{
+        overflow-y: scroll;
+      }
+    }
+  }
+}
+
+/**
+  **********************************
   * animated
   **********************************
 **/
@@ -448,16 +494,22 @@ input,textarea,select,button{
 .aki-fade-enter,.aki-fade-leave-to{
   opacity: 0;
 }
+.aki-bgfade-enter-active, .aki-bgfade-leave-active {
+  transition: @transition-type-1;
+}
+.aki-bgfade-enter,.aki-bgfade-leave-to{
+  background-color: rgba(0,0,0,0);
+}
 .aki-slide-bottom-enter-active, .aki-slide-bottom-leave-active {
   transition: @transition-type-1;
 }
 .aki-slide-bottom-enter,.aki-slide-bottom-leave-to{
-  transform: translateY(200px);
+  transform: translateY(101%);
 }
-.aki-snackbars-enter-active, .aki-snackbars-leave-active {
+.aki-fade-zoom-enter-active, .aki-fade-zoom-leave-active {
   transition: .2s ease-out;
 }
-.aki-snackbars-enter,.aki-snackbars-leave-to{
+.aki-fade-zoom-enter,.aki-fade-zoom-leave-to{
   opacity: 0;
   transform: scale(.8);
 }
