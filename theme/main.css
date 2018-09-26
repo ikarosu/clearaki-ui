@@ -29,13 +29,13 @@ button {
   margin-right: 8px;
 }
 .aki-btn + .aki-btn {
-  margin-left: 1rem;
+  margin-left: 8px;
 }
-.aki-btn.aki-btn-dense {
+.aki-btn.aki-btn-small {
   height: 32px;
   font-size: 0.8125rem;
 }
-.aki-btn.aki-btn-dense.aki-btn-outline {
+.aki-btn.aki-btn-small.aki-btn-outline {
   line-height: 28px;
 }
 .aki-btn:hover {
@@ -54,16 +54,16 @@ button {
   background-color: #def4ff;
 }
 .aki-btn.aki-btn-raise,
-.aki-btn.aki-btn-unelevate {
+.aki-btn.aki-btn-normal {
   color: white;
   background-color: #03a9f4;
 }
 .aki-btn.aki-btn-raise:hover,
-.aki-btn.aki-btn-unelevate:hover {
+.aki-btn.aki-btn-normal:hover {
   background-color: #14b4fc;
 }
 .aki-btn.aki-btn-raise:focus,
-.aki-btn.aki-btn-unelevate:focus {
+.aki-btn.aki-btn-normal:focus {
   background-color: #47c4fd;
 }
 .aki-btn.aki-btn-text {
@@ -80,11 +80,11 @@ button {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .aki-btn.aki-btn-outline {
-  border-color: #03a9f4;
-  border-style: solid;
   padding: 0 14px;
   line-height: 32px;
-  border-width: 2px;
+  border-color: #03a9f4;
+  border-style: solid;
+  border-width: 1px;
 }
 /**
   **********************************
@@ -199,7 +199,7 @@ button {
   position: absolute;
   top: 16px;
   left: 12px;
-  color: #666;
+  color: #999;
   cursor: text;
   pointer-events: none;
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -210,7 +210,7 @@ button {
   font-size: 0.8125rem;
 }
 .aki-input > .aki-input-main.aki-input-fill {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.42);
+  border-bottom: solid 1px #c1c1c1;
   border-radius: 4px 4px 0 0;
 }
 .aki-input > .aki-input-main.aki-input-fill input,
@@ -329,6 +329,154 @@ button {
   background-color: #03a9f4;
   z-index: 90;
 }
+.aki-toolbars > .aki-toolbars-layout {
+  display: flex;
+  width: 100%;
+  max-width: 425px;
+}
+.aki-toolbars > .aki-toolbars-layout > .aki-toolbar {
+  flex-grow: 1;
+}
+.aki-toolbars > .aki-toolbars-layout > .aki-toolbar > input[name=aki-toolbar] {
+  display: none;
+}
+.aki-toolbars > .aki-toolbars-layout > .aki-toolbar > label {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 80px;
+  max-width: 168px;
+  height: 100%;
+}
+.aki-toolbar {
+  color: #04d1f9;
+}
+.aki-modal-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.32);
+  z-index: 800;
+}
+/**
+  **********************************
+  * dialog
+  **********************************
+**/
+.aki-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.32);
+  z-index: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aki-dialog > .aki-dialog-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80vw;
+  min-width: 280px;
+  max-width: 560px;
+  max-height: 500px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+.aki-dialog > .aki-dialog-layout > header,
+.aki-dialog > .aki-dialog-layout > main,
+.aki-dialog > .aki-dialog-layout > footer {
+  padding-right: 24px;
+  padding-left: 24px;
+  box-sizing: border-box;
+}
+.aki-dialog > .aki-dialog-layout > header *,
+.aki-dialog > .aki-dialog-layout > main *,
+.aki-dialog > .aki-dialog-layout > footer * {
+  margin: 0;
+}
+.aki-dialog > .aki-dialog-layout > header {
+  padding-top: 20px;
+  padding-bottom: 14px;
+  line-height: 28px;
+}
+.aki-dialog > .aki-dialog-layout > main {
+  flex: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  line-height: 24px;
+  color: #757575;
+}
+.aki-dialog > .aki-dialog-layout > footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  min-height: 52px;
+  text-align: right;
+}
+.aki-dialog > .aki-dialog-layout.aki-dialog-scroll > header {
+  border-bottom: solid 1px #e0e0e0;
+}
+.aki-dialog > .aki-dialog-layout.aki-dialog-scroll > main {
+  max-height: 314px;
+  overflow-y: scroll;
+}
+.aki-dialog > .aki-dialog-layout.aki-dialog-scroll > footer {
+  border-top: solid 1px #e0e0e0;
+}
+/**
+  **********************************
+  * bottom-sheet
+  **********************************
+**/
+.aki-bottom-sheet {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.32);
+  z-index: 800;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 50vh;
+  background-color: #fff;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout > header,
+.aki-bottom-sheet > .aki-bottom-sheet-layout > main > * {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 16px;
+  min-height: 56px;
+  box-sizing: border-box;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout > header {
+  color: #666;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout > main {
+  flex: 1;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > header {
+  border-bottom: solid 1px #e0e0e0;
+}
+.aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > main {
+  overflow-y: scroll;
+}
 /**
   **********************************
   * animated
@@ -342,20 +490,28 @@ button {
 .aki-fade-leave-to {
   opacity: 0;
 }
+.aki-bgfade-enter-active,
+.aki-bgfade-leave-active {
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-bgfade-enter,
+.aki-bgfade-leave-to {
+  background-color: rgba(0, 0, 0, 0);
+}
 .aki-slide-bottom-enter-active,
 .aki-slide-bottom-leave-active {
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aki-slide-bottom-enter,
 .aki-slide-bottom-leave-to {
-  transform: translateY(200px);
+  transform: translateY(101%);
 }
-.aki-snackbars-enter-active,
-.aki-snackbars-leave-active {
+.aki-fade-zoom-enter-active,
+.aki-fade-zoom-leave-active {
   transition: 0.2s ease-out;
 }
-.aki-snackbars-enter,
-.aki-snackbars-leave-to {
+.aki-fade-zoom-enter,
+.aki-fade-zoom-leave-to {
   opacity: 0;
   transform: scale(0.8);
 }

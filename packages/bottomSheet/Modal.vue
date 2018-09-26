@@ -4,9 +4,9 @@
     @click.self="click"
     class="aki-bottom-sheet">
     <transition name="aki-slide-bottom">
-    <div v-show="visible" class="aki-bottom-sheet-layout"
+    <div @click="handleSome($event)" v-show="visible" class="aki-bottom-sheet-layout"
       :class="{'aki-bottom-sheet-scroll':scroll}">
-      <header v-if="title">{{title}}</header>
+      <header class="aki--header" v-if="title">{{title}}</header>
       <main>
         <slot></slot>
       </main>
@@ -50,6 +50,10 @@ export default {
   methods: {
     click() {
       this.$emit('update:visible', false)
+    },
+    handleSome(e) {
+      if (e.target.className !== 'aki--header')
+        this.$emit('update:visible', false)
     }
   }
 }
