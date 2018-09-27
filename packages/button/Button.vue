@@ -2,8 +2,13 @@
   <button
     @click="click"
     class="aki-btn"
-    :class="[`aki-btn-${type}`, {'aki-btn-small': size=='small'}]"
-    :style="{width:cwidth}">
+    :class="[
+      `aki-btn-${type}`,
+      `aki-btn-${size}`,
+      {'aki-btn-round': round},
+      {'aki-btn-circle': circle},
+      {'aki-btn-full-width': full},
+    ]">
     <slot></slot>
   </button>
 </template>
@@ -18,14 +23,17 @@ export default {
     },
     size: {
       type: String,
-      default() { return 'middle' }
+      default() { return 'm' }
     },
     full: Boolean,
-  },
-  computed: {
-    cwidth() {
-      return this.full ? '100%' : 'auto'
-    }
+    round: {
+      type: Boolean,
+      default() { return false }
+    },
+    circle: {
+      type: Boolean,
+      default() { return false }
+    },
   },
   methods: {
     click(e) {

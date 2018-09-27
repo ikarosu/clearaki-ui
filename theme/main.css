@@ -16,13 +16,14 @@ button {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 16px;
-  min-width: 64px;
-  height: 36px;
   line-height: 1;
   font-size: 0.875rem;
   font-weight: 500;
   border-radius: 4px;
+  font-size: 0.8125rem;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 16px;
 }
 .aki-btn > :first-child {
   margin-left: -4px;
@@ -31,12 +32,62 @@ button {
 .aki-btn + .aki-btn {
   margin-left: 8px;
 }
-.aki-btn.aki-btn-small {
-  height: 32px;
-  font-size: 0.8125rem;
+.aki-btn.aki-btn-xl {
+  min-width: 96px;
+  font-size: 0.875rem;
+  height: 40px;
 }
-.aki-btn.aki-btn-small.aki-btn-outline {
+.aki-btn.aki-btn-xl.aki-btn-outline {
+  line-height: 36px;
+}
+.aki-btn.aki-btn-l {
+  min-width: 80px;
+}
+.aki-btn.aki-btn-l.aki-btn-outline {
+  line-height: 32px;
+}
+.aki-btn.aki-btn-m.aki-btn-outline {
+  line-height: 32px;
+}
+.aki-btn.aki-btn-s {
+  height: 32px;
+}
+.aki-btn.aki-btn-s.aki-btn-outline {
   line-height: 28px;
+}
+.aki-btn.aki-btn-xs {
+  min-width: 56px;
+  padding: 0 12px;
+  height: 28px;
+  font-size: 0.75rem;
+}
+.aki-btn.aki-btn-xs.aki-btn-outline {
+  padding: 0 10px;
+  line-height: 24px;
+}
+.aki-btn.aki-btn-round {
+  border-radius: 999px;
+}
+.aki-btn.aki-btn-circle {
+  border-radius: 50%;
+  min-width: initial;
+}
+.aki-btn.aki-btn-circle.aki-btn-xl {
+  width: 40px;
+}
+.aki-btn.aki-btn-circle.aki-btn-l,
+.aki-btn.aki-btn-circle.aki-btn-m {
+  width: 36px;
+}
+.aki-btn.aki-btn-circle.aki-btn-s {
+  width: 32px;
+}
+.aki-btn.aki-btn-circle.aki-btn-xs {
+  width: 28px;
+}
+.aki-btn.aki-btn-full-width {
+  width: 100%;
+  margin-left: 0;
 }
 .aki-btn:hover {
   cursor: pointer;
@@ -80,8 +131,6 @@ button {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .aki-btn.aki-btn-outline {
-  padding: 0 14px;
-  line-height: 32px;
   border-color: #03a9f4;
   border-style: solid;
   border-width: 1px;
@@ -352,10 +401,6 @@ button {
   **********************************
 **/
 .aki-toolbars {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
   height: 56px;
   display: flex;
   justify-content: center;
@@ -536,6 +581,36 @@ button {
 }
 .aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > main {
   overflow-y: scroll;
+}
+.aki-topbars {
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+  height: 56px;
+  color: white;
+  background-color: #03a9f4;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.aki-topbars .aki-topbar-nav {
+  min-width: 24px;
+  min-height: 24px;
+}
+.aki-topbars .aki-topbar-nav > * {
+  margin: 0;
+}
+.aki-topbars > h1 {
+  flex: 1;
+  margin: 0;
+  padding-left: 32px;
+  font-size: 16px;
+}
+.aki-topbars .aki-topbar-action {
+  display: flex;
+}
+.aki-topbars .aki-topbar-action > * {
+  margin-left: 24px;
 }
 /**
   **********************************

@@ -6,6 +6,7 @@ import Toolbars from '../packages/toolbars'
 import Toolbar from '../packages/toolbar'
 import Dialog from '../packages/dialog'
 import BottomSheet from '../packages/bottomSheet'
+import Topbars from '../packages/topbars'
 
 const components = [
   Button,
@@ -16,6 +17,7 @@ const components = [
   Toolbar,
   Dialog,
   BottomSheet,
+  Topbars,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -34,6 +36,7 @@ const AkiUI = {
   Toolbar,
   Dialog,
   BottomSheet,
+  Topbars,
 }
 export {
   Button,
@@ -44,6 +47,7 @@ export {
   Toolbar,
   Dialog,
   BottomSheet,
+  Topbars,
 }
 export default AkiUI
 // export default AkiUI
