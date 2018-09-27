@@ -5,9 +5,15 @@
       :value="label"
       @change="checkChange(label)">
     <label :for="label">
-      <slot></slot>
-      <slot name="text" v-if="active"></slot>
-      
+      <div :class="{
+        'aki-badges': typeof badges == 'string',
+        'aki-badges-dot':badges==''}"
+        :badges="badges">
+        <slot></slot>
+        <span class="aki-toolbar-text">
+          <slot name="text" v-if="$parent.fixText || active">{{label}}</slot>
+        </span>
+      </div>
     </label>
   </div>
 </template>
@@ -19,7 +25,8 @@ export default {
     label: {
       required: true,
       type: String,
-    }
+    },
+    badges: false,
   },
   computed: {
     active() {

@@ -1,6 +1,6 @@
 <template>
-  <nav class="aki-toolbars">
-    <main class="aki-toolbars-layout">
+  <nav class="aki-toolbars" :class="{'aki-toobars-fill':fill}">
+    <main class="aki-toolbar-layout">
       <slot></slot>
     </main>
   </nav>
@@ -15,6 +15,14 @@ export default {
   },
   props: {
     active: String,
+    fill: {
+      type: Boolean,
+      default() { return false }
+    },
+    fixText: {
+      type: Boolean,
+      default() { return false }
+    }
   },
   methods: {
     dispatch(label) {

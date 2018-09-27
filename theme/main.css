@@ -22,7 +22,7 @@ button {
   line-height: 1;
   font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 .aki-btn > :first-child {
   margin-left: -4px;
@@ -315,6 +315,39 @@ button {
 }
 /**
   **********************************
+  * badges
+  **********************************
+**/
+.aki-badges {
+  position: relative;
+}
+.aki-badges::after {
+  position: absolute;
+  color: white;
+  border-radius: 10px;
+  background-color: red;
+}
+.aki-badges.aki-badges-dot::after {
+  content: '';
+  top: -4px;
+  left: 90%;
+  width: 8px;
+  height: 8px;
+}
+.aki-badges:not(.aki-badges-dot)::after {
+  content: attr(badges);
+  top: -5px;
+  left: 90%;
+  box-sizing: border-box;
+  padding: 0 4px;
+  min-width: 12px;
+  height: 12px;
+  text-align: center;
+  line-height: 12px;
+  font-size: 10px;
+}
+/**
+  **********************************
   * toolbars
   **********************************
 **/
@@ -326,32 +359,59 @@ button {
   height: 56px;
   display: flex;
   justify-content: center;
-  background-color: #03a9f4;
+  background-color: #fff;
   z-index: 90;
 }
-.aki-toolbars > .aki-toolbars-layout {
+.aki-toolbars:not(.aki-toolbars-fill) {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.aki-toolbars.aki-toolbars-fill {
+  background-color: #03a9f4;
+}
+.aki-toolbars.aki-toolbars-fill .aki-toolbar {
+  color: #04d1f9;
+}
+.aki-toolbars.aki-toolbars-fill .aki-toolbar.aki-toolbar-active {
+  color: #fff;
+}
+.aki-toolbars > .aki-toolbar-layout {
   display: flex;
   width: 100%;
   max-width: 425px;
 }
-.aki-toolbars > .aki-toolbars-layout > .aki-toolbar {
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar {
   flex-grow: 1;
 }
-.aki-toolbars > .aki-toolbars-layout > .aki-toolbar > input[name=aki-toolbar] {
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > input[name=aki-toolbar] {
   display: none;
 }
-.aki-toolbars > .aki-toolbars-layout > .aki-toolbar > label {
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > label {
   display: flex;
   box-sizing: border-box;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 80px;
   max-width: 168px;
   height: 100%;
 }
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > label > div {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+}
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > label > div > svg {
+  fill: currentColor;
+}
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > label > div > .aki-toolbar-text {
+  font-size: 10px;
+}
 .aki-toolbar {
-  color: #04d1f9;
+  color: #aaa;
+}
+.aki-toolbar.aki-toolbar-active {
+  color: #03a9f4;
 }
 .aki-modal-wrap {
   position: fixed;

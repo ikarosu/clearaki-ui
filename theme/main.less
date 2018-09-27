@@ -36,7 +36,7 @@ input,textarea,select,button{
   font-size: 0.875rem;
   font-weight: 500;
 
-  border-radius: 2px;
+  border-radius: 4px;
   >:first-child{
     margin-left: -4px;
     margin-right: 8px;
@@ -327,6 +327,39 @@ input,textarea,select,button{
 }
 /**
   **********************************
+  * badges
+  **********************************
+**/
+.aki-badges{
+  position: relative;
+  &::after{
+    position: absolute;
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+  }
+  &.aki-badges-dot::after{
+    content: '';
+    top: -4px;
+    left: 90%;
+    width: 8px;
+    height: 8px;
+  }
+  &:not(.aki-badges-dot)::after{
+    content: attr(badges);
+    top: -5px;
+    left: 90%;
+    box-sizing: border-box;
+    padding: 0 4px;
+    min-width: 12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    font-size: 10px;
+  }
+}
+/**
+  **********************************
   * toolbars
   **********************************
 **/
@@ -338,9 +371,21 @@ input,textarea,select,button{
   height: 56px;
   display: flex;
   justify-content: center;
-  background-color: @color-primary;
+  background-color: #fff;
+  &:not(.aki-toolbars-fill){
+    box-shadow: @shadow-level-2;
+  }
+  &.aki-toolbars-fill{
+    background-color: @color-primary;
+    .aki-toolbar{
+      color: overlay(@color-primary, #bbb);
+      &.aki-toolbar-active{
+        color: #fff;
+      }
+    }
+  }
   z-index: 90;
-  >.aki-toolbars-layout{
+  >.aki-toolbar-layout{
     display: flex;
     width: 100%;
     max-width: 425px;
@@ -352,18 +397,33 @@ input,textarea,select,button{
       >label{
         display: flex;
         box-sizing: border-box;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         min-width: 80px;
         max-width: 168px;
         height: 100%;
+        >div{
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          color: inherit;
+          >svg{
+            fill: currentColor;
+          }
+          >.aki-toolbar-text{
+            font-size: 10px;
+          }
+        }
       }
     }
   }
 }
 .aki-toolbar{
-  color: overlay(@color-primary, #bbb);
+  color: #aaa;;
+  &.aki-toolbar-active{
+    color: @color-primary;
+  }
 }
 
 .aki-modal-wrap{
