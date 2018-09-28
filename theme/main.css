@@ -104,18 +104,30 @@ button {
 .aki-btn.aki-btn-outline:focus {
   background-color: #def4ff;
 }
+.aki-btn.aki-btn-text.aki-btn-plain,
+.aki-btn.aki-btn-outline.aki-btn-plain {
+  color: #666;
+}
 .aki-btn.aki-btn-raise,
-.aki-btn.aki-btn-normal {
+.aki-btn.aki-btn-fill {
   color: white;
   background-color: #03a9f4;
 }
 .aki-btn.aki-btn-raise:hover,
-.aki-btn.aki-btn-normal:hover {
+.aki-btn.aki-btn-fill:hover {
   background-color: #14b4fc;
 }
 .aki-btn.aki-btn-raise:focus,
-.aki-btn.aki-btn-normal:focus {
+.aki-btn.aki-btn-fill:focus {
   background-color: #47c4fd;
+}
+.aki-btn.aki-btn-raise.aki-btn-plain,
+.aki-btn.aki-btn-fill.aki-btn-plain {
+  color: #03a9f4;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #03a9f4;
+  background-color: #ebf8fe;
 }
 .aki-btn.aki-btn-text {
   padding: 0 12px;
@@ -134,6 +146,9 @@ button {
   border-color: #03a9f4;
   border-style: solid;
   border-width: 1px;
+}
+.aki-btn.aki-btn-outline.aki-btn-plain {
+  border-color: #ddd;
 }
 /**
   **********************************
@@ -401,7 +416,7 @@ button {
   **********************************
 **/
 .aki-toolbars {
-  height: 56px;
+  min-height: 56px;
   display: flex;
   justify-content: center;
   background-color: #fff;
@@ -588,7 +603,7 @@ button {
   justify-content: space-between;
   box-sizing: border-box;
   padding: 16px;
-  height: 56px;
+  min-height: 56px;
   color: white;
   background-color: #03a9f4;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
@@ -611,6 +626,21 @@ button {
 }
 .aki-topbars .aki-topbar-action > * {
   margin-left: 24px;
+}
+/**
+  **********************************
+  * layout
+  **********************************
+**/
+.aki-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.aki-page > .aki-page-main {
+  flex: 1;
+  overflow-y: scroll;
 }
 /**
   **********************************

@@ -8,6 +8,7 @@
       {'aki-btn-round': round},
       {'aki-btn-circle': circle},
       {'aki-btn-full-width': full},
+      {'aki-btn-plain': plain},
     ]">
     <slot></slot>
   </button>
@@ -25,12 +26,19 @@ export default {
       type: String,
       default() { return 'm' }
     },
-    full: Boolean,
     round: {
       type: Boolean,
       default() { return false }
     },
     circle: {
+      type: Boolean,
+      default() { return false }
+    },
+    full: {
+      type: Boolean,
+      default() { return false }
+    },
+    plain: {
       type: Boolean,
       default() { return false }
     },

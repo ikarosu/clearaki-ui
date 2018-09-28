@@ -115,8 +115,11 @@ input,textarea,select,button{
     &:focus{
       background-color: lighten(@color-primary, 45%)
     }
+    &.aki-btn-plain{
+      color: #666;
+    }
   }
-  &.aki-btn-raise,&.aki-btn-normal{
+  &.aki-btn-raise,&.aki-btn-fill{
     color: white;
     background-color: @color-primary;
     &:hover{
@@ -124,6 +127,13 @@ input,textarea,select,button{
     }
     &:focus{
       background-color: lighten(@color-primary, 15%)
+    }
+    &.aki-btn-plain{
+      color: @color-primary;
+      border-style: solid;
+      border-width: 1px;
+      border-color: @color-primary;
+      background-color: hardlight(@color-primary, #f5f5f5)
     }
   }
 
@@ -144,6 +154,9 @@ input,textarea,select,button{
     border-color: @color-primary;
     border-style: solid;
     border-width: 1px;
+    &.aki-btn-plain{
+      border-color: #ddd;
+    }
   }
 }
 
@@ -413,11 +426,7 @@ input,textarea,select,button{
   **********************************
 **/
 .aki-toolbars{
-  // position: fixed;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  height: 56px;
+  min-height: 56px;
   display: flex;
   justify-content: center;
   background-color: #fff;
@@ -597,7 +606,7 @@ input,textarea,select,button{
   justify-content: space-between;
   box-sizing: border-box;
   padding: 16px;
-  height: 56px;
+  min-height: 56px;
   color: white;
   background-color: @color-primary;
   box-shadow: @shadow-level-2;
@@ -619,6 +628,22 @@ input,textarea,select,button{
     >*{
       margin-left: 24px;
     }
+  }
+}
+
+/**
+  **********************************
+  * layout
+  **********************************
+**/
+.aki-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  >.aki-page-main{
+    flex: 1;
+    overflow-y: scroll;
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="aki-input"
     :style="{width: cwidth}">
     <div class="aki-input-main"
-      :class="[`aki-input-${types}`, {'aki-input-bgnone': nobg}]">
+      :class="[outline ? 'aki-input-outline':'aki-input-fill', {'aki-input-bgnone': nobg}]">
       <select
         :id="label"
         v-bind="$attrs"
@@ -30,9 +30,9 @@ export default {
       type: String,
       default() { return 'text' }
     },
-    types: {
-      type: String,
-      default() { return 'fill' }
+    outline: {
+      type: Boolean,
+      default() { return false }
     },
     label: {
       type: String,

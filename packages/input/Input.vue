@@ -3,7 +3,7 @@
     :style="{width: cwidth}">
     <div v-if="texts.includes(type)||dates.includes(type)"
       class="aki-input-main"
-      :class="[`aki-input-${types}`, {'aki-input-bgnone': nobg}]">
+      :class="[outline ? 'aki-input-outline':'aki-input-fill' , {'aki-input-bgnone': nobg}]">
       <input
         v-bind="$attrs"
         @focus="focus"
@@ -45,9 +45,9 @@ export default {
       default() { return 'text' }
     },
     full: Boolean,
-    types: {
-      type: String,
-      default() { return 'fill' }
+    outline: {
+      type: Boolean,
+      default() { return false }
     },
     label: {
       type: String,
