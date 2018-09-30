@@ -46,7 +46,16 @@ export default {
         x += vm.$el.clientWidth
         return true
       })
+      const activeVm = this.$slots.default[index].componentInstance
+      this.width = `${activeVm.$el.offsetWidth}px`
       this.offsetX = x
+      this.$emit('toggle', activeVm.label)
+    },
+    active() {
+      this.$nextTick()
+        .then(() => {
+          this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
+        })
     }
   },
   mounted() {
@@ -55,12 +64,7 @@ export default {
       this.$el.classList.add('aki-shadow-bottom')
   },
   methods: {
-    dispatch(label, target) {
-      this.$nextTick()
-        .then(() => {
-          this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
-        })
-      this.width = `${target.offsetWidth}px`
+    dispatch(label) {
       this.$emit('toggle', label)
     }
   },

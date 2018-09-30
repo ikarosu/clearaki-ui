@@ -114,6 +114,10 @@ a {
 .aki-btn.aki-btn-outline.aki-btn-plain {
   color: #666;
 }
+.aki-btn.aki-btn-text[disabled],
+.aki-btn.aki-btn-outline[disabled] {
+  color: #ddd;
+}
 .aki-btn.aki-btn-raise,
 .aki-btn.aki-btn-fill {
   color: white;
@@ -153,7 +157,8 @@ a {
   border-style: solid;
   border-width: 1px;
 }
-.aki-btn.aki-btn-outline.aki-btn-plain {
+.aki-btn.aki-btn-outline.aki-btn-plain,
+.aki-btn.aki-btn-outline[disabled] {
   border-color: #ddd;
 }
 /**

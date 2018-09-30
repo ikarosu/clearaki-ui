@@ -3,7 +3,8 @@
     <input type="radio" name="aki-tab"
       :id="label"
       :value="label"
-      @change="checkChange(label, $el)">
+      :checked="active"
+      @change="checkChange(label)">
     <label :for="label">
       <div :class="{
         'aki-badges': typeof badges == 'string',
@@ -35,9 +36,14 @@ export default {
       checked: '',
     }
   },
+  // watch: {
+  //   active() {
+  //     this.$parent.dispatch(this.label, this.$el)
+  //   }
+  // },
   methods: {
-    checkChange(label, target) {
-      this.$parent.dispatch(label, target)
+    checkChange(label) {
+      this.$parent.dispatch(label)
     }
   },
 }

@@ -34,10 +34,10 @@
 <script>
 export default {
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'input'
-  },
+  // model: {
+  //   prop: 'value',
+  //   event: 'input'
+  // },
   name: 'AkiInput',
   props: {
     type: {

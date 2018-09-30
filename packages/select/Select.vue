@@ -5,7 +5,7 @@
       :class="[outline ? 'aki-input-outline':'aki-input-fill', {'aki-input-bgnone': nobg}]">
       <select
         :id="label"
-        v-bind="$attrs"
+        :value="values"
         @change="change($event.target)">
         <slot></slot>
       </select>
@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  inheritAttrs: false,
   name: 'AkiSelect',
   model: {
     prop: 'values',

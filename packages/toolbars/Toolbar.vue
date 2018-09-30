@@ -3,6 +3,7 @@
     <input type="radio" name="aki-toolbar"
       :id="label"
       :value="label"
+      :checked="active"
       @change="checkChange(label)">
     <label :for="label">
       <div :class="{
