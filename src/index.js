@@ -7,6 +7,8 @@ import Toolbar from '../packages/toolbar'
 import Dialog from '../packages/dialog'
 import BottomSheet from '../packages/bottomSheet'
 import Topbars from '../packages/topbars'
+import Tabs from '../packages/tabs'
+import Tab from '../packages/tab'
 
 const components = [
   Button,
@@ -18,6 +20,8 @@ const components = [
   Dialog,
   BottomSheet,
   Topbars,
+  Tabs,
+  Tab,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -37,6 +41,8 @@ const AkiUI = {
   Dialog,
   BottomSheet,
   Topbars,
+  Tabs,
+  Tab,
 }
 export {
   Button,
@@ -48,6 +54,7 @@ export {
   Dialog,
   BottomSheet,
   Topbars,
+  Tabs,
+  Tab,
 }
 export default AkiUI
-// export default AkiUI

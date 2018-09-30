@@ -1,3 +1,6 @@
+::-webkit-scrollbar {
+  display: none;
+}
 /**
   **********************************
   * button
@@ -6,10 +9,13 @@
 input,
 textarea,
 select,
-button {
+button,
+a {
   background: none;
   border: none;
   outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(56, 187, 246, 0.5);
 }
 .aki-btn {
   display: inline-flex;
@@ -247,7 +253,7 @@ button {
   justify-content: center;
   box-sizing: border-box;
   height: 56px;
-  background-color: #fff;
+  background-color: transparent;
   cursor: text;
 }
 .aki-input > .aki-input-main input,
@@ -597,6 +603,14 @@ button {
 .aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > main {
   overflow-y: scroll;
 }
+/**
+  **********************************
+  * topbars
+  **********************************
+**/
+.aki-shadow-bottom {
+  box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.2), 0 4px 2px 0 rgba(0, 0, 0, 0.14), 0 7px 5px 0 rgba(0, 0, 0, 0.12);
+}
 .aki-topbars {
   z-index: 5;
   display: flex;
@@ -604,9 +618,12 @@ button {
   box-sizing: border-box;
   padding: 16px;
   min-height: 56px;
+  color: #03a9f4;
+  background-color: white;
+}
+.aki-topbars.aki-topbars-fill {
   color: white;
   background-color: #03a9f4;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .aki-topbars .aki-topbar-nav {
   min-width: 24px;
@@ -626,6 +643,76 @@ button {
 }
 .aki-topbars .aki-topbar-action > * {
   margin-left: 24px;
+}
+/**
+  **********************************
+  * tabs
+  **********************************
+**/
+.aki-tabs {
+  z-index: 5;
+  color: #888;
+  background-color: white;
+}
+.aki-tabs .aki-tab-active {
+  color: #03a9f4;
+}
+.aki-tabs.aki-tabs-fill {
+  color: #79ccf1;
+  background-color: #03a9f4;
+}
+.aki-tabs.aki-tabs-fill .aki-tab-active {
+  color: white;
+}
+.aki-tabs.aki-tabs-fill > .aki-tab-layout > .aki-tab-line {
+  background-color: white;
+}
+.aki-tabs.aki-tabs-scroll {
+  overflow-x: scroll;
+}
+.aki-tabs.aki-tabs-scroll > .aki-tab-layout {
+  margin-left: 52px;
+  width: max-content;
+}
+.aki-tabs:not(.aki-tabs-scroll) .aki-tab {
+  flex: 1;
+}
+.aki-tabs > .aki-tab-layout {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.aki-tabs > .aki-tab-layout > .aki-tab > input[name=aki-tab] {
+  display: none;
+}
+.aki-tabs > .aki-tab-layout > .aki-tab > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  min-width: 90px;
+  max-width: 360px;
+  min-height: 48px;
+}
+.aki-tabs > .aki-tab-layout > .aki-tab > label > div {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+}
+.aki-tabs > .aki-tab-layout > .aki-tab > label > div > svg {
+  fill: currentColor;
+}
+.aki-tabs > .aki-tab-layout > .aki-tab-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #03a9f4;
+  transform: translateX(0);
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /**
   **********************************
