@@ -615,6 +615,9 @@ input,textarea,select,button,a{
 
 .aki-shadow-bottom{
   box-shadow: 0 3px 1px 0 rgba(0,0,0,.2), 0 4px 2px 0 rgba(0,0,0,.14), 0 7px 5px 0 rgba(0,0,0,.12);
+  +*{
+    margin-top: 5px;
+  }
 }
 .aki-topbars{
   z-index: 5;
@@ -630,6 +633,9 @@ input,textarea,select,button,a{
     background-color: @color-primary;
   }
   .aki-topbar-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 24px;
     min-height: 24px;
     >*{
@@ -644,6 +650,7 @@ input,textarea,select,button,a{
   }
   .aki-topbar-action{
     display: flex;
+    align-items: center;
     >*{
       margin-left: 24px;
     }
@@ -733,6 +740,64 @@ input,textarea,select,button,a{
 
 /**
   **********************************
+  * counter
+  **********************************
+**/
+.aki-counter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 72px;
+  color: @color-primary;
+}
+
+/**
+  **********************************
+  * picker
+  **********************************
+**/
+@picker-item-height: 56px;
+.aki-picker{
+  position: relative;
+  height: @picker-item-height * 3;
+  text-align: center;
+  overflow: hidden;
+  .aki-picker-options{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    transition: transform .2s;
+    >option{
+      padding: 0;
+      height: @picker-item-height;
+      line-height: @picker-item-height;
+    }
+  }
+  .aki-picker-board{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    >p{
+      box-sizing: border-box;
+      margin: 0;
+      height: @picker-item-height;
+      &:first-child,&:last-child{
+        background-color: #fff;
+        opacity: .6;
+      }
+      &:nth-child(2){
+        border-top: solid 2px @color-primary;
+        border-bottom: solid 2px @color-primary;
+      }
+    }
+  }
+}
+
+/**
+  **********************************
   * layout
   **********************************
 **/
@@ -741,9 +806,6 @@ input,textarea,select,button,a{
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  // >.aki-shadow-bottom+.aki-page-main{
-  //   margin-top: 5px;
-  // }
   >.aki-page-main{
     flex: 1;
     overflow-y: scroll;

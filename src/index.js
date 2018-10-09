@@ -9,6 +9,8 @@ import BottomSheet from '../packages/bottomSheet'
 import Topbars from '../packages/topbars'
 import Tabs from '../packages/tabs'
 import Tab from '../packages/tab'
+import Counter from '../packages/counter'
+import Picker from '../packages/picker'
 
 const components = [
   Button,
@@ -22,6 +24,8 @@ const components = [
   Topbars,
   Tabs,
   Tab,
+  Counter,
+  Picker,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -43,6 +47,8 @@ const AkiUI = {
   Topbars,
   Tabs,
   Tab,
+  Counter,
+  Picker,
 }
 export {
   Button,
@@ -56,5 +62,7 @@ export {
   Topbars,
   Tabs,
   Tab,
+  Counter,
+  Picker,
 }
 export default AkiUI
