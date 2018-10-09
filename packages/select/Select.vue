@@ -3,9 +3,9 @@
     :style="{width: cwidth}">
     <div class="aki-input-main"
       :class="[outline ? 'aki-input-outline':'aki-input-fill', {'aki-input-bgnone': nobg}]">
-      <select
+      <select ref="input"
+        v-bind="$attrs"
         :id="label"
-        :value="values"
         @change="change($event.target)">
         <slot></slot>
       </select>
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   name: 'AkiSelect',
   model: {
     prop: 'values',
@@ -55,13 +56,27 @@ export default {
       return this.full ? '100%' : this.width
     },
   },
+  watch: {
+    // 手动设置选中值
+    // 因为多选框选中多个会变成选中0个
+    values(v) {
+      if (typeof v === 'object') {
+        for (const option of this.$refs.input.children) {
+          option.selected = v.includes(option.value)
+        }
+      } else {
+        for (const option of this.$refs.input.children) {
+          option.selected = v === option.value
+        }
+      }
+    }
+  },
   methods: {
     change(target) {
       if (target.multiple) {
         // 多选的时候返回一个算中的数组
         // 默认是最后选中的值
-        const values = Array.from(target.options)
-          .filter(opt => opt.selected)
+        const values = Array.from(target.selectedOptions)
           .map(opt => opt.value)
         this.$emit('change', values)
       } else {

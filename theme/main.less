@@ -526,7 +526,7 @@ input,textarea,select,button,a{
       padding-right: 24px;
       padding-left: 24px;
       box-sizing: border-box;
-      *{
+      h1,p{
         margin: 0;
       }
     }
@@ -759,6 +759,7 @@ input,textarea,select,button,a{
 @picker-item-height: 56px;
 .aki-picker{
   position: relative;
+  width: 100%;
   height: @picker-item-height * 3;
   text-align: center;
   overflow: hidden;
@@ -793,6 +794,9 @@ input,textarea,select,button,a{
         border-bottom: solid 2px @color-primary;
       }
     }
+  }
+  +.aki-picker{
+    margin-left: 12px;
   }
 }
 

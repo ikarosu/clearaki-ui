@@ -529,9 +529,12 @@ a {
   padding-left: 24px;
   box-sizing: border-box;
 }
-.aki-dialog > .aki-dialog-layout > header *,
-.aki-dialog > .aki-dialog-layout > main *,
-.aki-dialog > .aki-dialog-layout > footer * {
+.aki-dialog > .aki-dialog-layout > header h1,
+.aki-dialog > .aki-dialog-layout > main h1,
+.aki-dialog > .aki-dialog-layout > footer h1,
+.aki-dialog > .aki-dialog-layout > header p,
+.aki-dialog > .aki-dialog-layout > main p,
+.aki-dialog > .aki-dialog-layout > footer p {
   margin: 0;
 }
 .aki-dialog > .aki-dialog-layout > header {
@@ -745,6 +748,7 @@ a {
 **/
 .aki-picker {
   position: relative;
+  width: 100%;
   height: 168px;
   text-align: center;
   overflow: hidden;
@@ -781,6 +785,9 @@ a {
 .aki-picker .aki-picker-board > p:nth-child(2) {
   border-top: solid 2px #03a9f4;
   border-bottom: solid 2px #03a9f4;
+}
+.aki-picker + .aki-picker {
+  margin-left: 12px;
 }
 /**
   **********************************
