@@ -116,7 +116,7 @@ a {
 }
 .aki-btn.aki-btn-text[disabled],
 .aki-btn.aki-btn-outline[disabled] {
-  color: #ddd;
+  color: #e7e7e7;
 }
 .aki-btn.aki-btn-raise,
 .aki-btn.aki-btn-fill {
@@ -138,6 +138,11 @@ a {
   border-width: 1px;
   border-color: #03a9f4;
   background-color: #ebf8fe;
+}
+.aki-btn.aki-btn-raise[disabled],
+.aki-btn.aki-btn-fill[disabled] {
+  color: white;
+  background-color: #e7e7e7;
 }
 .aki-btn.aki-btn-text {
   padding: 0 12px;

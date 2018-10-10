@@ -40,7 +40,11 @@ export default {
         scroll: 0,
         transformY: 0,
       },
-      maxHeight: 0
+    }
+  },
+  computed: {
+    maxHeight() {
+      return (this.$refs.options.children.length - 3) * H
     }
   },
   watch: {
@@ -60,8 +64,6 @@ export default {
       this.finger.scroll = this.finger.transformY
       this.setTransform()
     }
-    // 底部位置
-    this.maxHeight = (this.$refs.options.children.length - 3) * H
     this.$el.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0]
       this.finger.startY = touch.pageY
