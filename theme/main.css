@@ -493,6 +493,13 @@ a {
 .aki-toolbar.aki-toolbar-active {
   color: #03a9f4;
 }
+.aki-full-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 .aki-modal-wrap {
   position: fixed;
   top: 0;
@@ -574,6 +581,17 @@ a {
 }
 .aki-dialog > .aki-dialog-layout.aki-dialog-scroll > footer {
   border-top: solid 1px #e0e0e0;
+}
+.aki-dialog-full {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 700;
+}
+.aki-dialog-full > *:not(.aki-topbars) {
+  background-color: #fff;
 }
 /**
   **********************************

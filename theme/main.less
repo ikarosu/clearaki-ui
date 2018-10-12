@@ -500,13 +500,15 @@ input,textarea,select,button,a{
     color: @color-primary;
   }
 }
-
-.aki-modal-wrap{
+.aki-full-screen{
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+}
+.aki-modal-wrap{
+  .aki-full-screen;
   background-color: rgba(0,0,0,.32);
   z-index: 800;
 }
@@ -570,6 +572,13 @@ input,textarea,select,button,a{
       >footer{
         border-top: solid 1px @dialog-border;
       }
+    }
+  }
+  &-full{
+    .aki-full-screen;
+    z-index: 700;
+    >*:not(.aki-topbars){
+      background-color: #fff;
     }
   }
 }
