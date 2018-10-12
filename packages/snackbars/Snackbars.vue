@@ -33,7 +33,15 @@ export default {
       return this.during || this.longAction && 10000 || this.action && 7000 || 4000
     }
   },
-  created() {
+  watch: {
+    visible(show) {
+      if (show && this.position === 'bottom') {
+        if (document.querySelector('.aki-toolbars') !== null)
+          this.offset = '64px'
+        if (document.querySelector('.aki-main.page') && document.querySelector('.aki-main.page').nextElementSibling)
+          this.offset = `${document.querySelector('.aki-main.page').nextElementSibling + 8}px`
+      }
+    }
   },
   mounted() {
     // eslint-disable-next-line
