@@ -506,7 +506,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.32);
+  background-color: rgba(0, 0, 0, 0.32) !important;
   z-index: 800;
 }
 /**
@@ -520,7 +520,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.32);
+  background-color: rgba(0, 0, 0, 0.32) !important;
   z-index: 800;
   display: flex;
   justify-content: center;
@@ -604,7 +604,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.32);
+  background-color: rgba(0, 0, 0, 0.32) !important;
   z-index: 800;
 }
 .aki-bottom-sheet > .aki-bottom-sheet-layout {

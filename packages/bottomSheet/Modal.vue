@@ -2,7 +2,8 @@
   <transition name="aki-bgfade">
   <section v-show="visible"
     @click.self="click"
-    class="aki-bottom-sheet">
+    class="aki-bottom-sheet"
+    @touchstart.stop>
     <transition name="aki-slide-bottom">
     <div @click="handleSome($event)" v-show="visible" class="aki-bottom-sheet-layout"
       :class="{'aki-bottom-sheet-scroll':scroll}">
