@@ -11,6 +11,7 @@ import Tabs from '../packages/tabs'
 import Tab from '../packages/tab'
 import Counter from '../packages/counter'
 import Picker from '../packages/picker'
+import Icon from '../packages/icon'
 
 const components = [
   Button,
@@ -26,6 +27,7 @@ const components = [
   Tab,
   Counter,
   Picker,
+  Icon,
 ]
 const install = (Vue, opt = {}) => {
   components.forEach(component => Vue.component(component.name, component))
@@ -49,6 +51,7 @@ const AkiUI = {
   Tab,
   Counter,
   Picker,
+  Icon,
 }
 export {
   Button,
@@ -64,5 +67,6 @@ export {
   Tab,
   Counter,
   Picker,
+  Icon,
 }
 export default AkiUI

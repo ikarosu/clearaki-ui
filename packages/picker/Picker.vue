@@ -56,14 +56,12 @@ export default {
     }
   },
   mounted() {
-    // 挂载后才能访问$refs
-    if (this.value === '') this.emit()
-    else {
-      const index = Array.from(this.$refs.options.children).findIndex(el => el.value === this.value) - 1
-      this.finger.transformY = -H * index
-      this.finger.scroll = this.finger.transformY
-      this.setTransform()
-    }
+    // 如果默认值为空，将为-1
+    const index = Array.from(this.$refs.options.children).findIndex(el => el.value === this.value) - 1
+    this.finger.transformY = -H * index
+    this.finger.scroll = this.finger.transformY
+    this.setTransform()
+
     this.$el.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0]
       this.finger.startY = touch.pageY

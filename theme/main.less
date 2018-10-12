@@ -35,7 +35,10 @@ input,textarea,select,button,a{
 
 
   line-height: 1;
-  font-size: 0.875rem;
+  @fzl: 1.2rem;
+  @fz: 1rem;
+  @fzs: 0.85rem;
+  font-size: @fzl;
   font-weight: 500;
 
   border-radius: 4px;
@@ -48,16 +51,16 @@ input,textarea,select,button,a{
   }
   &.aki-btn-xl{
     min-width: 96px;
-    font-size: 0.875rem;
+    font-size: @fzl;
     height: 40px;
     &.aki-btn-outline{
       line-height: 36px;
     }
   }
-  font-size: 0.8125rem;
   height: 36px;
   &.aki-btn-l{
     min-width: 80px;
+    font-size: @fz;
     &.aki-btn-outline{
       line-height: 32px;
     }
@@ -65,12 +68,14 @@ input,textarea,select,button,a{
   min-width: 64px;
   padding: 0 16px;
   &.aki-btn-m{
+    font-size: @fz;
     &.aki-btn-outline{
       line-height: 32px;
     }
   }
   &.aki-btn-s{
     height: 32px;
+    font-size: @fz;
     &.aki-btn-outline{
       line-height: 28px;
     }
@@ -79,7 +84,7 @@ input,textarea,select,button,a{
     min-width: 56px;
     padding: 0 12px;
     height: 28px;
-    font-size: 0.75rem;
+    font-size: @fzs;
     &.aki-btn-outline{
       padding: 0 10px;
       line-height: 24px;
