@@ -642,6 +642,7 @@ input,textarea,select,button,a{
   z-index: 5;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   padding: 16px;
   min-height: 56px;
@@ -858,6 +859,12 @@ input,textarea,select,button,a{
 }
 .aki-slide-bottom-enter,.aki-slide-bottom-leave-to{
   transform: translateY(101%);
+}
+.aki-slide-top-enter-active, .aki-slide-top-leave-active {
+  transition: @transition-type-1;
+}
+.aki-slide-top-enter,.aki-slide-top-leave-to{
+  transform: translateY(-101%);
 }
 .aki-fade-zoom-enter-active, .aki-fade-zoom-leave-active {
   transition: .2s ease-out;

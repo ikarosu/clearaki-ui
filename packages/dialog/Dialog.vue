@@ -6,6 +6,9 @@
         <slot name="action"></slot>
       </span>
     </topbars>
+    <transition name="aki-slide-top">
+      <slot v-if="visible" name="header"></slot>
+    </transition>
     <transition name="aki-fade-zoom">
     <main v-show="visible" class="aki-page-main" :class="pageClass">
       <slot></slot>
