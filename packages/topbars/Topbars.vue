@@ -12,17 +12,8 @@ import Icon from '../icon'
 export default {
   name: 'AkiTopbars',
   components: { Icon },
-  model: {
-    prop: 'active',
-    event: 'toggle'
-  },
   props: {
-    active: String,
     fill: {
-      type: Boolean,
-      default() { return false }
-    },
-    fixText: {
       type: Boolean,
       default() { return false }
     },
@@ -39,13 +30,10 @@ export default {
   },
   mounted() {
     const nextNode = this.$el.nextElementSibling
-    if (nextNode && nextNode.classList.contains('aki-page-main'))
+    if (nextNode && !nextNode.classList.contains('aki-tabs'))
       this.$el.classList.add('aki-shadow-bottom')
   },
   methods: {
-    dispatch(label) {
-      this.$emit('toggle', label)
-    },
     handleNav() {
       this.$emit('nav-click', this.nav)
     }

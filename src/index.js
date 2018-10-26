@@ -12,12 +12,12 @@ import Tab from '../packages/tab'
 import Counter from '../packages/counter'
 import Picker from '../packages/picker'
 import Icon from '../packages/icon'
+import Confirm from '../packages/confirm'
 
 const components = [
   Button,
   Input,
   Select,
-  Snackbars,
   Toolbars,
   Toolbar,
   Dialog,
@@ -29,9 +29,12 @@ const components = [
   Picker,
   Icon,
 ]
-const install = (Vue, opt = {}) => {
+const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
   Vue.prototype.$snackbars = Snackbars
+  Vue.prototype.$confirm = Confirm
+  Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！' })
+  Vue.prototype.$prompt = (label, type = 'text') => Confirm({ action: 'prompt', label, type, content: '请输入：' })
 }
 
 // if (typeof window !== undefined && window.Vue) install(window.Vue)
@@ -52,6 +55,7 @@ const AkiUI = {
   Counter,
   Picker,
   Icon,
+  Confirm,
 }
 export {
   Button,
@@ -68,5 +72,6 @@ export {
   Counter,
   Picker,
   Icon,
+  Confirm,
 }
 export default AkiUI

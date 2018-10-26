@@ -1,0 +1,57 @@
+<template>
+  <aki-dialog :visible.sync="visible" @close="closed">
+    <h3 slot="header" v-text="title"></h3>
+    <div v-html="content"></div>
+    <aki-input v-if="action==='prompt'" full :type="type" nobg v-model="text" :label="label"></aki-input>
+    <aki-button v-if="type!=='alert'" slot="footer" @click="cancel">取消</aki-button>
+    <aki-button slot="footer" @click="confirm">确定</aki-button>
+  </aki-dialog>
+</template>
+
+<script>
+import Dialog from '../dialog/Dialog'
+import Button from '../button/Button'
+import Input from '../input/Input'
+export default {
+  name: 'AkiConfirm',
+  components: {
+    'aki-dialog': Dialog,
+    'aki-button': Button,
+    'aki-input': Input,
+  },
+  data() {
+    return {
+      visible: false,
+      resolve: null,
+      reject: null,
+
+      title: '提示',
+      content: '是否确认进行当前操作？',
+      action: 'confirm',
+      type: 'text',
+
+      text: '',
+      label: '',
+    }
+  },
+  mounted() {
+    this.visible = true
+  },
+  methods: {
+    close() {
+      this.visible = false
+    },
+    confirm() {
+      this.resolve(this.text)
+      this.close()
+    },
+    closed() {
+      this.reject()
+    },
+    cancel() {
+      this.reject()
+      this.close()
+    }
+  }
+}
+</script>

@@ -17,6 +17,9 @@ a {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(56, 187, 246, 0.5);
 }
+select {
+  -webkit-appearance: menulist;
+}
 .aki-btn {
   display: inline-flex;
   justify-content: center;
@@ -548,6 +551,21 @@ a {
 .aki-dialog > .aki-dialog-layout > header h1,
 .aki-dialog > .aki-dialog-layout > main h1,
 .aki-dialog > .aki-dialog-layout > footer h1,
+.aki-dialog > .aki-dialog-layout > header h2,
+.aki-dialog > .aki-dialog-layout > main h2,
+.aki-dialog > .aki-dialog-layout > footer h2,
+.aki-dialog > .aki-dialog-layout > header h3,
+.aki-dialog > .aki-dialog-layout > main h3,
+.aki-dialog > .aki-dialog-layout > footer h3,
+.aki-dialog > .aki-dialog-layout > header h4,
+.aki-dialog > .aki-dialog-layout > main h4,
+.aki-dialog > .aki-dialog-layout > footer h4,
+.aki-dialog > .aki-dialog-layout > header h5,
+.aki-dialog > .aki-dialog-layout > main h5,
+.aki-dialog > .aki-dialog-layout > footer h5,
+.aki-dialog > .aki-dialog-layout > header h6,
+.aki-dialog > .aki-dialog-layout > main h6,
+.aki-dialog > .aki-dialog-layout > footer h6,
 .aki-dialog > .aki-dialog-layout > header p,
 .aki-dialog > .aki-dialog-layout > main p,
 .aki-dialog > .aki-dialog-layout > footer p {
