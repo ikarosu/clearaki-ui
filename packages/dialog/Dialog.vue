@@ -28,7 +28,7 @@
         <header v-if="$slots.header">
           <slot name="header"></slot>
         </header>
-        <main>
+        <main :class="pageClass">
           <slot></slot>
         </main>
         <footer v-if="$slots.footer">
