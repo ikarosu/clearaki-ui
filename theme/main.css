@@ -33,7 +33,7 @@ select {
   min-width: 64px;
   padding: 0 16px;
 }
-.aki-btn > :first-child {
+.aki-btn > svg:first-child:not(.aki-progress) {
   margin-left: -4px;
   margin-right: 8px;
 }
@@ -43,12 +43,13 @@ select {
 .aki-btn.aki-btn-xl {
   min-width: 96px;
   font-size: 1.2rem;
-  height: 40px;
+  height: 44px;
 }
 .aki-btn.aki-btn-xl.aki-btn-outline {
   line-height: 36px;
 }
 .aki-btn.aki-btn-l {
+  height: 40px;
   min-width: 80px;
   font-size: 1rem;
 }
@@ -172,6 +173,33 @@ select {
 .aki-btn.aki-btn-outline.aki-btn-plain,
 .aki-btn.aki-btn-outline[disabled] {
   border-color: #ddd;
+}
+.aki-btn .aki-progress {
+  display: inline-block;
+}
+.aki-btn .aki-progress.loading circle {
+  animation: btn-loading 1.4s ease-in-out infinite;
+}
+@keyframes btn-loading {
+  0%,
+  5% {
+    stroke-dasharray: 8, 75;
+    stroke-dashoffset: 16;
+  }
+  45% {
+    stroke-dasharray: 55, 75;
+  }
+  55% {
+    stroke-dasharray: 75, 75;
+    stroke-dashoffset: -20;
+  }
+  95%,
+  100% {
+    stroke-dashoffset: -50;
+  }
+}
+.aki-btn-loading {
+  pointer-events: none;
 }
 /**
   **********************************
@@ -849,6 +877,49 @@ select {
 .aki-page > .aki-page-main {
   flex: 1;
   overflow-y: scroll;
+}
+/**
+  **********************************
+  * progress
+  **********************************
+**/
+.aki-progress {
+  transform: rotate(-90deg);
+}
+.aki-progress.loading {
+  animation: rotate 2s linear infinite;
+}
+.aki-progress.loading circle {
+  animation: circle-loading 1.4s ease-in-out infinite;
+}
+.aki-progress circle {
+  stroke: #03a9f4;
+}
+@keyframes circle-loading {
+  0%,
+  5% {
+    stroke-dasharray: 8, 125;
+    stroke-dashoffset: 16;
+  }
+  45% {
+    stroke-dasharray: 105, 125;
+  }
+  55% {
+    stroke-dasharray: 135, 125;
+    stroke-dashoffset: -30;
+  }
+  95%,
+  100% {
+    stroke-dashoffset: -117;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /**
   **********************************

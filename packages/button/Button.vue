@@ -9,14 +9,18 @@
       {'aki-btn-circle': circle},
       {'aki-btn-full-width': full},
       {'aki-btn-plain': plain},
+      {'aki-btn-loading': loading},
     ]">
-    <slot></slot>
+    <aki-progress v-if="loading" width="24" stroke="2" loading></aki-progress>
+    <slot v-else></slot>
   </button>
 </template>
 
 <script>
+import Progress from '../progress/Progress'
 export default {
   name: 'AkiButton',
+  components: { 'AkiProgress': Progress },
   props: {
     type: {
       type: String,
@@ -39,6 +43,10 @@ export default {
       default() { return false }
     },
     plain: {
+      type: Boolean,
+      default() { return false }
+    },
+    loading: {
       type: Boolean,
       default() { return false }
     },

@@ -34,7 +34,6 @@ select{-webkit-appearance: menulist;}
 
   box-sizing: border-box;
 
-
   line-height: 1;
   @fzl: 1.2rem;
   @fz: 1rem;
@@ -43,7 +42,7 @@ select{-webkit-appearance: menulist;}
   font-weight: 500;
 
   border-radius: 4px;
-  >:first-child{
+  >svg:first-child:not(.aki-progress){
     margin-left: -4px;
     margin-right: 8px;
   }
@@ -53,13 +52,14 @@ select{-webkit-appearance: menulist;}
   &.aki-btn-xl{
     min-width: 96px;
     font-size: @fzl;
-    height: 40px;
+    height: 44px;
     &.aki-btn-outline{
       line-height: 36px;
     }
   }
   height: 36px;
   &.aki-btn-l{
+    height: 40px;
     min-width: 80px;
     font-size: @fz;
     &.aki-btn-outline{
@@ -175,6 +175,33 @@ select{-webkit-appearance: menulist;}
     &.aki-btn-plain,&[disabled]{
       border-color: #ddd;
     }
+  }
+  .aki-progress{
+    display: inline-block;
+    &.loading{
+      circle{
+        animation: btn-loading 1.4s ease-in-out infinite;
+      }
+    }
+  }
+  @keyframes btn-loading{
+    0%,5% {
+      stroke-dasharray: 8, 75;
+      stroke-dashoffset: 16;
+    }
+    45%{
+      stroke-dasharray: 55, 75;
+    }
+    55% {
+      stroke-dasharray: 75, 75;
+      stroke-dashoffset: -20;
+    }
+    95%,100%{
+      stroke-dashoffset: -50;
+    }
+  }
+  &-loading{
+    pointer-events: none;
   }
 }
 
@@ -834,6 +861,48 @@ select{-webkit-appearance: menulist;}
   >.aki-page-main{
     flex: 1;
     overflow-y: scroll;
+  }
+}
+
+/**
+  **********************************
+  * progress
+  **********************************
+**/
+.aki-progress{
+  transform: rotate(-90deg);
+  &.loading{
+    animation: rotate 2s linear infinite;
+    circle{
+      animation: circle-loading 1.4s ease-in-out infinite;
+    }
+  }
+  circle{
+    stroke: @color-primary;
+  }
+}
+@keyframes circle-loading{
+  0%,5% {
+    stroke-dasharray: 8, 125;
+    stroke-dashoffset: 16;
+  }
+  45%{
+    stroke-dasharray: 105, 125;
+  }
+  55% {
+    stroke-dasharray: 135, 125;
+    stroke-dashoffset: -30;
+  }
+  95%,100%{
+    stroke-dashoffset: -117;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

@@ -13,6 +13,7 @@ import Counter from '../packages/counter'
 import Picker from '../packages/picker'
 import Icon from '../packages/icon'
 import Confirm from '../packages/confirm'
+import Progress from '../packages/progress'
 
 const components = [
   Button,
@@ -28,6 +29,7 @@ const components = [
   Counter,
   Picker,
   Icon,
+  Progress,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -56,6 +58,7 @@ const AkiUI = {
   Picker,
   Icon,
   Confirm,
+  Progress,
 }
 export {
   Button,
@@ -73,5 +76,6 @@ export {
   Picker,
   Icon,
   Confirm,
+  Progress,
 }
 export default AkiUI

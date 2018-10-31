@@ -60,7 +60,7 @@ export default {
   },
   mounted() {
     const nextNode = this.$el.nextElementSibling
-    if (nextNode.classList.contains('aki-page-main'))
+    if (nextNode && nextNode.classList.contains('aki-page-main'))
       this.$el.classList.add('aki-shadow-bottom')
   },
   methods: {
