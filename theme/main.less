@@ -153,6 +153,9 @@ select{-webkit-appearance: menulist;}
       color: white;
       background-color: @disabled;
     }
+    svg>circle{
+      stroke: white;
+    }
   }
 
   &.aki-btn-text{
@@ -527,6 +530,18 @@ select{-webkit-appearance: menulist;}
   &.aki-toolbar-active{
     color: @color-primary;
   }
+}
+.aki-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aki-full-element{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .aki-full-screen{
   position: fixed;

@@ -152,6 +152,10 @@ select {
   color: white;
   background-color: #e7e7e7;
 }
+.aki-btn.aki-btn-raise svg > circle,
+.aki-btn.aki-btn-fill svg > circle {
+  stroke: white;
+}
 .aki-btn.aki-btn-text {
   padding: 0 12px;
 }

@@ -37,6 +37,23 @@ const install = Vue => {
   Vue.prototype.$confirm = Confirm
   Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！' })
   Vue.prototype.$prompt = (label, type = 'text') => Confirm({ action: 'prompt', label, type, content: '请输入：' })
+  const CProgress = Vue.extend(Progress)
+  const progress = new CProgress({ propsData: { loading: true } })
+  progress.vm = progress.$mount()
+  Vue.directive('loading', {
+    bind(el) {
+      el.style.position = 'relative'
+      const div = document.createElement('div')
+      div.className = 'aki-loading aki-full-element aki-center'
+      div.style.backgroundColor = '#fff'
+      div.style.display = 'none'
+      div.appendChild(progress.vm.$el)
+      el.appendChild(div)
+    },
+    update(el, buiding) {
+      el.querySelector('.aki-loading').style.display = buiding.value ? 'flex' : 'none'
+    }
+  })
 }
 
 // if (typeof window !== undefined && window.Vue) install(window.Vue)
