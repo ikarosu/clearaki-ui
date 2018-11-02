@@ -1,12 +1,12 @@
 <template>
   <transition name="aki-fade-zoom">
     <section v-if="visible"
-      class="aki-snackbars"
-      :class="[position, {'aki-snackbars-entire-width': fullWidth}]"
+      class="aki-snackbar"
+      :class="[position, {'aki-snackbar-entire-width': fullWidth}]"
       :style="position!=='center'&&{[position]:offset}">
-      <div class="aki-snackbars-wrap" :class="{'aki-snackbars-long-action': longAction}">
+      <div class="aki-snackbar-wrap" :class="{'aki-snackbar-long-action': longAction}">
         <span>{{text}}</span>
-        <aki-button v-if="action" class="aki-snackbars-action" size="dense" type="text">{{action}}</aki-button>
+        <aki-button @click="handleAction" v-if="action" class="aki-snackbar-action" size="xs" type="text">{{action}}</aki-button>
       </div>
     </section>
   </transition>
@@ -26,11 +26,14 @@ export default {
       action: '',
       fullWidth: false,
       longAction: false,
+
+      resolve: null,
+      reject: null,
     }
   },
   computed: {
     computedDuring() {
-      return this.during || this.longAction && 10000 || this.action && 7000 || 4000
+      return typeof this.during === 'number' ? this.during : this.longAction && 10000 || this.action && 7000 || 4000
     }
   },
   watch: {
@@ -49,7 +52,7 @@ export default {
     const chineseStrLength = chineseStr.length
     if (chineseStrLength * 2 + this.action.length - chineseStrLength > 7) this.longAction = true
     this.visible = true
-    this.startTimer()
+    if (this.computedDuring > 0) this.startTimer()
   },
   methods: {
     startTimer() {
@@ -59,6 +62,22 @@ export default {
     },
     close() {
       this.visible = false
+      this.action !== '' && this.reject(this)
+    },
+    open() {
+      this.visible = true
+      if (this.computedDuring > 0) this.startTimer()
+      if (this.action !== '')
+        return new Promise((resolve, reject) => {
+          this.resolve = resolve
+          this.reject = reject
+        })
+      else
+        return this
+    },
+    handleAction() {
+      this.visible = false
+      this.action !== '' && this.resolve(this)
     }
   },
 }

@@ -1,15 +1,15 @@
 <template>
   <div class="aki-tab" :class="{'aki-tab-active': active}">
-    <input type="radio" name="aki-tab"
-      :id="label"
+    <input type="radio" :name="`aki-tab-${tid}`"
+      :id="`aki-tab-${label}-${tid}`"
       :value="label"
       :checked="active"
       @change="checkChange(label)">
-    <label :for="label">
+    <label :for="`aki-tab-${label}-${tid}`">
       <div :class="{
-        'aki-badges': typeof badges == 'string',
-        'aki-badges-dot':badges==''}"
-        :badges="badges">
+        'aki-badge': typeof badge == 'string',
+        'aki-badge-dot':badge==''}"
+        :badge="badge">
         <slot></slot>
       </div>
     </label>
@@ -24,11 +24,14 @@ export default {
       required: true,
       type: String,
     },
-    badges: false,
+    badge: false,
   },
   computed: {
     active() {
       return this.$parent.active === this.label
+    },
+    tid() {
+      return this.$parent._uid
     }
   },
   data() {
@@ -36,11 +39,6 @@ export default {
       checked: '',
     }
   },
-  // watch: {
-  //   active() {
-  //     this.$parent.dispatch(this.label, this.$el)
-  //   }
-  // },
   methods: {
     checkChange(label) {
       this.$parent.dispatch(label)

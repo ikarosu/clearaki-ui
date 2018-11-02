@@ -210,18 +210,18 @@ select{-webkit-appearance: menulist;}
 
 /**
   **********************************
-  * snackbars
+  * snackbar
   **********************************
 **/
 
-.aki-snackbars{
+.aki-snackbar{
   position: fixed;
   left: 0;
   display: flex;
   justify-content: center;
   width: 100vw;
   z-index: 900;
-  .aki-snackbars-wrap{
+  .aki-snackbar-wrap{
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -230,15 +230,14 @@ select{-webkit-appearance: menulist;}
     
     background-color: #323232;
     overflow: hidden;
-    &:not(.aki-snackbars-long-action){
+    &:not(.aki-snackbar-long-action){
       max-height: 68px;
       align-items: center;
     }
-    &.aki-snackbars-long-action{
+    &.aki-snackbar-long-action{
       flex-direction: column;
-      align-items: flex-end;
       padding-bottom: 8px;
-      >.aki-snackbars-action{
+      >.aki-snackbar-action{
         width: auto;
       }
     }
@@ -249,7 +248,8 @@ select{-webkit-appearance: menulist;}
       color: white;
       font-size: 0.8125rem;
     }
-    >.aki-snackbars-action{
+    >.aki-snackbar-action{
+      align-self: flex-end;
       margin-left: 10px;
       width: 80px;
       &:focus{
@@ -257,7 +257,7 @@ select{-webkit-appearance: menulist;}
       }
     }
   }
-  &:not(.aki-snackbars-entire-width){
+  &:not(.aki-snackbar-entire-width){
     bottom: 8px;
     &.top{
       top: 8px;
@@ -266,14 +266,14 @@ select{-webkit-appearance: menulist;}
     &.center{
       bottom: 50vh;
     }
-    .aki-snackbars-wrap{
+    .aki-snackbar-wrap{
       width: 344px;
       border-radius: 4px;
       box-shadow: @shadow-level-1;
     }
   }
-  &.aki-snackbars-entire-width{
-    .aki-snackbars-wrap{
+  &.aki-snackbar-entire-width{
+    .aki-snackbar-wrap{
       width: 100vw;
     }
     bottom: 0;
@@ -437,10 +437,10 @@ select{-webkit-appearance: menulist;}
 }
 /**
   **********************************
-  * badges
+  * badge
   **********************************
 **/
-.aki-badges{
+.aki-badge{
   position: relative;
   &::after{
     position: absolute;
@@ -448,15 +448,15 @@ select{-webkit-appearance: menulist;}
     border-radius: 10px;
     background-color: red;
   }
-  &.aki-badges-dot::after{
+  &.aki-badge-dot::after{
     content: '';
     top: -4px;
     left: 90%;
     width: 8px;
     height: 8px;
   }
-  &:not(.aki-badges-dot)::after{
-    content: attr(badges);
+  &:not(.aki-badge-dot)::after{
+    content: attr(badge);
     top: -5px;
     left: 90%;
     box-sizing: border-box;
@@ -542,6 +542,9 @@ select{-webkit-appearance: menulist;}
   right: 0;
   bottom: 0;
   left: 0;
+  max-height: 100vh;
+  min-height: 120px;
+  z-index: 8;
 }
 .aki-full-screen{
   position: fixed;
@@ -676,7 +679,7 @@ select{-webkit-appearance: menulist;}
 **/
 
 .aki-shadow-bottom{
-  box-shadow: 0 3px 1px 0 rgba(0,0,0,.2), 0 4px 2px 0 rgba(0,0,0,.14), 0 7px 5px 0 rgba(0,0,0,.12);
+  box-shadow: @shadow-level-2;
   +*{
     margin-top: 5px;
   }
@@ -763,7 +766,7 @@ select{-webkit-appearance: menulist;}
     flex-wrap: nowrap;
     // width: 100%;
     >.aki-tab{
-      >input[name=aki-tab]{
+      >input[type=radio]{
         display: none;
       }
       >label{

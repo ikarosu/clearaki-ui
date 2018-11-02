@@ -50,6 +50,7 @@ export default {
       default() { return false }
     },
     label: {
+      require: true,
       type: String,
       default() { return '在这里填写' }
     },

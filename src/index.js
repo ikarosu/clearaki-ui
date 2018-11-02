@@ -1,7 +1,7 @@
 import Button from '../packages/button'
 import Input from '../packages/input'
 import Select from '../packages/select'
-import Snackbars from '../packages/snackbars'
+import Snackbar from '../packages/snackbar'
 import Toolbars from '../packages/toolbars'
 import Toolbar from '../packages/toolbar'
 import Dialog from '../packages/dialog'
@@ -33,7 +33,7 @@ const components = [
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
-  Vue.prototype.$snackbars = Snackbars
+  Vue.prototype.$snackbar = Snackbar
   Vue.prototype.$confirm = Confirm
   Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！' })
   Vue.prototype.$prompt = (label, type = 'text') => Confirm({ action: 'prompt', label, type, content: '请输入：' })
@@ -63,7 +63,7 @@ const AkiUI = {
   Button,
   Input,
   Select,
-  Snackbars,
+  Snackbar,
   Toolbars,
   Toolbar,
   Dialog,
@@ -81,7 +81,7 @@ export {
   Button,
   Input,
   Select,
-  Snackbars,
+  Snackbar,
   Toolbars,
   Toolbar,
   Dialog,

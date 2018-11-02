@@ -3,7 +3,7 @@
     <h3 slot="header" v-text="title"></h3>
     <div v-html="content"></div>
     <aki-input v-if="action==='prompt'" full :type="type" nobg v-model="text" :label="label"></aki-input>
-    <aki-button v-if="type!=='alert'" slot="footer" @click="cancel">取消</aki-button>
+    <aki-button v-if="action!=='alert'" slot="footer" @click="cancel">取消</aki-button>
     <aki-button slot="footer" @click="confirm">确定</aki-button>
   </aki-dialog>
 </template>

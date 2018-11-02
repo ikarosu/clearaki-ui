@@ -1,15 +1,15 @@
 <template>
   <div class="aki-toolbar" :class="{'aki-toolbar-active': active}">
     <input type="radio" name="aki-toolbar"
-      :id="label"
+      :id="`aki-toolbar-${label}-${tid}`"
       :value="label"
       :checked="active"
       @change="checkChange(label)">
-    <label :for="label">
+    <label :for="`aki-toolbar-${label}-${tid}`">
       <div :class="{
-        'aki-badges': typeof badges == 'string',
-        'aki-badges-dot':badges==''}"
-        :badges="badges">
+        'aki-badge': typeof badge == 'string',
+        'aki-badge-dot':badge==''}"
+        :badge="badge">
         <slot></slot>
         <span class="aki-toolbar-text">
           <slot name="text" v-if="$parent.fixText || active">{{label}}</slot>
@@ -27,11 +27,14 @@ export default {
       required: true,
       type: String,
     },
-    badges: false,
+    badge: false,
   },
   computed: {
     active() {
       return this.$parent.active === this.label
+    },
+    tid() {
+      return this.$parent._uid
     }
   },
   data() {

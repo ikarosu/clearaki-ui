@@ -22,10 +22,6 @@ export default {
       type: Boolean,
       default() { return false }
     },
-    fixText: {
-      type: Boolean,
-      default() { return false }
-    },
     scroll: {
       type: Boolean,
       default() { return false }
@@ -39,17 +35,23 @@ export default {
     }
   },
   watch: {
-    activeIndex(index) {
-      let x = 0
-      this.$slots.default.every(({ componentInstance: vm }, i) => {
-        if (i === index) return false
-        x += vm.$el.clientWidth
-        return true
-      })
-      const activeVm = this.$slots.default[index].componentInstance
-      this.width = `${activeVm.$el.offsetWidth}px`
-      this.offsetX = x
-      this.$emit('toggle', activeVm.label)
+    activeIndex: {
+      immediate: true,
+      handler(index) {
+        let x = 0
+        this.$slots.default.every(({ componentInstance: vm }, i) => {
+          if (i === index) return false
+          x += vm.$el.clientWidth
+          return true
+        })
+        this.$nextTick()
+          .then(() => {
+            const activeVm = this.$slots.default[index].componentInstance
+            this.width = `${activeVm.$el.offsetWidth}px`
+            this.offsetX = x
+            this.$emit('toggle', activeVm.label)
+          })
+      },
     },
     active() {
       this.$nextTick()

@@ -207,10 +207,10 @@ select {
 }
 /**
   **********************************
-  * snackbars
+  * snackbar
   **********************************
 **/
-.aki-snackbars {
+.aki-snackbar {
   position: fixed;
   left: 0;
   display: flex;
@@ -218,7 +218,7 @@ select {
   width: 100vw;
   z-index: 900;
 }
-.aki-snackbars .aki-snackbars-wrap {
+.aki-snackbar .aki-snackbar-wrap {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -227,54 +227,54 @@ select {
   background-color: #323232;
   overflow: hidden;
 }
-.aki-snackbars .aki-snackbars-wrap:not(.aki-snackbars-long-action) {
+.aki-snackbar .aki-snackbar-wrap:not(.aki-snackbar-long-action) {
   max-height: 68px;
   align-items: center;
 }
-.aki-snackbars .aki-snackbars-wrap.aki-snackbars-long-action {
+.aki-snackbar .aki-snackbar-wrap.aki-snackbar-long-action {
   flex-direction: column;
-  align-items: flex-end;
   padding-bottom: 8px;
 }
-.aki-snackbars .aki-snackbars-wrap.aki-snackbars-long-action > .aki-snackbars-action {
+.aki-snackbar .aki-snackbar-wrap.aki-snackbar-long-action > .aki-snackbar-action {
   width: auto;
 }
-.aki-snackbars .aki-snackbars-wrap > span {
+.aki-snackbar .aki-snackbar-wrap > span {
   flex: 1;
   margin: 16px 8px;
   line-height: 21px;
   color: white;
   font-size: 0.8125rem;
 }
-.aki-snackbars .aki-snackbars-wrap > .aki-snackbars-action {
+.aki-snackbar .aki-snackbar-wrap > .aki-snackbar-action {
+  align-self: flex-end;
   margin-left: 10px;
   width: 80px;
 }
-.aki-snackbars .aki-snackbars-wrap > .aki-snackbars-action:focus {
+.aki-snackbar .aki-snackbar-wrap > .aki-snackbar-action:focus {
   background: none;
 }
-.aki-snackbars:not(.aki-snackbars-entire-width) {
+.aki-snackbar:not(.aki-snackbar-entire-width) {
   bottom: 8px;
 }
-.aki-snackbars:not(.aki-snackbars-entire-width).top {
+.aki-snackbar:not(.aki-snackbar-entire-width).top {
   top: 8px;
   bottom: initial;
 }
-.aki-snackbars:not(.aki-snackbars-entire-width).center {
+.aki-snackbar:not(.aki-snackbar-entire-width).center {
   bottom: 50vh;
 }
-.aki-snackbars:not(.aki-snackbars-entire-width) .aki-snackbars-wrap {
+.aki-snackbar:not(.aki-snackbar-entire-width) .aki-snackbar-wrap {
   width: 344px;
   border-radius: 4px;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-.aki-snackbars.aki-snackbars-entire-width {
+.aki-snackbar.aki-snackbar-entire-width {
   bottom: 0;
 }
-.aki-snackbars.aki-snackbars-entire-width .aki-snackbars-wrap {
+.aki-snackbar.aki-snackbar-entire-width .aki-snackbar-wrap {
   width: 100vw;
 }
-.aki-snackbars.aki-snackbars-entire-width.top {
+.aki-snackbar.aki-snackbar-entire-width.top {
   top: 0;
   bottom: initial;
 }
@@ -434,27 +434,27 @@ select {
 }
 /**
   **********************************
-  * badges
+  * badge
   **********************************
 **/
-.aki-badges {
+.aki-badge {
   position: relative;
 }
-.aki-badges::after {
+.aki-badge::after {
   position: absolute;
   color: white;
   border-radius: 10px;
   background-color: red;
 }
-.aki-badges.aki-badges-dot::after {
+.aki-badge.aki-badge-dot::after {
   content: '';
   top: -4px;
   left: 90%;
   width: 8px;
   height: 8px;
 }
-.aki-badges:not(.aki-badges-dot)::after {
-  content: attr(badges);
+.aki-badge:not(.aki-badge-dot)::after {
+  content: attr(badge);
   top: -5px;
   left: 90%;
   box-sizing: border-box;
@@ -527,6 +527,21 @@ select {
 }
 .aki-toolbar.aki-toolbar-active {
   color: #03a9f4;
+}
+.aki-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aki-full-element {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100vh;
+  min-height: 120px;
+  z-index: 8;
 }
 .aki-full-screen {
   position: fixed;
@@ -694,7 +709,7 @@ select {
   **********************************
 **/
 .aki-shadow-bottom {
-  box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.2), 0 4px 2px 0 rgba(0, 0, 0, 0.14), 0 7px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .aki-shadow-bottom + * {
   margin-top: 5px;
@@ -775,7 +790,7 @@ select {
   display: flex;
   flex-wrap: nowrap;
 }
-.aki-tabs > .aki-tab-layout > .aki-tab > input[name=aki-tab] {
+.aki-tabs > .aki-tab-layout > .aki-tab > input[type=radio] {
   display: none;
 }
 .aki-tabs > .aki-tab-layout > .aki-tab > label {
