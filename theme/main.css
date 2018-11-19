@@ -236,6 +236,7 @@ select {
   padding-bottom: 8px;
 }
 .aki-snackbar .aki-snackbar-wrap.aki-snackbar-long-action > .aki-snackbar-action {
+  align-self: flex-end;
   width: auto;
 }
 .aki-snackbar .aki-snackbar-wrap > span {
@@ -246,7 +247,6 @@ select {
   font-size: 0.8125rem;
 }
 .aki-snackbar .aki-snackbar-wrap > .aki-snackbar-action {
-  align-self: flex-end;
   margin-left: 10px;
   width: 80px;
 }
