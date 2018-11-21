@@ -83,7 +83,6 @@ export default {
     },
   },
   mounted() {
-    if (this.type === 'radio') console.log('this', this)
     if (this.value.length > 0) this.aside = true
   },
   methods: {

@@ -35,29 +35,29 @@ export default {
     }
   },
   watch: {
-    activeIndex: {
-      immediate: true,
-      handler(index) {
-        let x = 0
-        this.$slots.default.every(({ componentInstance: vm }, i) => {
-          if (i === index) return false
-          x += vm.$el.clientWidth
-          return true
-        })
-        this.$nextTick()
-          .then(() => {
-            const activeVm = this.$slots.default[index].componentInstance
-            this.width = `${activeVm.$el.offsetWidth}px`
-            this.offsetX = x
-            this.$emit('toggle', activeVm.label)
-          })
-      },
-    },
-    active() {
+    activeIndex(index) {
       this.$nextTick()
         .then(() => {
-          this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
+          let x = 0
+          this.$slots.default.every(({ componentInstance: vm }, i) => {
+            if (i === index) return false
+            x += vm.$el.clientWidth
+            return true
+          })
+          const activeVm = this.$slots.default[index].componentInstance
+          this.width = `${activeVm.$el.offsetWidth}px`
+          this.offsetX = x
+          this.$emit('toggle', activeVm.label)
         })
+    },
+    active: {
+      immediate: true,
+      handler() {
+        this.$nextTick()
+          .then(() => {
+            this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
+          })
+      }
     }
   },
   mounted() {
