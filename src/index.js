@@ -14,6 +14,8 @@ import Picker from '../packages/picker'
 import Icon from '../packages/icon'
 import Confirm from '../packages/confirm'
 import Progress from '../packages/progress'
+import Radio from '../packages/radio'
+import Checkbox from '../packages/checkbox'
 
 const components = [
   Button,
@@ -30,6 +32,8 @@ const components = [
   Picker,
   Icon,
   Progress,
+  Radio,
+  Checkbox,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -76,6 +80,8 @@ const AkiUI = {
   Icon,
   Confirm,
   Progress,
+  Radio,
+  Checkbox,
 }
 export {
   Button,
@@ -94,5 +100,7 @@ export {
   Icon,
   Confirm,
   Progress,
+  Radio,
+  Checkbox,
 }
 export default AkiUI

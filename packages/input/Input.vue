@@ -15,17 +15,6 @@
       <label :class="{'aside': aside}" :for="label">{{label}}</label>
       <div class="line"></div>
     </div>
-    <div v-else-if="type=='radio'||type=='checkbox'"
-      class="aki-input-selection">
-      <input
-        :name="$attrs.name"
-        @change="check($event.target)"
-        :id="label"
-        :value="$attrs.value"
-        :type="type">
-      <i @click="$refs.label.click()"><b></b></i>
-      <label ref="label" :class="{'aside': aside}" :for="label">{{label}}</label>
-    </div>
     <p v-if="helper">{{helper}}</p>
   </div>
 </template>
@@ -33,10 +22,6 @@
 <script>
 export default {
   inheritAttrs: false,
-  // model: {
-  //   prop: 'lvalue',
-  //   event: 'check'
-  // },
   name: 'AkiInput',
   props: {
     type: {
@@ -68,7 +53,6 @@ export default {
       type: [String, Array],
       default() { return '' }
     },
-    lvalue: {}
   },
   data() {
     return {
@@ -94,17 +78,6 @@ export default {
     },
     input({ value }) {
       this.$emit('input', value)
-    },
-    check({ value }) {
-      if (this.type === 'radio') this.$emit('input', value)
-      else {
-        const boxs = this.$parent.$el.querySelectorAll(`[name=${this.$attrs.name}]`)
-        this.$emit('input',
-          Array.from(boxs)
-            .filter(d => d.checked)
-            .map(d => d.value)
-        )
-      }
     },
   },
 }
