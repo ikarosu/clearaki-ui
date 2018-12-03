@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       width: '90px',
-      activeIndex: 0,
+      activeIndex: -1,
       offsetX: 0,
     }
   },
