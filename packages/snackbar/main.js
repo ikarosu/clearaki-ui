@@ -8,7 +8,7 @@ const Toast = (text, options = {}) => {
   const instance = new Constractor({ data: options })
   if (instances.length) {
     const curr = instances[0].vm
-    curr.close()
+    curr && curr.close()
     instances.pop()
     setTimeout(() => {
       instance.vm = instance.$mount()
