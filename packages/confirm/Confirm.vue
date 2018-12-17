@@ -3,8 +3,8 @@
     <h3 slot="header" v-text="title"></h3>
     <div v-html="content"></div>
     <aki-input v-if="action==='prompt'" full :type="type" nobg v-model="text" :label="label"></aki-input>
-    <aki-button v-if="action!=='alert'" slot="footer" @click="cancel">取消</aki-button>
-    <aki-button slot="footer" @click="confirm">确定</aki-button>
+    <aki-button v-if="action!=='alert'" slot="footer" @click="cancel">{{ btnCancel }}</aki-button>
+    <aki-button slot="footer" @click="handleConfirm">{{ btnConfirm }}</aki-button>
   </aki-dialog>
 </template>
 
@@ -32,6 +32,9 @@ export default {
 
       text: '',
       label: '',
+
+      btnCancel: '取消',
+      btnConfirm: '确认',
     }
   },
   mounted() {
@@ -41,14 +44,14 @@ export default {
     close() {
       this.visible = false
     },
-    confirm() {
+    handleConfirm() {
       this.resolve(this.text)
       this.close()
     },
     closed() {
       this.reject()
     },
-    cancel() {
+    handleCancel() {
       this.reject()
       this.close()
     }

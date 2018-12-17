@@ -32,8 +32,8 @@ export default {
       type: String,
       default() { return '170px' }
     },
-    value: String,
-    valuex: String,
+    value: [String, Number],
+    valuex: [String, Number],
   },
   data() {
     return {

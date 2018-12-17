@@ -67,10 +67,13 @@ export default {
     }
   },
   mounted() {
-    if (this.$parent && this.$parent.$el.classList.contains('aki-page')) {
-      const topbarsNode = this.$parent.$children.find(node => node.$el.classList.contains('aki-topbars'))
-      if (topbarsNode) this.fill = topbarsNode.fill
-    }
+    this.$nextTick()
+      .then(() => {
+        if (this.$parent && this.$parent.$el.classList.contains('aki-page')) {
+          const topbarsNode = this.$parent.$children.find(node => node.$el.classList.contains('aki-topbars'))
+          if (topbarsNode) this.fill = topbarsNode.fill
+        }
+      })
   },
   methods: {
     click() {

@@ -39,7 +39,7 @@ const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
   Vue.prototype.$snackbar = Snackbar
   Vue.prototype.$confirm = Confirm
-  Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！' })
+  Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！', btnConfirm: '我知道了' })
   Vue.prototype.$prompt = (label, type = 'text') => Confirm({ action: 'prompt', label, type, content: '请输入：' })
   const CProgress = Vue.extend(Progress)
   const progress = new CProgress({ propsData: { loading: true } })

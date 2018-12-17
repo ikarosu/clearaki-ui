@@ -32,7 +32,7 @@ export default {
       type: String,
       default() { return '170px' }
     },
-    value: String,
+    value: [String, Number],
     valuex: Array,
   },
   data() {
