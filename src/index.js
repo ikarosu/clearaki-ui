@@ -16,6 +16,7 @@ import Confirm from '../packages/confirm'
 import Progress from '../packages/progress'
 import Radio from '../packages/radio'
 import Checkbox from '../packages/checkbox'
+import ContextMenu from '../packages/contextMenu'
 
 const components = [
   Button,
@@ -34,15 +35,30 @@ const components = [
   Progress,
   Radio,
   Checkbox,
+  ContextMenu,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
   Vue.prototype.$snackbar = Snackbar
   Vue.prototype.$confirm = Confirm
-  Vue.prototype.$alert = content => Confirm({ action: 'alert', content, title: '警告！', btnConfirm: '我知道了' })
-  Vue.prototype.$prompt = (label, type = 'text') => Confirm({ action: 'prompt', label, type, content: '请输入：' })
+  Vue.prototype.$alert = content => Confirm({
+    action: 'alert',
+    content,
+    title: '警告！',
+    btnConfirm: '我知道了'
+  })
+  Vue.prototype.$prompt = (label, type = 'text') => Confirm({
+    action: 'prompt',
+    label,
+    type,
+    content: '请输入：'
+  })
   const CProgress = Vue.extend(Progress)
-  const progress = new CProgress({ propsData: { loading: true } })
+  const progress = new CProgress({
+    propsData: {
+      loading: true
+    }
+  })
   progress.vm = progress.$mount()
   Vue.directive('loading', {
     bind(el) {
@@ -56,6 +72,20 @@ const install = Vue => {
     },
     update(el, buiding) {
       el.querySelector('.aki-loading').style.display = buiding.value ? 'flex' : 'none'
+    }
+  })
+  Vue.directive('contextmenu', {
+    inserted(el, binding, vnode) {
+      const { top, right: r } = el.getBoundingClientRect()
+      const right = window.innerWidth - r
+      const AkiContextMenu = vnode.children.find(v => v.tag && v.tag.includes('AkiContextMenu'))
+      if (!AkiContextMenu) throw 'not find AkiContextMenu component in "v-contextmenu" Element.'
+      const vm = AkiContextMenu.componentInstance
+      el.addEventListener('click', function() {
+        vm.visible = true
+        vm.top = top + 'px'
+        vm.right = right + 'px'
+      })
     }
   })
 }
@@ -82,6 +112,7 @@ const AkiUI = {
   Progress,
   Radio,
   Checkbox,
+  ContextMenu,
 }
 export {
   Button,
@@ -102,5 +133,6 @@ export {
   Progress,
   Radio,
   Checkbox,
+  ContextMenu,
 }
 export default AkiUI
