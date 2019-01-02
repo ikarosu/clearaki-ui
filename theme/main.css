@@ -396,8 +396,8 @@ select {
 .aki-input > .aki-input-selection > input {
   display: none;
 }
-.aki-input > .aki-input-selection > input[type=radio] + i,
-.aki-input > .aki-input-selection > input[type=radio] + i > b {
+.aki-input > .aki-input-selection > input[type="radio"] + i,
+.aki-input > .aki-input-selection > input[type="radio"] + i > b {
   border-radius: 50%;
 }
 .aki-input > .aki-input-selection > input:checked + i {
@@ -447,7 +447,7 @@ select {
   background-color: red;
 }
 .aki-badge.aki-badge-dot::after {
-  content: '';
+  content: "";
   top: -4px;
   left: 90%;
   width: 8px;
@@ -497,7 +497,7 @@ select {
 .aki-toolbars > .aki-toolbar-layout > .aki-toolbar {
   flex-grow: 1;
 }
-.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > input[name=aki-toolbar] {
+.aki-toolbars > .aki-toolbar-layout > .aki-toolbar > input[name="aki-toolbar"] {
   display: none;
 }
 .aki-toolbars > .aki-toolbar-layout > .aki-toolbar > label {
@@ -705,6 +705,39 @@ select {
 }
 /**
   **********************************
+  * context
+  **********************************
+**/
+.aki-context-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 800;
+}
+.aki-context-wrap .aki-context-layout {
+  position: absolute;
+  min-width: 112px;
+  max-width: 280px;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.aki-context-wrap .aki-context-layout > * {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 16px;
+  min-height: 56px;
+  box-sizing: border-box;
+}
+.aki-context-wrap .aki-context-layout > *[disabled] {
+  pointer-events: none;
+  color: #ccc;
+}
+/**
+  **********************************
   * topbars
   **********************************
 **/
@@ -790,7 +823,7 @@ select {
   display: flex;
   flex-wrap: nowrap;
 }
-.aki-tabs > .aki-tab-layout > .aki-tab > input[type=radio] {
+.aki-tabs > .aki-tab-layout > .aki-tab > input[type="radio"] {
   display: none;
 }
 .aki-tabs > .aki-tab-layout > .aki-tab > label {
@@ -851,7 +884,7 @@ select {
   top: 0;
   right: 0;
   left: 0;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 .aki-picker .aki-picker-options > option {
   padding: 0;
@@ -873,7 +906,7 @@ select {
 .aki-picker .aki-picker-board > p:first-child,
 .aki-picker .aki-picker-board > p:last-child {
   background-color: #fff;
-  opacity: .6;
+  opacity: 0.6;
 }
 .aki-picker .aki-picker-board > p:nth-child(2) {
   border-top: solid 2px #03a9f4;
@@ -939,6 +972,41 @@ select {
   to {
     transform: rotate(360deg);
   }
+}
+/**
+  **********************************
+  * banner
+  **********************************
+**/
+.aki-banner-wrap {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 8px;
+  background-color: #fff;
+  border-bottom: solid 1px #c1c1c1;
+  z-index: 3;
+}
+.aki-banner-wrap .aki-banner-content {
+  display: flex;
+}
+.aki-banner-wrap .aki-banner-content .aki-banner-icon {
+  width: 40px;
+  height: 40px;
+}
+.aki-banner-wrap .aki-banner-content .aki-banner-text {
+  flex: 1;
+  font-size: 12px;
+  line-height: 20px;
+}
+.aki-banner-wrap .aki-banner-content .aki-banner-text > * {
+  margin: 8px;
+  padding: 0;
+}
+.aki-banner-wrap .aki-banner-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 /**
   **********************************
