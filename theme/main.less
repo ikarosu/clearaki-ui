@@ -996,6 +996,42 @@ select {
 
 /**
   **********************************
+  * banner
+  **********************************
+**/
+.aki-banner-wrap{
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 8px;
+  background-color: #fff;
+  border-bottom: solid 1px #c1c1c1;
+  z-index: 3;
+  .aki-banner-content{
+    display: flex;
+    .aki-banner-icon{
+      width: 40px;
+      height: 40px;
+    }
+    .aki-banner-text{
+      flex: 1;
+      font-size: 12px;
+      line-height: 20px;
+      >*{
+        margin: 8px;
+        padding: 0;
+      }
+    }
+  }
+  .aki-banner-footer{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+/**
+  **********************************
   * animated
   **********************************
 **/

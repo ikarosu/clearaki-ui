@@ -17,6 +17,7 @@ import Progress from '../packages/progress'
 import Radio from '../packages/radio'
 import Checkbox from '../packages/checkbox'
 import ContextMenu from '../packages/contextMenu'
+import Banner from '../packages/banner'
 
 const components = [
   Button,
@@ -36,6 +37,7 @@ const components = [
   Radio,
   Checkbox,
   ContextMenu,
+  Banner,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -113,6 +115,7 @@ const AkiUI = {
   Radio,
   Checkbox,
   ContextMenu,
+  AkiBanner: Banner,
 }
 export {
   Button,
@@ -134,5 +137,6 @@ export {
   Radio,
   Checkbox,
   ContextMenu,
+  Banner as AkiBanner,
 }
 export default AkiUI
