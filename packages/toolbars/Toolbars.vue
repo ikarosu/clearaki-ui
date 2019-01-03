@@ -1,8 +1,8 @@
 <template>
   <nav class="aki-toolbars" :class="{'aki-toolbars-fill':fill}">
-    <main class="aki-toolbar-layout">
+    <div class="aki-toolbar-layout">
       <slot></slot>
-    </main>
+    </div>
   </nav>
 </template>
 

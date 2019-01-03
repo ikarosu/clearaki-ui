@@ -10,9 +10,9 @@
       <slot v-if="visible" name="header"></slot>
     </transition>
     <transition name="aki-fade-zoom">
-    <main v-show="visible" class="aki-page-main" :class="pageClass">
+    <div v-show="visible" class="aki-dialog-main aki-page-main" :class="pageClass">
       <slot></slot>
-    </main>
+    </div>
     </transition>
     <transition name="aki-slide-bottom">
       <slot v-if="visible" name="footer"></slot>
@@ -28,9 +28,9 @@
         <header v-if="$slots.header">
           <slot name="header"></slot>
         </header>
-        <main :class="pageClass">
+        <div class="aki-dialog-main" :class="pageClass">
           <slot></slot>
-        </main>
+        </div>
         <footer v-if="$slots.footer">
           <slot name="footer"></slot>
         </footer>

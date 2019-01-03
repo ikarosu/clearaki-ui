@@ -8,9 +8,9 @@
     <div @click="handleSome($event)" v-show="visible" class="aki-bottom-sheet-layout"
       :class="{'aki-bottom-sheet-scroll':scroll}">
       <header class="aki--header" v-if="title">{{title}}</header>
-      <main>
+      <div class="aki-bottom-sheet-main">
         <slot></slot>
-      </main>
+      </div>
       <slot name="custom"></slot>
     </div>
     </transition>

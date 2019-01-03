@@ -589,32 +589,32 @@ select {
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 .aki-dialog > .aki-dialog-layout > header,
-.aki-dialog > .aki-dialog-layout > main,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main,
 .aki-dialog > .aki-dialog-layout > footer {
   padding-right: 24px;
   padding-left: 24px;
   box-sizing: border-box;
 }
 .aki-dialog > .aki-dialog-layout > header h1,
-.aki-dialog > .aki-dialog-layout > main h1,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h1,
 .aki-dialog > .aki-dialog-layout > footer h1,
 .aki-dialog > .aki-dialog-layout > header h2,
-.aki-dialog > .aki-dialog-layout > main h2,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h2,
 .aki-dialog > .aki-dialog-layout > footer h2,
 .aki-dialog > .aki-dialog-layout > header h3,
-.aki-dialog > .aki-dialog-layout > main h3,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h3,
 .aki-dialog > .aki-dialog-layout > footer h3,
 .aki-dialog > .aki-dialog-layout > header h4,
-.aki-dialog > .aki-dialog-layout > main h4,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h4,
 .aki-dialog > .aki-dialog-layout > footer h4,
 .aki-dialog > .aki-dialog-layout > header h5,
-.aki-dialog > .aki-dialog-layout > main h5,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h5,
 .aki-dialog > .aki-dialog-layout > footer h5,
 .aki-dialog > .aki-dialog-layout > header h6,
-.aki-dialog > .aki-dialog-layout > main h6,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main h6,
 .aki-dialog > .aki-dialog-layout > footer h6,
 .aki-dialog > .aki-dialog-layout > header p,
-.aki-dialog > .aki-dialog-layout > main p,
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main p,
 .aki-dialog > .aki-dialog-layout > footer p {
   margin: 0;
 }
@@ -623,7 +623,7 @@ select {
   padding-bottom: 14px;
   line-height: 28px;
 }
-.aki-dialog > .aki-dialog-layout > main {
+.aki-dialog > .aki-dialog-layout > .aki-dialog-main {
   flex: 1;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -640,7 +640,7 @@ select {
 .aki-dialog > .aki-dialog-layout.aki-dialog-scroll > header {
   border-bottom: solid 1px #e0e0e0;
 }
-.aki-dialog > .aki-dialog-layout.aki-dialog-scroll > main {
+.aki-dialog > .aki-dialog-layout.aki-dialog-scroll > .aki-dialog-main {
   max-height: 314px;
   overflow-y: scroll;
 }
@@ -683,7 +683,7 @@ select {
   background-color: #fff;
 }
 .aki-bottom-sheet > .aki-bottom-sheet-layout > header,
-.aki-bottom-sheet > .aki-bottom-sheet-layout > main > * {
+.aki-bottom-sheet > .aki-bottom-sheet-layout > .aki-bottom-sheet-main > * {
   display: flex;
   align-items: center;
   margin: 0;
@@ -694,13 +694,13 @@ select {
 .aki-bottom-sheet > .aki-bottom-sheet-layout > header {
   color: #666;
 }
-.aki-bottom-sheet > .aki-bottom-sheet-layout > main {
+.aki-bottom-sheet > .aki-bottom-sheet-layout > .aki-bottom-sheet-main {
   flex: 1;
 }
 .aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > header {
   border-bottom: solid 1px #e0e0e0;
 }
-.aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > main {
+.aki-bottom-sheet > .aki-bottom-sheet-layout.aki-bottom-sheet-scroll > .aki-bottom-sheet-main {
   overflow-y: scroll;
 }
 /**
@@ -884,10 +884,11 @@ select {
   top: 0;
   right: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
   transition: transform 0.2s;
 }
-.aki-picker .aki-picker-options > option {
-  padding: 0;
+.aki-picker .aki-picker-options > li {
   height: 56px;
   line-height: 56px;
 }

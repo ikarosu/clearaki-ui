@@ -5,11 +5,11 @@
       <p></p>
       <p @click.stop="handleNext"></p>
     </div>
-    <div ref="options" class="aki-picker-options">
-      <option></option>
+    <ul ref="options" class="aki-picker-options">
+      <li></li>
       <slot></slot>
-      <option></option>
-    </div>
+      <li></li>
+    </ul>
   </div>
 </template>
 
@@ -49,7 +49,8 @@ export default {
   },
   watch: {
     value(v) {
-      const index = Array.from(this.$refs.options.children).findIndex(el => el.value === v) - 1
+      let index = Array.from(this.$refs.options.children).findIndex(el => el.value == v) - 1
+      if (index < 0) index = 0
       this.finger.transformY = -H * index
       this.finger.scroll = this.finger.transformY
       this.setTransform()
@@ -57,7 +58,7 @@ export default {
   },
   mounted() {
     // 如果默认值为空，将为-1
-    const index = Array.from(this.$refs.options.children).findIndex(el => el.value === this.value) - 1
+    const index = Array.from(this.$refs.options.children).findIndex(el => el.value == this.value)
     this.finger.transformY = -H * index
     this.finger.scroll = this.finger.transformY
     this.setTransform()
@@ -79,9 +80,10 @@ export default {
       // 本次移动后的位置，将在松手后赋给this.finger.scroll
       this.finger.transformY = scroll
     })
-    this.$el.addEventListener('touchend', e => {
+    document.addEventListener('touchend', e => {
       const touch = e.changedTouches[0]
       this.finger.endY = touch.pageY
+      if (this.finger.startY === this.finger.endY) return
       this.finger.endTime = e.timeStamp
       // 满足条件才计算惯性
       if (this.finger.endTime - this.finger.moveTime < 300

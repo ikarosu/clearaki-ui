@@ -609,7 +609,7 @@ select {
     border-radius: 4px;
     box-shadow: @shadow-level-3;
     > header,
-    > main,
+    > .aki-dialog-main,
     > footer {
       padding-right: 24px;
       padding-left: 24px;
@@ -629,7 +629,7 @@ select {
       padding-bottom: 14px;
       line-height: 28px;
     }
-    > main {
+    > .aki-dialog-main {
       flex: 1;
       padding-top: 20px;
       padding-bottom: 20px;
@@ -647,7 +647,7 @@ select {
       > header {
         border-bottom: solid 1px @dialog-border;
       }
-      > main {
+      > .aki-dialog-main {
         max-height: 314px;
         overflow-y: scroll;
       }
@@ -683,7 +683,7 @@ select {
     max-height: 50vh;
     background-color: #fff;
     > header,
-    > main > * {
+    > .aki-bottom-sheet-main > * {
       display: flex;
       align-items: center;
       margin: 0;
@@ -694,7 +694,7 @@ select {
     > header {
       color: #666;
     }
-    > main {
+    > .aki-bottom-sheet-main {
       flex: 1;
     }
 
@@ -702,7 +702,7 @@ select {
       > header {
         border-bottom: solid 1px @dialog-border;
       }
-      > main {
+      > .aki-bottom-sheet-main {
         overflow-y: scroll;
       }
     }
@@ -901,9 +901,10 @@ select {
     top: 0;
     right: 0;
     left: 0;
+    margin: 0;
+    padding: 0;
     transition: transform 0.2s;
-    > option {
-      padding: 0;
+    > li {
       height: @picker-item-height;
       line-height: @picker-item-height;
     }
