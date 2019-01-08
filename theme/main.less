@@ -1033,6 +1033,51 @@ select {
 
 /**
   **********************************
+  * switch
+  **********************************
+**/
+.aki{
+  &-switch{
+    &-opened{
+      .aki-switch{
+        &-bar{
+          background-color: @color-primary;
+          transform: translateX(16px);
+          &-layout{
+            background-color: lighten(@color-primary, 25%);
+          }
+        }
+      }
+    }
+    &-wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-bar{
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: @shadow-level-1;
+      transition: all .1s;
+      &-layout{
+        position: relative;
+        width: 36px;
+        height: 16px;
+        border-radius: 10px;
+        background-color: #9b9b9b;
+      }
+    }
+  }
+
+}
+
+/**
+  **********************************
   * animated
   **********************************
 **/

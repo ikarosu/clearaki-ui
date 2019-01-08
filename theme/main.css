@@ -1011,6 +1011,41 @@ select {
 }
 /**
   **********************************
+  * switch
+  **********************************
+**/
+.aki-switch-opened .aki-switch-bar {
+  background-color: #03a9f4;
+  transform: translateX(16px);
+}
+.aki-switch-opened .aki-switch-bar-layout {
+  background-color: #79d4fd;
+}
+.aki-switch-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aki-switch-bar {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: all .1s;
+}
+.aki-switch-bar-layout {
+  position: relative;
+  width: 36px;
+  height: 16px;
+  border-radius: 10px;
+  background-color: #9b9b9b;
+}
+/**
+  **********************************
   * animated
   **********************************
 **/
