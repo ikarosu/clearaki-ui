@@ -12,10 +12,10 @@
         :id="label"
         :type="type"
         :value="value">
-      <label :class="{'aside': aside}" :for="label">{{label}}</label>
+      <label :class="{'aside': aside}" :for="label">{{ label }}</label>
       <div class="line"></div>
     </div>
-    <p v-if="helper">{{helper}}</p>
+    <p v-if="helper">{{ helper }}</p>
   </div>
 </template>
 
@@ -28,7 +28,10 @@ export default {
       type: String,
       default() { return 'text' }
     },
-    full: Boolean,
+    full: {
+      type: Boolean,
+      default() { return false }
+    },
     outline: {
       type: Boolean,
       default() { return false }
@@ -47,7 +50,8 @@ export default {
       default() { return '170px' }
     },
     helper: {
-      type: String
+      type: String,
+      default: ''
     },
     value: {
       type: [String, Array],

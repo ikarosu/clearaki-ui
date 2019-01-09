@@ -1,7 +1,7 @@
 <template>
   <nav class="aki-tabs"
     :class="{'aki-tabs-scroll':scroll,
-      'aki-tabs-fill':fill}">
+             'aki-tabs-fill':fill}">
     <div class="aki-tab-layout">
       <slot></slot>
       <div class="aki-tab-line" :style="{width, 'transform': `translateX(${offsetX}px)`}"></div>
@@ -17,7 +17,10 @@ export default {
     event: 'toggle'
   },
   props: {
-    active: String,
+    active: {
+      type: String,
+      default: ''
+    },
     fill: {
       type: Boolean,
       default() { return false }

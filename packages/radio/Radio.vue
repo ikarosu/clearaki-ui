@@ -7,9 +7,9 @@
         @change="check($event.target)"
         :value="value"
         :checked="checked"
-        :id="label">
+        :id="`aki-radio-${label}`">
       <i @click="$refs.label.click()"><b></b></i>
-      <label ref="label" :for="label">{{label}}</label>
+      <label ref="label" :for="`aki-radio-${label}`">{{ label }}</label>
     </div>
   </div>
 </template>
@@ -23,17 +23,26 @@ export default {
     event: 'change',
   },
   props: {
-    full: Boolean,
+    full: {
+      type: Boolean,
+      default() { return false }
+    },
     label: {
+      required: true,
       type: String,
-      default() { return '选项' }
     },
     width: {
       type: String,
       default() { return '170px' }
     },
-    value: [String, Number],
-    valuex: [String, Number],
+    value: {
+      required: true,
+      type: [String, Number],
+    },
+    valuex: {
+      type: [String, Number],
+      default() { return '' }
+    },
   },
   data() {
     return {
@@ -56,15 +65,6 @@ export default {
   methods: {
     check() {
       this.$emit('change', this.value)
-      // if (this.type === 'radio')
-      // else {
-      //   const boxs = this.$parent.$el.querySelectorAll(`[name=${this.$attrs.name}]`)
-      //   this.$emit('input',
-      //     Array.from(boxs)
-      //       .filter(d => d.checked)
-      //       .map(d => d.value)
-      //   )
-      // }
     },
   },
 }

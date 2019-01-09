@@ -7,8 +7,8 @@
       @change="checkChange(label)">
     <label :for="`aki-tab-${label}-${tid}`">
       <div :class="{
-        'aki-badge': typeof badge == 'string',
-        'aki-badge-dot':badge==''}"
+             'aki-badge': typeof badge == 'string',
+             'aki-badge-dot':badge==''}"
         :badge="badge">
         <slot></slot>
       </div>
@@ -24,7 +24,10 @@ export default {
       required: true,
       type: String,
     },
-    badge: false,
+    badge: {
+      type: [String, Number, Boolean],
+      default: false
+    },
   },
   computed: {
     active() {

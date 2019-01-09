@@ -8,7 +8,10 @@
 export default {
   name: 'AkiIcon',
   props: {
-    icon: String,
+    icon: {
+      required: true,
+      type: String
+    },
     width: {
       type: String,
       default() { return '24' }

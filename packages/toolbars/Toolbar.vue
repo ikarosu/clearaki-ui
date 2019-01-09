@@ -7,12 +7,12 @@
       @change="checkChange(label)">
     <label :for="`aki-toolbar-${label}-${tid}`">
       <div :class="{
-        'aki-badge': typeof badge == 'string',
-        'aki-badge-dot':badge==''}"
+             'aki-badge': typeof badge == 'string',
+             'aki-badge-dot':badge==''}"
         :badge="badge">
         <slot></slot>
         <span class="aki-toolbar-text">
-          <slot name="text" v-if="$parent.fixText || active">{{label}}</slot>
+          <slot name="text" v-if="$parent.fixText || active">{{ label }}</slot>
         </span>
       </div>
     </label>
@@ -27,7 +27,10 @@ export default {
       required: true,
       type: String,
     },
-    badge: false,
+    badge: {
+      type: [String, Number, Boolean],
+      default: false
+    },
   },
   computed: {
     active() {

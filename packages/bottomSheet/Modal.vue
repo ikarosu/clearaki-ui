@@ -1,20 +1,20 @@
 <template>
   <transition name="aki-bgfade">
-  <section v-show="visible"
-    @click.self="click"
-    class="aki-bottom-sheet"
-    @touchstart.stop>
-    <transition name="aki-slide-bottom">
-    <div @click="handleSome($event)" v-show="visible" class="aki-bottom-sheet-layout"
-      :class="{'aki-bottom-sheet-scroll':scroll}">
-      <header class="aki--header" v-if="title">{{title}}</header>
-      <div class="aki-bottom-sheet-main">
-        <slot></slot>
-      </div>
-      <slot name="custom"></slot>
-    </div>
-    </transition>
-  </section>
+    <section v-show="visible"
+      @click.self="click"
+      class="aki-bottom-sheet"
+      @touchstart.stop>
+      <transition name="aki-slide-bottom">
+        <div @click="handleSome($event)" v-show="visible" class="aki-bottom-sheet-layout"
+          :class="{'aki-bottom-sheet-scroll':scroll}">
+          <header class="aki--header" v-if="title">{{ title }}</header>
+          <div class="aki-bottom-sheet-main">
+            <slot></slot>
+          </div>
+          <slot name="custom"></slot>
+        </div>
+      </transition>
+    </section>
   </transition>
 </template>
 
@@ -30,7 +30,10 @@ export default {
       type: Boolean,
       default() { return false }
     },
-    title: String,
+    title: {
+      type: String,
+      default: ''
+    },
   },
   data() {
     return {

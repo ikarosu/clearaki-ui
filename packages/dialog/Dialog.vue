@@ -1,7 +1,7 @@
 <template>
   <section v-if="full" v-show="visible" class="aki-dialog-full aki-page">
     <topbars nav="close" @nav-click="click" :fill="fill">
-      {{title}}
+      {{ title }}
       <span slot="action">
         <slot name="action"></slot>
       </span>
@@ -10,9 +10,9 @@
       <slot v-if="visible" name="header"></slot>
     </transition>
     <transition name="aki-fade-zoom">
-    <div v-show="visible" class="aki-dialog-main aki-page-main" :class="pageClass">
-      <slot></slot>
-    </div>
+      <div v-show="visible" class="aki-dialog-main aki-page-main" :class="pageClass">
+        <slot></slot>
+      </div>
     </transition>
     <transition name="aki-slide-bottom">
       <slot v-if="visible" name="footer"></slot>
@@ -23,18 +23,18 @@
       @click.self="click"
       class="aki-dialog">
       <transition name="aki-fade-zoom">
-      <div v-show="visible" class="aki-dialog-layout"
-        :class="{'aki-dialog-scroll':scroll}">
-        <header v-if="$slots.header">
-          <slot name="header"></slot>
-        </header>
-        <div class="aki-dialog-main" :class="pageClass">
-          <slot></slot>
+        <div v-show="visible" class="aki-dialog-layout"
+          :class="{'aki-dialog-scroll':scroll}">
+          <header v-if="$slots.header">
+            <slot name="header"></slot>
+          </header>
+          <div class="aki-dialog-main" :class="pageClass">
+            <slot></slot>
+          </div>
+          <footer v-if="$slots.footer">
+            <slot name="footer"></slot>
+          </footer>
         </div>
-        <footer v-if="$slots.footer">
-          <slot name="footer"></slot>
-        </footer>
-      </div>
       </transition>
     </section>
   </transition>
@@ -58,8 +58,14 @@ export default {
       type: Boolean,
       default() { return false }
     },
-    title: String,
-    pageClass: [Object, String, Array],
+    title: {
+      type: String,
+      default: '提示'
+    },
+    pageClass: {
+      type: [Object, String, Array],
+      default() { return '' }
+    },
   },
   data() {
     return {

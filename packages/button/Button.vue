@@ -10,7 +10,7 @@
       {'aki-btn-full-width': full},
       {'aki-btn-plain': plain},
       {'aki-btn-loading': loading},
-    ]">
+  ]">
     <aki-progress v-if="loading" width="24" stroke="2" loading></aki-progress>
     <slot v-else></slot>
   </button>

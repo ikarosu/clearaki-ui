@@ -22,8 +22,14 @@ export default {
       type: Number,
       default() { return 1 }
     },
-    min: Number,
-    max: Number,
+    min: {
+      type: Number,
+      default: -Infinity
+    },
+    max: {
+      type: Number,
+      default: Infinity
+    },
     count: {
       type: Number,
       default() { return 0 }

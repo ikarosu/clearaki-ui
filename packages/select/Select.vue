@@ -9,10 +9,10 @@
         @change="change($event.target)">
         <slot></slot>
       </select>
-      <label class="aside" :for="label">{{label}}</label>
+      <label class="aside" :for="label">{{ label }}</label>
       <div class="line"></div>
     </div>
-    <p v-if="helper">{{helper}}</p>
+    <p v-if="helper">{{ helper }}</p>
   </div>
 </template>
 
@@ -25,7 +25,10 @@ export default {
     event: 'change'
   },
   props: {
-    full: Boolean,
+    full: {
+      type: Boolean,
+      default() { return false }
+    },
     type: {
       type: String,
       default() { return 'text' }
@@ -47,9 +50,13 @@ export default {
       default() { return '170px' }
     },
     helper: {
-      type: String
+      type: String,
+      default: ''
     },
-    values: {},
+    values: {
+      type: String,
+      default: ''
+    },
   },
   computed: {
     cwidth() {

@@ -5,8 +5,8 @@
       :class="[position, {'aki-snackbar-entire-width': fullWidth}]"
       :style="position!=='center'&&{[position]:offset}">
       <div class="aki-snackbar-wrap" :class="{'aki-snackbar-long-action': longAction}">
-        <span>{{text}}</span>
-        <aki-button @click="handleAction" v-if="action" class="aki-snackbar-action" size="xs" type="text">{{action}}</aki-button>
+        <span>{{ text }}</span>
+        <aki-button @click="handleAction" v-if="action" class="aki-snackbar-action" size="xs" type="text">{{ action }}</aki-button>
       </div>
     </section>
   </transition>

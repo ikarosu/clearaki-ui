@@ -14,7 +14,10 @@ export default {
     event: 'toggle'
   },
   props: {
-    active: String,
+    active: {
+      type: String,
+      default: ''
+    },
     fill: {
       type: Boolean,
       default() { return false }

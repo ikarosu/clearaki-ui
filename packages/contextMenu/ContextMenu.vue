@@ -22,15 +22,6 @@
 <script>
 export default {
   name: 'AkiContextMenu',
-  props: {
-    scroll: {
-      type: Boolean,
-      default() {
-        return false
-      }
-    },
-    title: String
-  },
   data() {
     return {
       display: false,

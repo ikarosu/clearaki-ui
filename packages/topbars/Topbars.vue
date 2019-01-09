@@ -17,7 +17,10 @@ export default {
       type: Boolean,
       default() { return false }
     },
-    nav: String,
+    nav: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {

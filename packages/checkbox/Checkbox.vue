@@ -7,9 +7,9 @@
         @change="check($event.target)"
         :value="value"
         :checked="checked"
-        :id="label">
+        :id="`aki-box-${label}`">
       <i @click="$refs.label.click()"><b></b></i>
-      <label ref="label" :for="label">{{label}}</label>
+      <label ref="label" :for="`aki-box-${label}`">{{ label }}</label>
     </div>
   </div>
 </template>
@@ -23,17 +23,26 @@ export default {
     event: 'change',
   },
   props: {
-    full: Boolean,
+    full: {
+      type: Boolean,
+      default() { return false }
+    },
     label: {
+      required: true,
       type: String,
-      default() { return '选项' }
     },
     width: {
       type: String,
-      default() { return '170px' }
+      default: '170px',
     },
-    value: [String, Number],
-    valuex: Array,
+    value: {
+      required: true,
+      type: [String, Number],
+    },
+    valuex: {
+      type: Array,
+      default() { return [] }
+    },
   },
   data() {
     return {
@@ -55,10 +64,10 @@ export default {
   },
   methods: {
     check() {
-      const boxs = this.$parent.$el.querySelectorAll(`[name=${this.$attrs.name}]`)
+      this.checked = !this.checked
+      const boxs = this.$parent.$children.filter(node => node.$vnode.tag.includes('AkiCheckbox'))
       this.$emit('change',
-        Array.from(boxs)
-          .filter(d => d.checked)
+        boxs.filter(d => d.checked)
           .map(d => d.value)
       )
     },
