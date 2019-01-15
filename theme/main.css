@@ -655,7 +655,7 @@ select {
   left: 0;
   z-index: 700;
 }
-.aki-dialog-full > *:not(.aki-topbars) {
+.aki-dialog-full > *:not(.aki-topbar) {
   background-color: #fff;
 }
 /**
@@ -738,7 +738,7 @@ select {
 }
 /**
   **********************************
-  * topbars
+  * topbar
   **********************************
 **/
 .aki-shadow-bottom {
@@ -747,7 +747,7 @@ select {
 .aki-shadow-bottom + * {
   margin-top: 5px;
 }
-.aki-topbars {
+.aki-topbar {
   z-index: 5;
   display: flex;
   justify-content: space-between;
@@ -758,31 +758,31 @@ select {
   color: #03a9f4;
   background-color: white;
 }
-.aki-topbars.aki-topbars-fill {
+.aki-topbar.aki-topbar-fill {
   color: white;
   background-color: #03a9f4;
 }
-.aki-topbars .aki-topbar-nav {
+.aki-topbar .aki-topbar-nav {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 24px;
   min-height: 24px;
 }
-.aki-topbars .aki-topbar-nav > * {
+.aki-topbar .aki-topbar-nav > * {
   margin: 0;
 }
-.aki-topbars > h1 {
+.aki-topbar > h1 {
   flex: 1;
   margin: 0;
   padding-left: 32px;
   font-size: 16px;
 }
-.aki-topbars .aki-topbar-action {
+.aki-topbar .aki-topbar-action {
   display: flex;
   align-items: center;
 }
-.aki-topbars .aki-topbar-action > * {
+.aki-topbar .aki-topbar-action > * {
   margin-left: 24px;
 }
 /**
@@ -791,7 +791,7 @@ select {
   **********************************
 **/
 .aki-tabs {
-  z-index: 5;
+  z-index: 4;
   color: #888;
   background-color: white;
 }
@@ -931,6 +931,51 @@ select {
   flex: 1;
   overflow-y: scroll;
 }
+.aki-page.aki-page-background {
+  background-color: #03a9f4;
+}
+.aki-page.aki-page-background.aki-page-background-opened .aki-page-main-mask {
+  z-index: 1;
+}
+.aki-page.aki-page-background > .aki-page-background-layout {
+  flex: 1;
+  position: relative;
+  min-height: 48px;
+  z-index: 6;
+  border-radius: 16px 16px 0 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+.aki-page.aki-page-background > .aki-page-background-layout > section {
+  overflow-y: scroll;
+  height: 100%;
+}
+.aki-page.aki-page-background .aki-page-main-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.aki-page.aki-page-background .aki-background-header {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 16px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 14px;
+  font-weight: normal;
+  border-bottom: solid 1px #e0e0e0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+}
 /**
   **********************************
   * progress
@@ -1043,6 +1088,17 @@ select {
   height: 16px;
   border-radius: 10px;
   background-color: #9b9b9b;
+}
+.aki-background {
+  height: 0;
+  max-height: 100%;
+  color: white;
+  overflow-y: scroll;
+  transform-origin: 0;
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-background-show {
+  max-height: max-content;
 }
 /**
   **********************************

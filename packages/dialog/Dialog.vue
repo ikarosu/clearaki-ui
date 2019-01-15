@@ -1,11 +1,11 @@
 <template>
   <section v-if="full" v-show="visible" class="aki-dialog-full aki-page">
-    <topbars nav="close" @nav-click="click" :fill="fill">
+    <topbar nav="close" @nav-click="click" :fill="fill">
       {{ title }}
       <span slot="action">
         <slot name="action"></slot>
       </span>
-    </topbars>
+    </topbar>
     <transition name="aki-slide-top">
       <slot v-if="visible" name="header"></slot>
     </transition>
@@ -41,10 +41,10 @@
 </template>
 
 <script>
-import Topbars from '../topbars'
+import topbar from '../topbar'
 export default {
   name: 'AkiDialog',
-  components: { Topbars },
+  components: { topbar },
   props: {
     scroll: {
       type: Boolean,
@@ -76,8 +76,8 @@ export default {
     this.$nextTick()
       .then(() => {
         if (this.$parent && this.$parent.$el.classList.contains('aki-page')) {
-          const topbarsNode = this.$parent.$children.find(node => node.$el.classList.contains('aki-topbars'))
-          if (topbarsNode) this.fill = topbarsNode.fill
+          const topbarNode = this.$parent.$children.find(node => node.$el.classList.contains('aki-topbar'))
+          if (topbarNode) this.fill = topbarNode.fill
         }
       })
   },

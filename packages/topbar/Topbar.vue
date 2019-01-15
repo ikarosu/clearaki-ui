@@ -1,5 +1,5 @@
 <template>
-  <header class="aki-topbars" :class="{'aki-topbars-fill':fill}">
+  <header class="aki-topbar" :class="{'aki-topbar-fill':fill}">
     <div class="aki-topbar-nav" v-if="$slots.nav"><slot name="nav"></slot></div>
     <icon v-else-if="nav" :icon="icon[nav]" @click="handleNav"></icon>
     <h1><slot>首页</slot></h1>
@@ -10,7 +10,7 @@
 <script>
 import Icon from '../icon'
 export default {
-  name: 'AkiTopbars',
+  name: 'AkiTopbar',
   components: { Icon },
   props: {
     fill: {
@@ -32,6 +32,9 @@ export default {
     }
   },
   mounted() {
+    const parentNode = this.$el.parentNode
+    if (parentNode && parentNode.classList.contains('aki-page-background'))
+      return false
     const nextNode = this.$el.nextElementSibling
     if (nextNode && !nextNode.classList.contains('aki-tabs'))
       this.$el.classList.add('aki-shadow-bottom')

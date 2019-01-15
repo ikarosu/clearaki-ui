@@ -6,7 +6,7 @@ import Toolbars from '../packages/toolbars'
 import Toolbar from '../packages/toolbar'
 import Dialog from '../packages/dialog'
 import BottomSheet from '../packages/bottomSheet'
-import Topbars from '../packages/topbars'
+import Topbar from '../packages/topbar'
 import Tabs from '../packages/tabs'
 import Tab from '../packages/tab'
 import Counter from '../packages/counter'
@@ -19,6 +19,9 @@ import Checkbox from '../packages/checkbox'
 import ContextMenu from '../packages/contextMenu'
 import Banner from '../packages/banner'
 import Switch from '../packages/switch'
+import Background from '../packages/background'
+import PageBackround from '../packages/pageBG'
+import PageMain from '../packages/pageMain'
 
 const components = [
   Button,
@@ -28,7 +31,7 @@ const components = [
   Toolbar,
   Dialog,
   BottomSheet,
-  Topbars,
+  Topbar,
   Tabs,
   Tab,
   Counter,
@@ -40,6 +43,9 @@ const components = [
   ContextMenu,
   Banner,
   Switch,
+  Background,
+  PageBackround,
+  PageMain,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -106,7 +112,7 @@ const AkiUI = {
   Toolbar,
   Dialog,
   BottomSheet,
-  Topbars,
+  topbar: Topbar,
   Tabs,
   Tab,
   Counter,
@@ -119,6 +125,9 @@ const AkiUI = {
   ContextMenu,
   Banner,
   Switch,
+  Background,
+  PageBackround,
+  PageMain,
 }
 export {
   Button,
@@ -129,7 +138,7 @@ export {
   Toolbar,
   Dialog,
   BottomSheet,
-  Topbars,
+  Topbar as topbar,
   Tabs,
   Tab,
   Counter,
@@ -142,5 +151,8 @@ export {
   ContextMenu,
   Banner,
   Switch,
+  Background,
+  PageBackround,
+  PageMain,
 }
 export default AkiUI
