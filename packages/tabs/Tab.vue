@@ -47,5 +47,9 @@ export default {
       this.$parent.dispatch(label)
     }
   },
+  mounted() {
+    if (this.$parent.defaultValueSet) return false
+    if (this.active) this.$parent.setActive()
+  }
 }
 </script>

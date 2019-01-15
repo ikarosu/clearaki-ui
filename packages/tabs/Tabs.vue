@@ -35,6 +35,7 @@ export default {
       width: '90px',
       activeIndex: -1,
       offsetX: 0,
+      defaultValueSet: false,
     }
   },
   watch: {
@@ -55,11 +56,13 @@ export default {
     },
     active: {
       immediate: true,
-      handler() {
-        this.$nextTick()
-          .then(() => {
-            this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
-          })
+      async handler() {
+        await this.$nextTick()
+        this.defaultValueSet = true
+        if (this.$slots.default)
+          this.setActive()
+        else
+          this.defaultValueSet = false
       }
     }
   },
@@ -71,6 +74,9 @@ export default {
   methods: {
     dispatch(label) {
       this.$emit('toggle', label)
+    },
+    setActive() {
+      this.activeIndex = this.$slots.default.findIndex(({ componentInstance: vm }) => vm.active)
     }
   },
 }
