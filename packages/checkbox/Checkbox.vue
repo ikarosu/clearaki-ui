@@ -1,14 +1,15 @@
 <template>
   <div class="aki-input"
     :style="{width: cwidth}">
-    <div class="aki-input-selection">
+    <div class="aki-input-selection" :class="{'aki-chip':chip, 'aki-chip-active':chip&&checked}">
       <input type="checkbox"
         :name="$attrs.name"
         @change="check($event.target)"
         :value="value"
         :checked="checked"
         :id="`aki-box-${label}`">
-      <i @click="$refs.label.click()"><b></b></i>
+      <i v-if="!chip" @click="$refs.label.click()"><b></b></i>
+      <div v-if="$slots.default" class="aki-input-slot"><slot></slot></div>
       <label ref="label" :for="`aki-box-${label}`">{{ label }}</label>
     </div>
   </div>
@@ -24,6 +25,10 @@ export default {
   },
   props: {
     full: {
+      type: Boolean,
+      default() { return false }
+    },
+    chip: {
       type: Boolean,
       default() { return false }
     },
@@ -65,7 +70,7 @@ export default {
   methods: {
     check() {
       this.checked = !this.checked
-      const boxs = this.$parent.$children.filter(node => node.$vnode.tag.includes('AkiCheckbox'))
+      const boxs = this.$parent.$children.filter(node => node.$vnode.tag.includes('AkiCheckbox') && node.$attrs.name === this.$attrs.name)
       this.$emit('change',
         boxs.filter(d => d.checked)
           .map(d => d.value)

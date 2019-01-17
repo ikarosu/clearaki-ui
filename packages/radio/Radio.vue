@@ -1,14 +1,15 @@
 <template>
   <div class="aki-input"
     :style="{width: cwidth}">
-    <div class="aki-input-selection">
+    <div class="aki-input-selection" :class="{'aki-chip':chip, 'aki-chip-active':chip&&checked}">
       <input type="radio"
         :name="$attrs.name"
         @change="check($event.target)"
         :value="value"
         :checked="checked"
         :id="`aki-radio-${label}`">
-      <i @click="$refs.label.click()"><b></b></i>
+      <i v-if="!chip" @click="$refs.label.click()"><b></b></i>
+      <div v-if="$slots.default" class="aki-input-slot"><slot></slot></div>
       <label ref="label" :for="`aki-radio-${label}`">{{ label }}</label>
     </div>
   </div>
@@ -24,6 +25,10 @@ export default {
   },
   props: {
     full: {
+      type: Boolean,
+      default() { return false }
+    },
+    chip: {
       type: Boolean,
       default() { return false }
     },

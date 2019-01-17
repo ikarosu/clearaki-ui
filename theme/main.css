@@ -11,10 +11,10 @@ textarea,
 select,
 button,
 a {
+  margin: 0;
   background: none;
   border: none;
   outline: none;
-  -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(56, 187, 246, 0.5);
 }
 select {
@@ -431,6 +431,24 @@ select {
   height: 6px;
   background-color: #03a9f4;
   transform: scale(0);
+}
+.aki-input > .aki-chip {
+  padding: 0 12px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #1d1d1d;
+  border-radius: 16px;
+  background-color: #e0e0e0;
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-input > .aki-chip-active {
+  color: white;
+  background-color: #03a9f4;
+}
+.aki-input > .aki-chip > .aki-input-slot {
+  margin-left: -12px;
+  border-radius: 50%;
 }
 /**
   **********************************
@@ -935,7 +953,7 @@ select {
   background-color: #03a9f4;
 }
 .aki-page.aki-page-background.aki-page-background-opened .aki-page-main-mask {
-  z-index: 1;
+  max-height: 100%;
 }
 .aki-page.aki-page-background > .aki-page-background-layout {
   flex: 1;
@@ -957,7 +975,9 @@ select {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
+  max-height: 0;
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(255, 255, 255, 0.7);
 }
 .aki-page.aki-page-background .aki-background-header {

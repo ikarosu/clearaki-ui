@@ -26,11 +26,12 @@ textarea,
 select,
 button,
 a {
+  margin: 0;
   outline: none;
   background: none;
   border: none;
   outline: none;
-  -webkit-appearance: none;
+  // -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(
     red(@tap-c),
     green(@tap-c),
@@ -460,6 +461,24 @@ select {
       height: 6px;
       background-color: @color-primary;
       transform: scale(0);
+    }
+  }
+  >.aki-chip{
+    padding: 0 12px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #1d1d1d;
+    border-radius: 16px;
+    background-color: #e0e0e0;
+    transition: @transition-type-1;
+    &-active{
+      color: white;
+      background-color:@color-primary;
+    }
+    >.aki-input-slot{
+      margin-left: -12px;
+      border-radius: 50%;
     }
   }
 }
