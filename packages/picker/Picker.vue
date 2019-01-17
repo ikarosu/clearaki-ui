@@ -50,7 +50,7 @@ export default {
   watch: {
     async value(v) {
       await this.$nextTick()
-      let index = Array.from(this.$refs.options.children).findIndex(el => el.value === v) - 1
+      let index = Array.from(this.$refs.options.children).findIndex(el => el.getAttribute('value') === v) - 1
       if (index < 0) index = 0
       this.finger.transformY = -H * index
       this.finger.scroll = this.finger.transformY
@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     // 如果默认值为空，将为-1
-    let index = Array.from(this.$refs.options.children).findIndex(el => el.value === this.value) - 1
+    let index = Array.from(this.$refs.options.children).findIndex(el => el.getAttribute('value') === this.value) - 1
     if (index < -1) index = -1
     this.finger.transformY = -H * index
     this.finger.scroll = this.finger.transformY
@@ -134,7 +134,7 @@ export default {
       this.$refs.options.style.transform = `translateY(${Y}px)`
     },
     emit() {
-      this.$emit('change', this.$refs.options.children[-this.finger.transformY / H + 1].value)
+      this.$emit('change', this.$refs.options.children[-this.finger.transformY / H + 1].getAttribute('value'))
     }
   }
 }
