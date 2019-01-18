@@ -17,8 +17,7 @@
     </section>
     <div
       class="aki-page-background-layout"
-      @mousedown="handleClose"
-      @touchstart="handleClose"
+      @click="handleClose"
     >
       <section>
         <header

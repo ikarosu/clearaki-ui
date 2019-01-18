@@ -1,6 +1,6 @@
 <template>
   <div class="aki-input"
-    :style="{width: cwidth}">
+    :style="{width: !chip&&cwidth}">
     <div class="aki-input-selection" :class="{'aki-chip':chip, 'aki-chip-active':chip&&checked}">
       <input type="radio"
         :name="$attrs.name"
