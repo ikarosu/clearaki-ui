@@ -1,11 +1,11 @@
 <template>
   <section
     class="aki-page aki-page-background"
-    :class="{'aki-page-background-opened':opened}"
+    :class="{'aki-page-background-opened':visible}"
   >
     <transition name="aki-slide-top">
       <slot
-        v-if="!(hideTopbar && opened)"
+        v-if="!(hideTopbar && visible)"
         name="topbar"
       ></slot>
     </transition>
@@ -37,7 +37,7 @@ import { getDOMRect } from '../../src/utils/dom'
 export default {
   name: 'AkiPageBackground',
   props: {
-    opened: {
+    visible: {
       type: Boolean,
       default: false
     },
@@ -57,9 +57,16 @@ export default {
     }
   },
   watch: {
-    opened(v) {
-      if (v) this.bgEl.style.height = `${this.h}px`
-      else this.bgEl.style.height = 0
+    visible(v) {
+      if (v) {
+        this.bgEl.style.height = `${this.h}px`
+        this.$emit('opened')
+        this.$emit('visibleChanged', true)
+      } else {
+        this.bgEl.style.height = 0
+        this.$emit('closed')
+        this.$emit('visibleChanged', false)
+      }
     }
   },
   mounted() {
