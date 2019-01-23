@@ -816,7 +816,7 @@ select {
 **/
 
 .aki-tabs {
-  z-index: 4;
+  z-index: 3;
   color: #888;
   background-color: white;
   .aki-tab-active {
@@ -1150,6 +1150,48 @@ select {
     transition: @transition-type-1;
     &-show{
       max-height: max-content;
+    }
+  }
+
+  &-steps{
+    display: flex;
+  }
+  &-step{
+    position: relative;
+    flex: 1;
+    margin: 0 12px;
+    text-align: center;
+    color: #888;
+    transition: @transition-type-1;
+    &:first-child{margin-left: 0;}
+    &:last-child{margin-right: 0;}
+    &-active,
+    &-complete{
+      color: @color-primary;
+    }
+    &-complete{
+      .aki-step-line{
+        background-color: @color-primary;
+      }
+    }
+    &-icon{
+      position: relative;
+      display: inline-block;
+    }
+    &-line{
+      position: absolute;
+      top: 12px;
+      left: 36px;
+      width: 100%;
+      height: 1px;
+      background-color: #c1c1c1;
+    }
+    &:last-child .aki-step-line{
+      display: none;
+    }
+    &-desc{
+      margin: 0;
+      font-size: 10px;
     }
   }
 }

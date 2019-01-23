@@ -22,6 +22,8 @@ import Switch from '../packages/switch'
 import Background from '../packages/background'
 import PageBackround from '../packages/pageBG'
 import PageMain from '../packages/pageMain'
+import Step from '../packages/step'
+import Steps from '../packages/steps'
 
 const components = [
   Button,
@@ -46,6 +48,8 @@ const components = [
   Background,
   PageBackround,
   PageMain,
+  Steps,
+  Step,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -128,6 +132,8 @@ const AkiUI = {
   Background,
   PageBackround,
   PageMain,
+  Steps,
+  Step,
 }
 export {
   Button,
@@ -154,5 +160,7 @@ export {
   Background,
   PageBackround,
   PageMain,
+  Steps,
+  Step,
 }
 export default AkiUI
