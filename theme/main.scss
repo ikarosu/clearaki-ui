@@ -1416,53 +1416,53 @@ select {
     **********************************
   **/
 
-  .aki-fade-enter-active,
-  .aki-fade-leave-active {
+  &-fade-enter-active,
+  &-fade-leave-active {
     transition: $transition-type-1;
   }
 
-  .aki-fade-enter,
-  .aki-fade-leave-to {
+  &-fade-enter,
+  &-fade-leave-to {
     opacity: 0;
   }
 
-  .aki-bgfade-enter-active,
-  .aki-bgfade-leave-active {
+  &-bgfade-enter-active,
+  &-bgfade-leave-active {
     transition: $transition-type-1;
   }
 
-  .aki-bgfade-enter,
-  .aki-bgfade-leave-to {
+  &-bgfade-enter,
+  &-bgfade-leave-to {
     background-color: rgba(0, 0, 0, 0);
   }
 
-  .aki-slide-bottom-enter-active,
-  .aki-slide-bottom-leave-active {
+  &-slide-bottom-enter-active,
+  &-slide-bottom-leave-active {
     transition: $transition-type-1;
   }
 
-  .aki-slide-bottom-enter,
-  .aki-slide-bottom-leave-to {
+  &-slide-bottom-enter,
+  &-slide-bottom-leave-to {
     transform: translateY(101%);
   }
 
-  .aki-slide-top-enter-active,
-  .aki-slide-top-leave-active {
+  &-slide-top-enter-active,
+  &-slide-top-leave-active {
     transition: $transition-type-1;
   }
 
-  .aki-slide-top-enter,
-  .aki-slide-top-leave-to {
+  &-slide-top-enter,
+  &-slide-top-leave-to {
     transform: translateY(-101%);
   }
 
-  .aki-fade-zoom-enter-active,
-  .aki-fade-zoom-leave-active {
+  &-fade-zoom-enter-active,
+  &-fade-zoom-leave-active {
     transition: 0.2s ease-out;
   }
 
-  .aki-fade-zoom-enter,
-  .aki-fade-zoom-leave-to {
+  &-fade-zoom-enter,
+  &-fade-zoom-leave-to {
     opacity: 0;
     transform: scale(0.8);
   }
