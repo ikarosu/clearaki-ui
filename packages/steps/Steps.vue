@@ -32,9 +32,6 @@ export default {
       v.forEach((step, index) => {
         step.index = index
       })
-    },
-    active(index) {
-
     }
   },
   mounted() {

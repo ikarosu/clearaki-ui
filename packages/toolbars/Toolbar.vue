@@ -7,8 +7,8 @@
       @change="checkChange(label)">
     <label :for="`aki-toolbar-${label}-${tid}`">
       <div :class="{
-             'aki-badge': typeof badge == 'string',
-             'aki-badge-dot':badge==''}"
+             'aki-badge': badge!==false,
+             'aki-badge-dot':badge===''}"
         :badge="badge">
         <slot></slot>
         <span class="aki-toolbar-text">
