@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="aki-icon"
     v-on="$listeners"
     :width="width"
     :height="height"

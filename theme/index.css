@@ -4,6 +4,7 @@ select,
 button,
 a {
   margin: 0;
+  padding: 0;
   outline: none;
   background: none;
   border: none;
@@ -1141,6 +1142,37 @@ select {
 .aki-step-desc {
   margin: 0;
   font-size: 10px;
+}
+.aki-fab {
+  width: min-content;
+  height: min-content;
+  line-height: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.aki-fab-regular > .aki-icon {
+  padding: 16px;
+}
+.aki-fab-mini > .aki-icon {
+  padding: 8px;
+}
+.aki-fab-fill {
+  color: white;
+  background-color: rgb(var(--r, 3), var(--g, 169), var(--b, 244));
+}
+.aki-fab-fill:active {
+  background-color: rgba(var(--r, 3), var(--g, 169), var(--b, 244), 0.7);
+}
+.aki-fab-plain {
+  color: gray;
+  background-color: white;
+}
+.aki-fab-plain:active {
+  background-color: rgba(var(--r, 3), var(--g, 169), var(--b, 244), 0.1);
+}
+.aki-fab-fixed {
+  position: fixed;
+  z-index: 2;
 }
 .aki-fade-enter-active, .aki-fade-leave-active {
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);

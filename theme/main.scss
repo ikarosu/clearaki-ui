@@ -1,6 +1,5 @@
-// $primary: #03a9f4;
+
 $primary: rgb(var(--r, 3), var(--g, 169), var(--b, 244));
-// $primary: rgb(var(--color, 3, 169, 244));
 
 @function primary($a) {
   @return rgba(var(--r, 3), var(--g, 169), var(--b, 244), $a)
@@ -30,14 +29,13 @@ $fzl: 1.2rem;
 $fz: 1rem;
 $fzs: 0.85rem;
 
-// $tap-c: hardlight($primary, rgba(166, 166, 166, 0.7));
-
 input,
 textarea,
 select,
 button,
 a {
   margin: 0;
+  padding: 0;
   outline: none;
   background: none;
   border: none;
@@ -1407,6 +1405,42 @@ select {
     &-desc {
       margin: 0;
       font-size: 10px;
+    }
+  }
+
+  &-fab{
+    width: min-content;
+    height: min-content;
+    line-height: 0;
+    border-radius: 50%;
+    box-shadow: $shadow-level-2;
+    &-regular{
+      >.aki-icon{
+        padding: 16px;
+      }
+    }
+    &-mini{
+      >.aki-icon{
+        padding: 8px;
+      }
+    }
+    &-fill{
+      color: white;
+      background-color: $primary;
+      &:active{
+        background-color: primary(.7);
+      }
+    }
+    &-plain{
+      color: gray;
+      background-color: white;
+      &:active{
+        background-color: primary(.1);
+      }
+    }
+    &-fixed{
+      position: fixed;
+      z-index: 2;
     }
   }
 
