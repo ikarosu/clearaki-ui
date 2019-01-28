@@ -43,19 +43,19 @@ export default {
     },
     top() {
       const [v] = this.position
-      return `${v}px`
+      return v && `${v}px`
     },
     right() {
       const [, v] = this.position
-      return `${v}px`
+      return v && `${v}px`
     },
     bottom() {
       const [,, v] = this.position
-      return `${v}px`
+      return v && `${v}px`
     },
     left() {
       const [,,, v] = this.position
-      return `${v}px`
+      return v && `${v}px`
     },
   }
 }
