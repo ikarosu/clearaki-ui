@@ -9,7 +9,6 @@ $primary-light:rgb(
   calc(var(--g, 169) / (10 / 3) + 178),
   calc(var(--b, 244) / (10 / 3) + 178)
 );
-$a: rgba(255,0,0,.9);
 $disabled: #e7e7e7;
 $shadow-level-1: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -36,7 +35,6 @@ button,
 a {
   margin: 0;
   padding: 0;
-  outline: none;
   background: none;
   border: none;
   outline: none;
@@ -1410,7 +1408,7 @@ select {
 
   &-fab{
     width: min-content;
-    height: min-content;
+    // height: min-content;
     line-height: 0;
     border-radius: 50%;
     box-shadow: $shadow-level-2;
