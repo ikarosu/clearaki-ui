@@ -1060,11 +1060,11 @@ select {
   justify-content: flex-end;
 }
 .aki-switch-opened .aki-switch-bar {
-  background-color: rgb(var(--r, 3), var(--g, 169), var(--b, 244));
+  background-color: rgb(calc(var(--r, 3) / 1.1), calc(var(--g, 169) / 1.1), calc(var(--b, 244) / 1.1));
   transform: translateX(16px);
 }
 .aki-switch-opened .aki-switch-bar-layout {
-  background-color: rgba(var(--r, 3), var(--g, 169), var(--b, 244), 0.4);
+  background-color: rgb(calc(var(--r, 3) / (10 / 3) + 178), calc(var(--g, 169) / (10 / 3) + 178), calc(var(--b, 244) / (10 / 3) + 178));
 }
 .aki-switch-wrap {
   display: flex;
