@@ -615,6 +615,7 @@ select {
     display: flex;
     justify-content: center;
     background-color: #fff;
+    z-index: 80;
 
     &:not(.aki-toolbars-fill) {
       box-shadow: $shadow-level-2;
@@ -632,7 +633,6 @@ select {
       }
     }
 
-    z-index: 90;
 
     >.aki-toolbar-layout {
       display: flex;
@@ -694,7 +694,7 @@ select {
   @mixin modal-wrap {
     @include full-screen();
     background-color: rgba(0, 0, 0, 0.32) !important;
-    z-index: 800;
+    z-index: 240;
   }
 
   @mixin center {
@@ -917,7 +917,7 @@ select {
   }
 
   &-topbar {
-    z-index: 5;
+    z-index: 40;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -968,7 +968,7 @@ select {
   **/
 
   &-tabs {
-    z-index: 3;
+    z-index: 30;
     color: #888;
     background-color: white;
 
@@ -1441,9 +1441,9 @@ select {
         background-color: primary(.1);
       }
     }
-    &-fixed{
+    &-fixed,&s{
       position: fixed;
-      z-index: 2;
+      z-index: 120;
     }
   }
 
@@ -1502,5 +1502,22 @@ select {
   &-fade-zoom-leave-to {
     opacity: 0;
     transform: scale(0.8);
+  }
+
+  &-rotate{
+    &-enter{
+      transform: rotate(-90deg);
+      &-active{
+        transition: $transition-type-1;
+      }
+    }
+    &-leave{
+      &-active{
+        transition: $transition-type-1;
+      }
+      &-to{
+        // transform: rotate(-90deg);
+      }
+    }
   }
 }

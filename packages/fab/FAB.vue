@@ -3,9 +3,9 @@
     v-on="$listeners"
     class="aki-fab"
     :class="[
-      `aki-fab-${mini ? 'mini' : 'regular'}`,
-      `aki-fab-${plain ? 'plain' : 'fill'}`,
-      {'aki-fab-fixed': fixed.length},
+      `aki-fab-${rMini ? 'mini' : 'regular'}`,
+      `aki-fab-${rPlain ? 'plain' : 'fill'}`,
+      {'aki-fab-fixed': location.length},
     ]"
     :style="{ top, right, bottom, left }"
   >
@@ -37,9 +37,25 @@ export default {
       default: ''
     }
   },
+  data() {
+    return {
+      dataFixed: '',
+      dataPlain: '',
+      dataMini: '',
+    }
+  },
   computed: {
+    rMini() {
+      return this.dataMini || this.mini
+    },
+    rPlain() {
+      return this.dataPlain || this.plain
+    },
+    location() {
+      return this.dataFixed || this.fixed
+    },
     position() {
-      return this.fixed.split(',')
+      return this.location.split(',')
     },
     top() {
       const [v] = this.position
@@ -57,6 +73,10 @@ export default {
       const [,,, v] = this.position
       return v && `${v}px`
     },
+  },
+  mounted() {
+    if (this.$parent.$vnode.tag.includes('AkiFabs') && this.$el.parentElement.classList.contains('aki-fabs-layout'))
+      this.$parent.children.push(this)
   }
 }
 </script>

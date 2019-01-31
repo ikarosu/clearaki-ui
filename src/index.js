@@ -25,6 +25,7 @@ import PageMain from '../packages/pageMain'
 import Step from '../packages/step'
 import Steps from '../packages/steps'
 import Fab from '../packages/fab'
+import Fabs from '../packages/fabs'
 
 const components = [
   Button,
@@ -52,6 +53,7 @@ const components = [
   Steps,
   Step,
   Fab,
+  Fabs,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -137,6 +139,7 @@ const AkiUI = {
   Steps,
   Step,
   Fab,
+  Fabs,
 }
 export {
   Button,
@@ -166,5 +169,6 @@ export {
   Steps,
   Step,
   Fab,
+  Fabs,
 }
 export default AkiUI

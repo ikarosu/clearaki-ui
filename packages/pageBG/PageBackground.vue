@@ -59,7 +59,6 @@ export default {
   watch: {
     visible(v) {
       if (v) {
-        console.log('1', 1)
         this.bgEl.style.height = `${this.h}px`
         this.$emit('opened')
         this.$emit('visibleChanged', true)
@@ -76,7 +75,7 @@ export default {
   },
   methods: {
     handleClose() {
-      this.$emit('update:visible', false)
+      if (this.visible === true) this.$emit('update:visible', false)
     },
     reComputeHeight() {
       this.h = getDOMRect(this.bgEl.cloneNode(true)).height
