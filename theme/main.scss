@@ -4,10 +4,15 @@ $primary: rgb(var(--r, 3), var(--g, 169), var(--b, 244));
 @function primary($a) {
   @return rgba(var(--r, 3), var(--g, 169), var(--b, 244), $a)
 };
-$primary-light:rgb(
+$primary-light-1:rgb(
   calc(var(--r, 3) / (10 / 3) + 178),
   calc(var(--g, 169) / (10 / 3) + 178),
   calc(var(--b, 244) / (10 / 3) + 178)
+);
+$primary-light-2:rgb(
+  calc(var(--r, 3) / (10 / 3) + 223),
+  calc(var(--g, 169) / (10 / 3) + 223),
+  calc(var(--b, 244) / (10 / 3) + 223)
 );
 $primary-dark-1:rgb(
   calc(var(--r, 3) / 1.1),
@@ -973,7 +978,7 @@ select {
     background-color: white;
 
     &-fill {
-      color: $primary-light;
+      color: $primary-light-1;
       background-color: $primary;
 
       .aki-tab-active {
@@ -1310,7 +1315,7 @@ select {
           transform: translateX(16px);
 
           &-layout {
-            background-color: $primary-light;
+            background-color: $primary-light-1;
           }
         }
       }
@@ -1413,10 +1418,10 @@ select {
 
   &-fab{
     width: min-content;
-    // height: min-content;
     line-height: 0;
     border-radius: 50%;
     box-shadow: $shadow-level-2;
+    transition: $transition-type-1;
     &-regular{
       >.aki-icon{
         padding: 16px;
@@ -1438,12 +1443,62 @@ select {
       color: gray;
       background-color: white;
       &:active{
-        background-color: primary(.1);
+        background-color: $primary-light-2;
+        // background-color: primary(.1);
       }
     }
     &-fixed,&s{
       position: fixed;
       z-index: 120;
+    }
+    @mixin fab-delay($time) {
+      transition-delay: $time / 15 + s;
+    }
+    &s{
+      &:not(.aki-fabs-opened) {
+        .aki-fabs-layout{
+          .aki-fab{
+            transform: scale(0);
+            &:nth-of-type(2){
+              @include fab-delay(2);
+            }
+            &:nth-of-type(3){
+              @include fab-delay(3);
+            }
+            &:nth-of-type(4){
+              @include fab-delay(4);
+            }
+            &:nth-of-type(5){
+              @include fab-delay(5);
+            }
+            &:nth-of-type(6){
+              @include fab-delay(6);
+            }
+          }
+        }
+      }
+      &-opened{
+        .aki-fabs-layout{
+          .aki-fab{
+            transform: scale(1);
+            &:nth-of-type(2){
+              @include fab-delay(2);
+            }
+            &:nth-of-type(3){
+              @include fab-delay(3);
+            }
+            &:nth-of-type(4){
+              @include fab-delay(4);
+            }
+            &:nth-of-type(5){
+              @include fab-delay(5);
+            }
+            &:nth-of-type(6){
+              @include fab-delay(6);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -1516,7 +1571,7 @@ select {
         transition: $transition-type-1;
       }
       &-to{
-        // transform: rotate(-90deg);
+        transform: rotate(-90deg);
       }
     }
   }

@@ -55,7 +55,7 @@ export default {
       return this.dataFixed || this.fixed
     },
     position() {
-      return this.location.split(',')
+      return this.location.split(',').map(_ => _ && Number(_))
     },
     top() {
       const [v] = this.position

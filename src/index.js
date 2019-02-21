@@ -27,6 +27,8 @@ import Steps from '../packages/steps'
 import Fab from '../packages/fab'
 import Fabs from '../packages/fabs'
 
+import { getDOMRect } from './utils/dom'
+
 const components = [
   Button,
   Input,
@@ -104,6 +106,24 @@ const install = Vue => {
         vm.top = top + 'px'
         vm.right = right + 'px'
       })
+    }
+  })
+  const dropdown = (el, value) => {
+    if (value) {
+      const rect = getDOMRect(el.cloneNode(true))
+      el.style.height = `${rect.height}px`
+    } else {
+      el.style.height = 0
+    }
+  }
+  Vue.directive('dropdown', {
+    bind(el, { value }) {
+      el.style.overflow = 'hidden'
+      el.style.transition = 'height .28s cubic-bezier(0.4, 0, 0.2, 1)'
+      dropdown(el, value)
+    },
+    componentUpdated(el, { value }) {
+      dropdown(el, value)
     }
   })
 }

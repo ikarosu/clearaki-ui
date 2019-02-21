@@ -1,5 +1,5 @@
 <template>
-  <div class="aki-fabs">
+  <div class="aki-fabs" :class="{'aki-fabs-opened': opened}">
     <transition name="aki-rotate">
       <fab
         v-if="!opened"
@@ -44,23 +44,26 @@ export default {
   data() {
     return {
       children: [],
-      opened: false
+      opened: false,
+      defaultMargin: 25
     }
   },
   computed: {
     position() {
-      return this.$refs.main.position
+      return this.fixed.split(',').map(_ => _ && Number(_))
     }
   },
   watch: {
     children(nodes) {
-      let init = 25
       nodes.forEach(node => {
         node.dataMini = true
         node.dataPlain = true
-        node.dataFixed = `,${this.position[1] * 1.5},${Number(
-          this.position[2]
-        ) + (init += 56)}`
+        node.dataFixed = `,${this.position[1] * 1.5},${this.position[2] + (this.defaultMargin += 56)}`
+      })
+    },
+    position() {
+      this.children.forEach(node => {
+        node.dataFixed = `,${this.position[1] * 1.5},${this.position[2] + (this.defaultMargin += 56)}`
       })
     }
   }

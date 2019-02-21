@@ -528,7 +528,7 @@ select {
   display: flex;
   justify-content: center;
   background-color: #fff;
-  z-index: 90;
+  z-index: 80;
 }
 .aki-toolbars:not(.aki-toolbars-fill) {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
@@ -610,7 +610,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 800;
+  z-index: 240;
 }
 .aki-dialog {
   position: fixed;
@@ -619,7 +619,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 800;
+  z-index: 240;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -713,7 +713,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 800;
+  z-index: 240;
 }
 .aki-bottom-sheet-layout {
   position: absolute;
@@ -782,7 +782,7 @@ select {
   margin-top: 5px;
 }
 .aki-topbar {
-  z-index: 5;
+  z-index: 40;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -820,7 +820,7 @@ select {
   margin-left: 24px;
 }
 .aki-tabs {
-  z-index: 3;
+  z-index: 30;
   color: #888;
   background-color: white;
 }
@@ -1147,6 +1147,7 @@ select {
   line-height: 0;
   border-radius: 50%;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aki-fab-regular > .aki-icon {
   padding: 16px;
@@ -1166,11 +1167,47 @@ select {
   background-color: white;
 }
 .aki-fab-plain:active {
-  background-color: rgba(var(--r, 3), var(--g, 169), var(--b, 244), 0.1);
+  background-color: rgb(calc(var(--r, 3) / (10 / 3) + 223), calc(var(--g, 169) / (10 / 3) + 223), calc(var(--b, 244) / (10 / 3) + 223));
 }
-.aki-fab-fixed {
+.aki-fab-fixed, .aki-fabs {
   position: fixed;
-  z-index: 2;
+  z-index: 120;
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab {
+  transform: scale(0);
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab:nth-of-type(2) {
+  transition-delay: 0.1333333333s;
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab:nth-of-type(3) {
+  transition-delay: 0.2s;
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab:nth-of-type(4) {
+  transition-delay: 0.2666666667s;
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab:nth-of-type(5) {
+  transition-delay: 0.3333333333s;
+}
+.aki-fabs:not(.aki-fabs-opened) .aki-fabs-layout .aki-fab:nth-of-type(6) {
+  transition-delay: 0.4s;
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab {
+  transform: scale(1);
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(2) {
+  transition-delay: 0.1333333333s;
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(3) {
+  transition-delay: 0.2s;
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(4) {
+  transition-delay: 0.2666666667s;
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(5) {
+  transition-delay: 0.3333333333s;
+}
+.aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(6) {
+  transition-delay: 0.4s;
 }
 .aki-fade-enter-active, .aki-fade-leave-active {
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1202,6 +1239,18 @@ select {
 .aki-fade-zoom-enter, .aki-fade-zoom-leave-to {
   opacity: 0;
   transform: scale(0.8);
+}
+.aki-rotate-enter {
+  transform: rotate(-90deg);
+}
+.aki-rotate-enter-active {
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-rotate-leave-active {
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aki-rotate-leave-to {
+  transform: rotate(-90deg);
 }
 
 /*# sourceMappingURL=index.css.map */
