@@ -1,6 +1,7 @@
 <template>
   <button
     @click="click"
+    :badge="badge"
     class="aki-btn"
     :class="[
       `aki-btn-${type}`,
@@ -10,6 +11,8 @@
       {'aki-btn-full-width': full},
       {'aki-btn-plain': plain},
       {'aki-btn-loading': loading},
+      {'aki-badge': badge !== false},
+      {'aki-badge-dot':badge===true},
   ]">
     <aki-progress v-if="loading" width="24" stroke="2" loading></aki-progress>
     <slot v-else></slot>
@@ -47,6 +50,10 @@ export default {
       default() { return false }
     },
     loading: {
+      type: Boolean,
+      default() { return false }
+    },
+    badge: {
       type: Boolean,
       default() { return false }
     },
