@@ -8,7 +8,7 @@
   >
     <transition name="aki-fade-zoom">
       <div
-        @click="hide"
+        @click="testHide"
         v-show="visible"
         class="aki-context-layout"
         :style="{top, right}"
@@ -22,6 +22,12 @@
 <script>
 export default {
   name: 'AkiContextMenu',
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       display: false,
@@ -47,6 +53,11 @@ export default {
   methods: {
     hide() {
       this.visible = false
+      this.$emit('close')
+    },
+    testHide() {
+      if (this.autoClose)
+        this.hide()
     }
   }
 }

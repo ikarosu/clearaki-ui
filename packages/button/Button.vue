@@ -54,7 +54,7 @@ export default {
       default() { return false }
     },
     badge: {
-      type: Boolean,
+      type: [Boolean, String, Number],
       default() { return false }
     },
   },

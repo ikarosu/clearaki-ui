@@ -31,11 +31,12 @@ export default {
       }
     }
   },
-  mounted() {
+  async mounted() {
     const parentNode = this.$el.parentNode
     if (parentNode && parentNode.classList.contains('aki-page-background'))
       return false
     const nextNode = this.$el.nextElementSibling
+    await this.$nextTick()
     if (nextNode && !nextNode.classList.contains('aki-tabs'))
       this.$el.classList.add('aki-shadow-bottom')
   },

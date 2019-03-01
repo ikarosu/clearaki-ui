@@ -72,14 +72,16 @@ export default {
       fill: false,
     }
   },
-  mounted() {
-    this.$nextTick()
-      .then(() => {
-        if (this.$parent && this.$parent.$el.classList.contains('aki-page')) {
-          const topbarNode = this.$parent.$children.find(node => node.$el.classList.contains('aki-topbar'))
-          if (topbarNode) this.fill = topbarNode.fill
-        }
-      })
+  async mounted() {
+    if (this.full) document.body.appendChild(this.$el)
+    const findPage = el => {
+      if (el && el.$el.classList.contains('aki-page')) return el
+      else return findPage(el.$parent)
+    }
+    const el = findPage(this.$parent)
+    await this.$nextTick()
+    const topbarNode = el.$children.find(node => node.$el.classList.contains('aki-topbar'))
+    if (topbarNode) this.fill = topbarNode.fill
   },
   methods: {
     click() {
