@@ -1,4 +1,5 @@
 <template>
+import { try } from 'q';
   <section
     v-show="display"
     @click.self="hide"
@@ -26,6 +27,10 @@ export default {
     autoClose: {
       type: Boolean,
       default: true
+    },
+    show: {
+      type: [Boolean, String],
+      default: ''
     }
   },
   data() {
@@ -45,6 +50,10 @@ export default {
           this.display = state
         }, 280)
       }
+    },
+    show(v) {
+      if (typeof v === 'boolean')
+        this.visible = v
     }
   },
   mounted() {
