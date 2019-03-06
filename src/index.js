@@ -108,13 +108,13 @@ const install = Vue => {
       })
     }
   })
+  const getHeight = parent => {
+    return Array.from(parent.children).reduce((pre, curr) => {
+      return pre += curr.getBoundingClientRect().height
+    }, 0)
+  }
   const dropdown = (el, value) => {
-    if (value) {
-      const rect = getDOMRect(el.cloneNode(true))
-      el.style.height = `${rect.height}px`
-    } else {
-      el.style.height = 0
-    }
+    el.style.height = value ? `${getHeight(el)}px` : 0
   }
   Vue.directive('dropdown', {
     bind(el, { value }) {

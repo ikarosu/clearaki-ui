@@ -1,5 +1,4 @@
 <template>
-import { try } from 'q';
   <section
     v-show="display"
     @click.self="hide"
