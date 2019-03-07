@@ -122,15 +122,18 @@ const install = Vue => {
         }, 0)
       })
       el.style.height = `${height}px`
+      setTimeout(() => {
+        el.style.overflow = 'visible'
+      }, 200)
     } else {
       el.dropdownParents.forEach(p => p.style.height = p.getBoundingClientRect().height - height + 'px')
       el.style.height = 0
+      el.style.overflow = 'hidden'
     }
   }
   Vue.directive('dropdown', {
     bind(el) {
       el.setAttribute('aki-dropdown', true)
-      el.style.overflow = 'hidden'
       el.style.transition = 'height .28s cubic-bezier(0.4, 0, 0.2, 1)'
     },
     inserted(el, { value }) {
