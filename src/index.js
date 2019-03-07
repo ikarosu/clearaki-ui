@@ -27,7 +27,7 @@ import Steps from '../packages/steps'
 import Fab from '../packages/fab'
 import Fabs from '../packages/fabs'
 
-import { getDOMRect } from './utils/dom'
+import { getParentsByAttr } from './utils/dom'
 
 const components = [
   Button,
@@ -114,12 +114,27 @@ const install = Vue => {
     }, 0)
   }
   const dropdown = (el, value) => {
-    el.style.height = value ? `${getHeight(el)}px` : 0
+    const height = getHeight(el)
+    if (value) {
+      el.dropdownParents.forEach(p => {
+        setTimeout(() => {
+          p.style.height = p.getBoundingClientRect().height + height + 'px'
+        }, 0)
+      })
+      el.style.height = `${height}px`
+    } else {
+      el.dropdownParents.forEach(p => p.style.height = p.getBoundingClientRect().height - height + 'px')
+      el.style.height = 0
+    }
   }
   Vue.directive('dropdown', {
-    bind(el, { value }) {
+    bind(el) {
+      el.setAttribute('aki-dropdown', true)
       el.style.overflow = 'hidden'
       el.style.transition = 'height .28s cubic-bezier(0.4, 0, 0.2, 1)'
+    },
+    inserted(el, { value }) {
+      el.dropdownParents = getParentsByAttr(el, 'aki-dropdown')
       dropdown(el, value)
     },
     componentUpdated(el, { value }) {

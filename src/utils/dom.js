@@ -34,3 +34,20 @@ export function getDOMRect(el) {
   container.appendChild(el)
   return el.getBoundingClientRect()
 }
+
+/**
+ * @author clearaki
+ * @description 获取包含某属性的父节点集合
+ * @export {Function}
+ * @param {Element} el 一个Node节点
+ * @param {String} attr 节点 attribute
+ * @returns {Object} DOMRect
+ */
+export function getParentsByAttr(el, attr) {
+  const arr = []
+  do {
+    el = el.parentElement || document.body
+    if (el.getAttribute(attr) === 'true') arr.push(el)
+  } while (el.tagName !== 'BODY')
+  return arr
+}
