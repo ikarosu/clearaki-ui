@@ -121,12 +121,13 @@ const install = Vue => {
           p.style.height = p.getBoundingClientRect().height + height + 'px'
         }, 0)
       })
+      el.originHeight = height
       el.style.height = `${height}px`
       setTimeout(() => {
         el.style.overflow = 'visible'
       }, 200)
     } else {
-      el.dropdownParents.forEach(p => p.style.height = p.getBoundingClientRect().height - height + 'px')
+      el.dropdownParents.forEach(p => p.style.height = p.getBoundingClientRect().height - el.originHeight + 'px')
       el.style.height = 0
       el.style.overflow = 'hidden'
     }
