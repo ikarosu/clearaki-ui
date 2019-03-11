@@ -141,6 +141,8 @@ const install = Vue => {
       dropdown(el, value)
     },
     componentUpdated(el, { value }) {
+      if (el.preValue === value) return
+      el.preValue = value
       dropdown(el, value)
     }
   })
