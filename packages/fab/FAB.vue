@@ -9,7 +9,10 @@
     ]"
     :style="{ top, right, bottom, left }"
   >
-    <Icon :icon="icon" />
+    <Icon v-if="typeof icon === 'string'" :icon="icon" />
+    <svg v-else :viewBox="icon.box" :width="icon.width" :height="icon.height" class="aki-icon" :fill="icon.fill || 'currentColor'">
+      <path :d="icon.path"></path>
+    </svg>
   </button>
 </template>
 
@@ -21,7 +24,7 @@ export default {
   components: { Icon },
   props: {
     icon: {
-      type: String,
+      type: [String, Object],
       required: true
     },
     mini: {
