@@ -699,7 +699,7 @@ select {
   @mixin modal-wrap {
     @include full-screen();
     background-color: rgba(0, 0, 0, 0.32) !important;
-    z-index: 240;
+    z-index: 740;
   }
 
   @mixin center {

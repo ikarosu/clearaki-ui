@@ -610,7 +610,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 240;
+  z-index: 740;
 }
 .aki-dialog {
   position: fixed;
@@ -619,7 +619,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 240;
+  z-index: 740;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -713,7 +713,7 @@ select {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.32) !important;
-  z-index: 240;
+  z-index: 740;
 }
 .aki-bottom-sheet-layout {
   position: absolute;
