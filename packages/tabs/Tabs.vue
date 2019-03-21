@@ -18,7 +18,7 @@ export default {
   },
   props: {
     active: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     fill: {

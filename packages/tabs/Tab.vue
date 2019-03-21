@@ -22,7 +22,7 @@ export default {
   props: {
     label: {
       required: true,
-      type: String,
+      type: [String, Number],
     },
     badge: {
       type: [String, Number, Boolean],
@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     active() {
-      return this.$parent.active === this.label
+      return this.$parent.active == this.label
     },
     tid() {
       return this.$parent._uid

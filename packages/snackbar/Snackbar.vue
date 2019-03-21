@@ -4,7 +4,11 @@
       class="aki-snackbar"
       :class="[position, {'aki-snackbar-entire-width': fullWidth}]"
       :style="position!=='center'&&{[position]:offset}">
-      <div class="aki-snackbar-wrap" :class="{'aki-snackbar-long-action': longAction}">
+      <div
+        class="aki-snackbar-wrap"
+        :class="{'aki-snackbar-long-action': longAction}"
+        :style="`background-color: rgba(32,32,32,${opacity})`"
+      >
         <span>{{ text }}</span>
         <aki-button @click="handleAction" v-if="action" class="aki-snackbar-action" size="xs" type="text">{{ action }}</aki-button>
       </div>
@@ -20,6 +24,7 @@ export default {
       during: false,
       position: 'bottom',
       offset: '8px',
+      opacity: 1,
 
       timer: null,
       visible: false,

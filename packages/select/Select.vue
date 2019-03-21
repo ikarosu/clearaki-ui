@@ -54,7 +54,7 @@ export default {
       default: ''
     },
     values: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
   },
