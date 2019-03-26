@@ -109,8 +109,14 @@ const install = Vue => {
     }
   })
   const getHeight = parent => {
-    return Array.from(parent.children).reduce((pre, curr) => {
-      return pre += curr.getBoundingClientRect().height
+    let top = 0
+    let bottom = 0
+    return Array.from(parent.children).reduce((pre, curr, index) => {
+      top = Number(getComputedStyle(curr).marginTop.replace(/\D/g, ''))
+      const sum = top > bottom ? top : bottom
+      bottom = Number(getComputedStyle(curr).marginBottom.replace(/\D/g, ''))
+      if (index === parent.children.length) sum += bottom
+      return pre += curr.getBoundingClientRect().height + sum
     }, 0)
   }
   const dropdown = (el, value) => {
