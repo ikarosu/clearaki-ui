@@ -942,6 +942,7 @@ select {
 .aki-page-main {
   flex: 1;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .aki-page-backdrop {
   background-color: rgb(var(--r, 3), var(--g, 169), var(--b, 244));

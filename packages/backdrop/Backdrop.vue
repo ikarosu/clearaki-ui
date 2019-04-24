@@ -37,7 +37,7 @@
 <script>
 import AkiTransition from '../dropdown/Transition'
 export default {
-  name: 'AkiPageBackground',
+  name: 'AkiBackdrop',
   components: { AkiTransition },
   props: {
     visible: {

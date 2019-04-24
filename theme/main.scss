@@ -1145,6 +1145,7 @@ select {
     &-main {
       flex: 1;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
     }
 
     &-backdrop {
