@@ -26,8 +26,7 @@ import Step from '../packages/step'
 import Steps from '../packages/steps'
 import Fab from '../packages/fab'
 import Fabs from '../packages/fabs'
-
-import { getParentsByAttr } from './utils/dom'
+import Dropdown from '../packages/dropdown'
 
 const components = [
   Button,
@@ -56,6 +55,7 @@ const components = [
   Step,
   Fab,
   Fabs,
+  Dropdown,
 ]
 const install = Vue => {
   components.forEach(component => Vue.component(component.name, component))
@@ -108,51 +108,6 @@ const install = Vue => {
       })
     }
   })
-  const getHeight = parent => {
-    let top = 0
-    let bottom = 0
-    return Array.from(parent.children).reduce((pre, curr, index) => {
-      top = Number(getComputedStyle(curr).marginTop.replace(/\D/g, ''))
-      const sum = top > bottom ? top : bottom
-      bottom = Number(getComputedStyle(curr).marginBottom.replace(/\D/g, ''))
-      if (index === parent.children.length) sum += bottom
-      return pre += curr.getBoundingClientRect().height + sum
-    }, 0)
-  }
-  const dropdown = (el, value) => {
-    const height = getHeight(el)
-    if (value) {
-      el.dropdownParents.forEach(p => {
-        setTimeout(() => {
-          p.style.height = p.getBoundingClientRect().height + height + 'px'
-        }, 0)
-      })
-      el.originHeight = height
-      el.style.height = `${height}px`
-      setTimeout(() => {
-        el.style.overflow = 'visible'
-      }, 200)
-    } else {
-      el.dropdownParents.forEach(p => p.style.height = p.getBoundingClientRect().height - el.originHeight + 'px')
-      el.style.height = 0
-      el.style.overflow = 'hidden'
-    }
-  }
-  Vue.directive('dropdown', {
-    bind(el) {
-      el.setAttribute('aki-dropdown', true)
-      el.style.transition = 'height .28s cubic-bezier(0.4, 0, 0.2, 1)'
-    },
-    inserted(el, { value }) {
-      el.dropdownParents = getParentsByAttr(el, 'aki-dropdown')
-      dropdown(el, value)
-    },
-    componentUpdated(el, { value }) {
-      if (el.preValue === value) return
-      el.preValue = value
-      dropdown(el, value)
-    }
-  })
 }
 
 // if (typeof window !== undefined && window.Vue) install(window.Vue)
@@ -187,6 +142,7 @@ const AkiUI = {
   Step,
   Fab,
   Fabs,
+  Dropdown,
 }
 export {
   Button,
@@ -217,5 +173,6 @@ export {
   Step,
   Fab,
   Fabs,
+  Dropdown,
 }
 export default AkiUI

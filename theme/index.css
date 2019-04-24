@@ -275,7 +275,6 @@ select {
   justify-content: space-between;
   padding: 0 8px;
   min-height: 48px;
-  background-color: #323232;
   overflow: hidden;
 }
 .aki-snackbar-wrap:not(.aki-snackbar-long-action) {
@@ -1208,6 +1207,12 @@ select {
 }
 .aki-fabs-opened .aki-fabs-layout .aki-fab:nth-of-type(6) {
   transition-delay: 0.4s;
+}
+.aki-dropdown {
+  will-change: height;
+}
+.aki-dropdown-transition {
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aki-fade-enter-active, .aki-fade-leave-active {
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);

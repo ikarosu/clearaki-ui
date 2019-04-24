@@ -1502,6 +1502,13 @@ select {
     }
   }
 
+  &-dropdown{
+    will-change: height;
+    &-transition{
+      transition: $transition-type-1;
+    }
+  }
+
   /**
     **********************************
     * animated
