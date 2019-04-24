@@ -19,8 +19,7 @@ import Checkbox from '../packages/checkbox'
 import ContextMenu from '../packages/contextMenu'
 import Banner from '../packages/banner'
 import Switch from '../packages/switch'
-import Background from '../packages/background'
-import PageBackround from '../packages/pageBG'
+import Backdrop from '../packages/backdrop'
 import PageMain from '../packages/pageMain'
 import Step from '../packages/step'
 import Steps from '../packages/steps'
@@ -48,8 +47,7 @@ const components = [
   ContextMenu,
   Banner,
   Switch,
-  Background,
-  PageBackround,
+  Backdrop,
   PageMain,
   Steps,
   Step,
@@ -135,8 +133,7 @@ const AkiUI = {
   ContextMenu,
   Banner,
   Switch,
-  Background,
-  PageBackround,
+  PageBackround: Backdrop,
   PageMain,
   Steps,
   Step,
@@ -166,8 +163,7 @@ export {
   ContextMenu,
   Banner,
   Switch,
-  Background,
-  PageBackround,
+  Backdrop as PageBackround,
   PageMain,
   Steps,
   Step,

@@ -1,7 +1,7 @@
 <template>
   <section
-    class="aki-page aki-page-background"
-    :class="{'aki-page-background-opened':visible}"
+    class="aki-page aki-page-backdrop"
+    :class="{'aki-page-backdrop-opened':visible}"
   >
     <transition name="aki-slide-top">
       <slot
@@ -9,21 +9,23 @@
         name="topbar"
       ></slot>
     </transition>
-    <section
-      ref="background"
-      class="aki-background"
-    >
-      <slot name="background"></slot>
-    </section>
+    <aki-transition>
+      <section
+        class="aki-backdrop aki-dropdown"
+        v-show="visible"
+      >
+        <slot name="backdrop"></slot>
+      </section>
+    </aki-transition>
     <div
-      class="aki-page-background-layout"
+      class="aki-page-backdrop-layout"
       @click="handleClose"
     >
       <section>
         <header
           v-if="title"
           v-text="title"
-          class="aki-background-header"
+          class="aki-backdrop-header"
         ></header>
         <slot></slot>
       </section>
@@ -33,9 +35,10 @@
 </template>
 
 <script>
-import { getDOMRect } from '../../src/utils/dom'
+import AkiTransition from '../dropdown/Transition'
 export default {
   name: 'AkiPageBackground',
+  components: { AkiTransition },
   props: {
     visible: {
       type: Boolean,
@@ -50,35 +53,20 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-      bgEl: null,
-      h: 0
-    }
-  },
   watch: {
     visible(v) {
       if (v) {
-        this.bgEl.style.height = `${this.h}px`
         this.$emit('opened')
         this.$emit('visibleChanged', true)
       } else {
-        this.bgEl.style.height = 0
         this.$emit('closed')
         this.$emit('visibleChanged', false)
       }
     }
   },
-  mounted() {
-    this.bgEl = this.$refs.background
-    this.reComputeHeight()
-  },
   methods: {
     handleClose() {
       if (this.visible === true) this.$emit('update:visible', false)
-    },
-    reComputeHeight() {
-      this.h = getDOMRect(this.bgEl.cloneNode(true)).height
     }
   }
 }

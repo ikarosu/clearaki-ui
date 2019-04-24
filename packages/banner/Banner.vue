@@ -1,5 +1,5 @@
 <template>
-  <transition name="aki-slide-top">
+  <aki-transition>
     <section class="aki-banner-wrap" v-if="visible">
       <div class="aki-banner-content">
         <div v-if="$slots.icon" class="aki-banner-icon"><slot name="icon"></slot></div>
@@ -9,16 +9,18 @@
         <slot name="button"></slot>
       </footer>
     </section>
-  </transition>
+  </aki-transition>
 </template>
 
 <script>
+import AkiTransition from '../dropdown/Transition'
 export default {
   name: 'AkiBanner',
+  components: { AkiTransition },
   props: {
     visible: {
       type: Boolean,
-      default() { return false }
+      default: false
     }
   }
 }

@@ -943,13 +943,13 @@ select {
   flex: 1;
   overflow-y: scroll;
 }
-.aki-page-background {
+.aki-page-backdrop {
   background-color: rgb(var(--r, 3), var(--g, 169), var(--b, 244));
 }
-.aki-page-background-opened .aki-page-main-mask {
+.aki-page-backdrop-opened .aki-page-main-mask {
   max-height: 100%;
 }
-.aki-page-background-layout {
+.aki-page-backdrop-layout {
   flex: 1;
   position: relative;
   min-height: 48px;
@@ -959,7 +959,7 @@ select {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   overflow: hidden;
 }
-.aki-page-background-layout > section {
+.aki-page-backdrop-layout > section {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -976,7 +976,7 @@ select {
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(255, 255, 255, 0.7);
 }
-.aki-page .aki-background-header {
+.aki-page .aki-backdrop-header {
   z-index: 1;
   position: sticky;
   top: 0;
@@ -1088,15 +1088,14 @@ select {
   border-radius: 10px;
   background-color: #9b9b9b;
 }
-.aki-background {
-  height: 0;
+.aki-backdrop {
   max-height: 100%;
   color: white;
   overflow-y: scroll;
   transform-origin: 0;
   transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.aki-background-show {
+.aki-backdrop-show {
   max-height: max-content;
 }
 .aki-steps {

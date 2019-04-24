@@ -1147,7 +1147,7 @@ select {
       overflow-y: scroll;
     }
 
-    &-background {
+    &-backdrop {
       background-color: $primary;
 
       &-opened {
@@ -1187,7 +1187,7 @@ select {
       background-color: rgba(255, 255, 255, .7);
     }
 
-    .aki-background-header {
+    .aki-backdrop-header {
       z-index: 1;
       position: sticky;
       top: 0;
@@ -1348,8 +1348,7 @@ select {
     }
   }
 
-  &-background {
-    height: 0;
+  &-backdrop {
     max-height: 100%;
     color: white;
     overflow-y: scroll;
