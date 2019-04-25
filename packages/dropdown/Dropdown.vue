@@ -2,7 +2,7 @@
 <template>
   <aki-dropdown-transition>
     <section class="aki-dropdown" v-show="open">
-      <div><slot></slot></div>
+      <slot></slot>
     </section>
   </aki-dropdown-transition>
 </template>
