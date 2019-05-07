@@ -33,7 +33,7 @@ export default {
   },
   async mounted() {
     const parentNode = this.$el.parentNode
-    if (parentNode && parentNode.classList.contains('aki-backdrop'))
+    if (parentNode && parentNode.classList.contains('aki-page-backdrop'))
       return false
     const nextNode = this.$el.nextElementSibling
     await this.$nextTick()
