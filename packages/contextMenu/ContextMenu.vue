@@ -58,6 +58,9 @@ export default {
   mounted() {
     document.body.appendChild(this.$el)
   },
+  destroyed() {
+    this.$el.style.display = 'none'
+  },
   methods: {
     hide() {
       this.visible = false
